@@ -1,0 +1,56 @@
+{
+  "MENU": {
+    "HOMEPAGE": "Accueil",
+    "HOTELS": "Hotels",
+    "LOGIN": "Connexion",
+    "LOGOUT": "Déconnexion",
+    "HI": "Bonjour"
+  },
+  "HOME": {
+    "TITLE": "Accueil"
+  },
+  "HOTELS": {
+    "ROOMS": "Chambres",
+    "LIST": "Liste des hôtels",
+    "FOUNDDED": "Hôtel(s) trouvé(s)",
+    "SEARCH_HOTELS": "Recherche Hôtels",
+    "ROOM": "Chambre",
+    "NAMES": "Noms",
+    "STARS": "Etoiles",
+    "CITIES": "Villes",
+    "SEARCH": "Recherche",
+    "CITY": "Ville",
+    "NUMBER_OF_STARS": "Nombre des étoiles ",
+    "MORE_DETAILS": "Plus de Details",
+    "ADULT": "Adulte",
+    "ADULTS": "Adultes",
+    "CHILD": "Enfant",
+    "CHILDS": "Enfants",
+    "YEARS_OLD": "Ans",
+    "NO_AVAILABLE": "Pas d'hôtels disponible",
+    "ROOMS_NO_AVAILABLE": "Pas de chambre disponible",
+    "NIGHT": "Nuitée",
+    "NIGHTS": "Nuitées",
+    "CLEAR": "Effacer"
+  },
+  "PROFILE": {
+    "TITLE": "Mon Profile",
+    "EMAIL": "Adresse Email",
+    "EMAIL_REQUIRED": "Email est obligatoire",
+    "PASSWORD_REQUIRED": "Mot de passe est obligatoire",
+    "PASSWORD": "Mot de passe",
+    "LOADING": "Chargement",
+    "INVALID_FORM": "Mot de passe ou email est invalide",
+    "ERROR": "Erreur",
+    "SUBMIT": "Se Connecter",
+    "NOM": "Nom",
+    "PRENOM": "Prénom",
+    "PHONE": "Téléphone Mobile",
+    "UPDATE": "Mise à jour",
+    "VALID_FORM": "Vos données ont été mises à jour avec succès",
+    "INVALID_CAPTCHA": "Captcha non valide",
+    "PHONE_REQUIRED": "Téléphone obligatoire ",
+    "NOM_REQUIRED": "Nom obligatoire ",
+    "PRENOM_REQUIRED": "Prénom obligatoire "
+  }
+}

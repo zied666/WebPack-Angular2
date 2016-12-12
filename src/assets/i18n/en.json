@@ -1,0 +1,56 @@
+{
+  "MENU": {
+    "HOMEPAGE": "Homepage",
+    "HOTELS": "Hotels",
+    "LOGIN": "Login",
+    "LOGOUT": "Logout",
+    "HI": "Hi"
+  },
+  "HOME": {
+    "TITLE": "Homepage"
+  },
+  "HOTELS": {
+    "ROOMS": "Rooms",
+    "LIST": "List of hotels",
+    "FOUNDDED": "Hotel(s) Found",
+    "SEARCH_HOTELS": "Search Hotels",
+    "ROOM": "Room",
+    "NAMES": "Names",
+    "STARS": "Stars",
+    "CITIES": "Cities",
+    "SEARCH": "Search",
+    "CITY": "City",
+    "NUMBER_OF_STARS": "Number of stars",
+    "MORE_DETAILS": "More Details",
+    "ADULT": "Adult",
+    "ADULTS": "Adults",
+    "CHILD": "Child",
+    "CHILDS": "Childs",
+    "YEARS_OLD": "Years old",
+    "NO_AVAILABLE": "No hotels available",
+    "ROOMS_NO_AVAILABLE": "No Rooms available",
+    "NIGHT": "Night",
+    "NIGHTS": "Nights",
+    "CLEAR": "Clear"
+  },
+  "PROFILE": {
+    "TITLE": "My Profil",
+    "EMAIL": "Email address",
+    "EMAIL_REQUIRED": "Email is required",
+    "PASSWORD_REQUIRED": "Password is required ",
+    "PASSWORD": "Password",
+    "LOADING": "Loading",
+    "INVALID_FORM": "Invalid  login or password",
+    "ERROR": "Error",
+    "SUBMIT": "Submit",
+    "NOM": "First Name",
+    "PRENOM": "Last Name",
+    "PHONE": "Phone",
+    "UPDATE": "Update",
+    "VALID_FORM": "Your data has been updated successfully",
+    "INVALID_CAPTCHA": "Invalid Captcha",
+    "PHONE_REQUIRED": " Phone is required",
+    "NOM_REQUIRED": " First Name is required",
+    "PRENOM_REQUIRED": " Last Name is required"
+  }
+}
