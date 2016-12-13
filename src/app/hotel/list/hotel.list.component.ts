@@ -4,6 +4,7 @@ import {Hotel} from "../object/hotel";
 import {HotelService} from "../../shared/services/hotel.service";
 import {SearchService} from "../../shared/services/search.service";
 import {Title} from "@angular/platform-browser";
+import {LoadingService} from "../../shared/services/loading.service";
 
 @Component({
     templateUrl: './hotel.list.html',
@@ -18,7 +19,7 @@ export class HotelListComponent implements OnInit {
     haveMore: Boolean;
     subscribe: Subscription;
 
-    constructor(private hotelService: HotelService, private searchService: SearchService,private titleService: Title) {
+    constructor(private hotelService: HotelService, private searchService: SearchService,private titleService: Title,private loadingService : LoadingService) {
     }
 
 
@@ -34,6 +35,7 @@ export class HotelListComponent implements OnInit {
 
     updateSearch(updateCount: Boolean) {
         this.loadingList = true;
+        this.loadingService.start()
         this.haveMore = true;
         this.hotels = [];
         this.searchService.resetOffset();
@@ -54,6 +56,7 @@ export class HotelListComponent implements OnInit {
             this.subscribe.unsubscribe();
         this.subscribe = this.hotelService.getHotels().subscribe(hotels => {
             this.loadingList = false;
+            this.loadingService.end()
             this.loadingMore = false;
             if (hotels.length > 0)
                 this.hotels = this.hotels.concat(hotels);

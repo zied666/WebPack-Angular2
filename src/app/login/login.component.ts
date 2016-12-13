@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {LocalStorageService} from "../shared/services/localStorage.service";
 import {ReCaptchaComponent} from "angular2-recaptcha/lib/captcha.component";
 import {Title} from "@angular/platform-browser";
+import {LoadingService} from "../shared/services/loading.service";
 
 @Component({
     templateUrl: './login.html',
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit {
     error: boolean;
     captchaError: boolean;
 
-    constructor(private loginService: LoginService, private router: Router, private  titleService: Title) {
+    constructor(private loginService: LoginService, private router: Router, private  titleService: Title,private loadingService : LoadingService) {
         this.titleService.setTitle("Login");
     }
 
@@ -49,6 +50,7 @@ export class LoginComponent implements OnInit {
     onSubmit() {
         if (this.token) {
             this.loading = true;
+            this.loadingService.start();
             this.loginService.connection(this.login, this.password).subscribe(response => {
                 if (response.data != null) {
                     this.loginService.logedUser = response.data;
@@ -57,9 +59,10 @@ export class LoginComponent implements OnInit {
                 }
                 else {
                     this.error = true;
+                    this.loading = false;
                     setTimeout(() => this.error = false, 3000);
                 }
-                this.loading = false;
+                this.loadingService.end();
             });
         } else {
             this.captchaError = true;

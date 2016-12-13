@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {TranslateService} from "ng2-translate";
+import {LoadingService} from "./shared/services/loading.service";
 //declare var $: any;
+declare var classie: any;
 
 @Component({
     selector: 'app',
@@ -8,8 +9,7 @@ import {TranslateService} from "ng2-translate";
 })
 export class AppComponent implements OnInit {
 
+    constructor(private loadingService : LoadingService){
 
-    ngOnInit() {
-        //$('body').addClass('loaded');
     }
 }

@@ -13,6 +13,7 @@ import {StateDirective} from "./directives/state.directive";
 import {HotelService} from "./services/hotel.service";
 import {SearchService} from "./services/search.service";
 import {Http} from "@angular/http";
+import {LoadingService} from "./services/loading.service";
 
 @NgModule({
     imports: [
@@ -48,7 +49,8 @@ import {Http} from "@angular/http";
     providers: [
         LocalStorageService,
         HotelService,
-        SearchService
+        SearchService,
+        LoadingService
     ]
 })
 export class SharedModule {
