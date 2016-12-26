@@ -19,6 +19,8 @@
     <script src="assets/js/jquery-3.1.1.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/component.css"/>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="assets/js/modernizr-2.6.2.min.js"></script>
     <script src="assets/js/modernizr.custom.js"></script>
     <script src="assets/js/classie.js"></script>
 
@@ -29,32 +31,18 @@
     </style>
 </head>
 
-<body><div class="la-anim-1"></div>
-<div class="la-anim-2"></div>
-<div class="la-anim-3"></div>
-<div class="la-anim-4"></div>
-<div class="la-anim-5"></div>
-<div class="la-anim-7"></div>
-<div class="la-anim-8"><div></div><div></div></div>
-<div class="la-anim-9"><div></div><div></div><div></div><div></div></div>
+<body>
 <div class="la-anim-10"></div>
 <my-header></my-header>
 <div class="container">
-    <app></app>
+    <app>
+        <div id="loader-wrapper">
+            <div id="loader"></div>
+        </div>
+    </app>
 </div>
 
-<script>
-    /*$(document).ready(function () {
-        var anim = "la-anim-10";
-        var animEl = document.querySelector('.' + anim);
-        classie.add(animEl, 'la-animate');
-        setTimeout(function () {
-            classie.remove(animEl, 'la-animate');
-        }, 5000);
-    })*/
-</script>
 <!-- Google Analytics-->
-
 <% if (htmlWebpackPlugin.options.metadata.isDevServer && htmlWebpackPlugin.options.metadata.HMR !== true) { %>
 <!-- Webpack Dev Server reload -->
 <script src="/webpack-dev-server.js"></script>

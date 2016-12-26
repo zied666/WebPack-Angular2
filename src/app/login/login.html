@@ -3,8 +3,8 @@
 <alert class="danger" [view]="captchaError" text="PROFILE.INVALID_CAPTCHA"></alert>
 <form [hidden]="confirmed" (ngSubmit)="onSubmit()" #loginForm="ngForm">
     <div class="form-group">
-        <label>{{"PROFILE.EMAIL"|translate}}</label>
-        <input type="email" [(ngModel)]="login" required name="login" class="form-control" #email="ngModel">
+        <label>{{"PROFILE.EMAIL_LOGIN"|translate}}</label>
+        <input type="text" [(ngModel)]="login" required name="login" class="form-control" #email="ngModel">
         <div [@errorMessage]="email.valid || email.pristine" class="text-danger">
             {{"PROFILE.EMAIL_REQUIRED"|translate}}
         </div>

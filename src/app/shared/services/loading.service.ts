@@ -3,8 +3,8 @@ import 'rxjs/add/operator/toPromise';
 import "rxjs";
 import "rxjs/Rx";
 
-@Injectable()
 declare var classie: any;
+@Injectable()
 export class LoadingService  {
 
     start(){

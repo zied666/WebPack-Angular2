@@ -31,11 +31,13 @@
     "ROOMS_NO_AVAILABLE": "Pas de chambre disponible",
     "NIGHT": "Nuitée",
     "NIGHTS": "Nuitées",
-    "CLEAR": "Effacer"
+    "CLEAR": "Effacer",
+    "BOOKING": "Réserver Maintenant"
   },
   "PROFILE": {
     "TITLE": "Mon Profile",
     "EMAIL": "Adresse Email",
+    "EMAIL_LOGIN": "Adresse Email ou nom utilisateur",
     "EMAIL_REQUIRED": "Email est obligatoire",
     "PASSWORD_REQUIRED": "Mot de passe est obligatoire",
     "PASSWORD": "Mot de passe",

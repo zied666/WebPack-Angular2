@@ -2,18 +2,11 @@ import {NgModule}            from '@angular/core';
 import {CommonModule}        from '@angular/common';
 import {FormsModule}         from '@angular/forms';
 import {TranslateModule, TranslateLoader, TranslateStaticLoader} from "ng2-translate";
-import {AwesomePipe} from "./pipes/awesome.pipe";
-import {PersonsPipe} from "./pipes/persons.pipe";
-import {ShowsignePipe} from "./pipes/showsigne.pipe";
-import {HighlightDirective} from "./directives/highlight.directive";
-import {LoadingComponent} from "./components/loading.component";
-import {AlertComponent} from "./components/alert.component";
-import {LocalStorageService} from "./services/localStorage.service";
-import {StateDirective} from "./directives/state.directive";
-import {HotelService} from "./services/hotel.service";
-import {SearchService} from "./services/search.service";
+import {AwesomePipe,PersonsPipe,ShowsignePipe} from "./pipes";
+import {HighlightDirective,StateDirective} from "./directives";
+import {LoadingComponent,AlertComponent} from "./components";
+import {LocalStorageService,HotelService,SearchService,LoadingService} from "./services";;
 import {Http} from "@angular/http";
-import {LoadingService} from "./services/loading.service";
 
 @NgModule({
     imports: [

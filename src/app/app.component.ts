@@ -12,4 +12,8 @@ export class AppComponent implements OnInit {
     constructor(private loadingService : LoadingService){
 
     }
+
+    ngOnInit() {
+
+    }
 }

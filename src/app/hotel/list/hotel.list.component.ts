@@ -24,6 +24,7 @@ export class HotelListComponent implements OnInit {
 
 
     ngOnInit() {
+        this.searchService.resetOffset();
         this.titleService.setTitle("Hotels");
         this.subscribe = null;
         this.hotels = [];
