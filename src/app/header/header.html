@@ -12,11 +12,8 @@
         </div>
         <div class="collapse navbar-collapse dropdown" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav ">
-                <li [ngClass]="{active: router.url=='/'}">
-                    <a routerLink="/">{{"MENU.HOMEPAGE"|translate}}</a>
-                </li>
-                <li [ngClass]="{active: router.url=='/hotel'}">
-                    <a routerLink="/hotel">{{"MENU.HOTELS"|translate}}</a>
+                <li [ngClass]="{active: router.url=='/' &&  router.url=='/hotel'}">
+                    <a routerLink="/">{{"MENU.HOTELS"|translate}}</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav" style="float: right;">

@@ -4,17 +4,20 @@ import 'rxjs/add/operator/toPromise';
 import {Observable} from "rxjs";
 import "rxjs";
 import "rxjs/Rx";
-import {Hotel, Details} from "../../hotel/object/hotel";
+import {Hotel, Details} from "../../hotel/object";
 import {Config} from "../config/config";
 import {SearchService} from "./search.service";
+import {LoginService} from "../../login/login.service";
 
 @Injectable()
 export class HotelService {
-    constructor(private http: Http, private searchService: SearchService) {
+    constructor(private http: Http, private searchService: SearchService, private loginService: LoginService) {
     }
 
     getHotels(): Observable<Hotel[]> {
         let params = new URLSearchParams();
+        if (this.loginService.logedUser != null)
+            params.set('idClient', this.loginService.logedUser.id.toString());
         params.set('rooms', this.searchService.getSearch().rooms);
         params.set('nuitees', this.searchService.getSearch().nuitees.toString());
         params.set('checkIn', this.searchService.getSearch().checkIn);
@@ -32,6 +35,8 @@ export class HotelService {
 
     getCount(): Observable<number> {
         let params = new URLSearchParams();
+        if (this.loginService.logedUser != null)
+            params.set('idClient', this.loginService.logedUser.id.toString());
         params.set('rooms', this.searchService.getSearch().rooms);
         params.set('nuitees', this.searchService.getSearch().nuitees.toString());
         params.set('checkIn', this.searchService.getSearch().checkIn);

@@ -7,8 +7,7 @@ import {HotelListComponent} from "./hotel/list/hotel.list.component";
 import {HotelDetailComponent} from "./hotel/details/hotel.detail.component";
 
 export const routes: Routes = [
-    {path: '', component: HomepageComponent},
-    {path: 'hotel', component: HotelListComponent},
+    {path: '', component: HotelListComponent},
     {path: 'hotel/:id', component: HotelDetailComponent},
     {path: 'login', component: LoginComponent},
     {path: 'profile', component: ProfileComponent}
