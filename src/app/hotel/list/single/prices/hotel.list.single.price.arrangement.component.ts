@@ -1,5 +1,7 @@
 import {Component, Input, OnInit}   from '@angular/core';
 import {Search} from "../../../object/search";
+import {SearchService} from "../../../../shared/services/search.service";
+import {Router} from "@angular/router";
 @Component({
     templateUrl: './hotel.list.single.price.arrangement.html',
     selector: 'list-single-hotel-price-arrangement',
@@ -11,6 +13,9 @@ export class HotelListSinglePriceArrangementComponent implements OnInit {
     @Input() arrangement: any;
     activeRooms:Array<number>;
     total =0;
+    constructor( private searchService: SearchService, private router: Router) {
+    }
+
     ngOnInit() {
         this.activeRooms=[];
         let k=0;
@@ -34,4 +39,11 @@ export class HotelListSinglePriceArrangementComponent implements OnInit {
         }
         this.total=Number(this.total.toFixed(3));
     }
+
+    booking()
+    {
+        this.searchService.updateHotelsReservation(this.id,this.arrangement.id,this.activeRooms);
+        this.router.navigateByUrl('reservation/'+this.id);
+    }
+
 }

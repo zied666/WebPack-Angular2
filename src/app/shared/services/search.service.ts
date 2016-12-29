@@ -19,6 +19,13 @@ export class SearchService implements OnChanges {
         this.search.offset = 0;
     }
 
+    updateHotelsReservation(idHotel: Number,idArrangement: Number, activeRooms: Array<number>) {
+        this.search.activeRooms = JSON.parse(JSON.stringify(activeRooms));
+        this.search.idHotel = JSON.parse(JSON.stringify(idHotel));
+        this.search.idArrangement = JSON.parse(JSON.stringify(idArrangement));
+        LocalStorageService.setItem("search", this.search);
+    }
+
     ngOnChanges() {
         LocalStorageService.setItem("search", this.search);
     }

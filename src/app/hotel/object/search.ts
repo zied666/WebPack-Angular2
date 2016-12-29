@@ -10,7 +10,11 @@ export class Search {
     etoiles: string;
     rooms: string;
 
-    constructor(){
+    idArrangement: number;
+    idHotel: number;
+    activeRooms: Array<number>;
+
+    constructor() {
         this.checkIn = new Date().toISOString().slice(0, 10).replace(/-/g, "-");
         this.limit = 10;
         this.offset = 0;
