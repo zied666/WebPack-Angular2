@@ -43,7 +43,7 @@ export class HotelListSinglePriceArrangementComponent implements OnInit {
     booking()
     {
         this.searchService.updateHotelsReservation(this.id,this.arrangement.id,this.activeRooms);
-        this.router.navigateByUrl('reservation/'+this.id);
+        this.router.navigateByUrl('hotel/'+this.id);
     }
 
 }

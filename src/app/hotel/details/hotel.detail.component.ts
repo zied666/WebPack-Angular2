@@ -18,7 +18,7 @@ export class HotelDetailComponent implements OnInit {
 
 
     ngOnInit() {
-        this.tab="home";
+        this.tab="booking";
         this.loadingHotel=true;
         let id = parseInt(this.route.snapshot.params['id'], 10);
         this.hotelService.getHotel(id).subscribe(hotel => {

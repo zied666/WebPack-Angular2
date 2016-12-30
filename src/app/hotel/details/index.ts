@@ -1,2 +1,2 @@
 // App
-export * from './saisons';
+export * from './hotel.detail.component';

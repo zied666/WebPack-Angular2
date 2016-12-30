@@ -2,10 +2,13 @@
 <div *ngIf="!loadingHotel">
     <h1>{{hotel.libelle}}</h1>
     <ul class="nav nav-tabs" role="tablist">
-        <li [ngClass]="{'active': tab=='home'}"><a href="javascript:void(0)" (click)="tab='home'" >Description</a></li>
-        <li [ngClass]="{'active': tab=='technical'}"><a href="javascript:void(0)" (click)="tab='technical'">Technical sheet</a></li>
-        <li [ngClass]="{'active': tab=='geolocation'}"><a href="javascript:void(0)" (click)="tab='geolocation'">Geolocation</a></li>
+        <li [ngClass]="{'active': tab=='home'}"><a href="javascript:void(0)" (click)="tab='home'">Description</a></li>
+        <li [ngClass]="{'active': tab=='technical'}"><a href="javascript:void(0)" (click)="tab='technical'">Technical
+            sheet</a></li>
+        <li [ngClass]="{'active': tab=='geolocation'}"><a href="javascript:void(0)" (click)="tab='geolocation'">Geolocation</a>
+        </li>
         <li [ngClass]="{'active': tab=='seasons'}"><a href="javascript:void(0)" (click)="tab='seasons'">Seasons</a></li>
+        <li [ngClass]="{'active': tab=='booking'}"><a href="javascript:void(0)" (click)="tab='booking'">Booking</a></li>
     </ul>
     <div class="tab-content" style="padding: 30px">
         <div *ngIf="tab=='home'" class="row">
@@ -13,9 +16,10 @@
                 <p [innerHTML]="hotel.description_longue"></p>
             </div>
         </div>
-        <hotel-fiche        *ngIf="tab=='technical'"    [hotel]="hotel"></hotel-fiche>
-        <hotel-geolocation  *ngIf="tab=='geolocation'" [hotel]="hotel"></hotel-geolocation>
-        <hotel-seasons      *ngIf="tab=='seasons'" [hotel]="hotel"></hotel-seasons>
+        <hotel-fiche *ngIf="tab=='technical'" [hotel]="hotel"></hotel-fiche>
+        <hotel-geolocation *ngIf="tab=='geolocation'" [hotel]="hotel"></hotel-geolocation>
+        <hotel-seasons *ngIf="tab=='seasons'" [hotel]="hotel"></hotel-seasons>
+        <hotel-booking *ngIf="tab=='booking'" [hotel]="hotel"></hotel-booking>
     </div>
 </div>
 

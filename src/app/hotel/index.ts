@@ -14,8 +14,7 @@ import {HotelListSinglePriceArrangementComponent} from "./list/single/prices";
 import {AppRoutingModule} from "../app-routing.module";
 import {HotelListSearchComponent} from "./list/search";
 import {HotelListSortComponent} from "./list/search";
-import {ReservationComponent} from "./reservation/reservation.component";
-
+import {HotelDetailBookingComponent} from "./details/booking";
 
 @NgModule({
     imports: [
@@ -28,7 +27,6 @@ import {ReservationComponent} from "./reservation/reservation.component";
         })
     ],
     declarations: [
-        ReservationComponent,
         HotelListComponent,
         HotelListSortComponent,
         HotelListSearchComponent,
@@ -39,6 +37,7 @@ import {ReservationComponent} from "./reservation/reservation.component";
         HotelDetailGeolocationComponent,
         HotelDetailFicheComponent,
         HotelDetailSeasonsComponent,
+        HotelDetailBookingComponent,
     ]
 })
 export class HotelModule {
