@@ -1,5 +1,6 @@
 export class Hotel {
     details: Details;
+    photo: string;
     saison: string;
     prices: any;
 }

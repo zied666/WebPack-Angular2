@@ -14,5 +14,4 @@ import {Search} from "../../object/search";
 
 export class HotelListSingleComponent {
     @Input() hotel: Hotel;
-    @Input() search: Search;
 }

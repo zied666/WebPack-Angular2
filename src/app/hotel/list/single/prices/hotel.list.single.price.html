@@ -2,14 +2,14 @@
     <div class="col-md-12">
         <div *ngIf="!error">
             <ul class="nav nav-tabs nav-justified">
-                <li role="presentation"  *ngFor="let arrangement of arrangements; let i = index" [ngClass]="{active: i==0}" >
+                <li role="presentation"  *ngFor="let arrangement of arrangements;" [ngClass]="{active: arrangement.id==defaultIdArrangement}" >
                     <a href="#tab_{{id}}_{{ arrangement.id }}"  role="tab" data-toggle="tab">
                         {{ arrangement.libelle }}
                     </a>
                 </li>
             </ul>
             <div class="tab-content">
-                <div *ngFor="let arrangement of arrangements; let i = index" [ngClass]="{active: i==0}"  class="tab-pane" id="tab_{{id}}_{{ arrangement.id }}">
+                <div *ngFor="let arrangement of arrangements;" [ngClass]="{active: arrangement.id==defaultIdArrangement}"  class="tab-pane" id="tab_{{id}}_{{ arrangement.id }}">
                     <list-single-hotel-price-arrangement [id]="id" [search]="search" [arrangement]="arrangement"></list-single-hotel-price-arrangement>
                 </div>
             </div>

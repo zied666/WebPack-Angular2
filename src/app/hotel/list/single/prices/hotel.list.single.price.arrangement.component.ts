@@ -11,39 +11,47 @@ export class HotelListSinglePriceArrangementComponent implements OnInit {
     @Input() id: number;
     @Input() search: Search;
     @Input() arrangement: any;
-    activeRooms:Array<number>;
-    total =0;
-    constructor( private searchService: SearchService, private router: Router) {
+    activeRooms: Array<number>;
+    total = 0;
+
+    constructor(private searchService: SearchService, private router: Router) {
     }
 
     ngOnInit() {
-        this.activeRooms=[];
-        let k=0;
-        for (let room of  this.arrangement.rooms) {
-            this.activeRooms[k]=0;
-            if(room.chambres.length>0)
-                this.total += room.chambres[0].data.total;
-            k++;
+        this.activeRooms = [];
+        if (this.search.idHotel == this.id && this.search.activeRooms != null)
+            this.activeRooms = this.search.activeRooms;
+        else {
+            let k = 0;
+            for (let room of  this.arrangement.rooms) {
+                this.activeRooms[k] = 0;
+                k++;
+            }
         }
-        this.total=Number(this.total.toFixed(3));
+        //calcule total
+        this.updateTotal();
     }
-    updateActiveRooms(i,j)
+
+    updateActiveRooms(i, j) {
+        this.activeRooms[i] = j;
+        this.updateTotal();
+    }
+
+    booking() {
+        this.searchService.updateHotelsReservation(this.id, this.arrangement.id, this.activeRooms);
+        this.router.navigateByUrl('hotel/' + this.id);
+    }
+
+    updateTotal()
     {
-        this.activeRooms[i]=j;
-        this.total=0;
-        let k=0;
+        this.total = 0;
+        let k = 0;
         for (let room of  this.arrangement.rooms) {
-            if(room.chambres.length>0)
+            if (room.chambres.length > 0)
                 this.total += room.chambres[this.activeRooms[k]].data.total;
             k++;
         }
-        this.total=Number(this.total.toFixed(3));
-    }
-
-    booking()
-    {
-        this.searchService.updateHotelsReservation(this.id,this.arrangement.id,this.activeRooms);
-        this.router.navigateByUrl('hotel/'+this.id);
+        this.total = Number(this.total.toFixed(3));
     }
 
 }

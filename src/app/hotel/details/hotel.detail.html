@@ -19,7 +19,7 @@
         <hotel-fiche *ngIf="tab=='technical'" [hotel]="hotel"></hotel-fiche>
         <hotel-geolocation *ngIf="tab=='geolocation'" [hotel]="hotel"></hotel-geolocation>
         <hotel-seasons *ngIf="tab=='seasons'" [hotel]="hotel"></hotel-seasons>
-        <hotel-booking *ngIf="tab=='booking'" [hotel]="hotel"></hotel-booking>
+        <hotel-booking *ngIf="tab=='booking'" [id]="hotel.id"></hotel-booking>
     </div>
 </div>
 

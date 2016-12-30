@@ -33,6 +33,31 @@ export class HotelService {
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
+    getOneHotel(idHotel: number): Observable<Hotel> {
+        let params = new URLSearchParams();
+        if (this.loginService.logedUser != null)
+            params.set('idClient', this.loginService.logedUser.id.toString());
+        params.set('rooms', this.searchService.getSearch().rooms);
+        params.set('nuitees', this.searchService.getSearch().nuitees.toString());
+        params.set('checkIn', this.searchService.getSearch().checkIn);
+        params.set('limit', this.searchService.getSearch().limit.toString());
+        params.set('offset', this.searchService.getSearch().offset.toString());
+        params.set('search', this.searchService.getSearch().nom);
+        params.set('ville', this.searchService.getSearch().ville);
+        params.set('etoile', this.searchService.getSearch().etoiles);
+        params.set('orderBy', this.searchService.getSearch().orderBy);
+        params.set('order', this.searchService.getSearch().order);
+        params.set('idHotel', idHotel);
+        return this.http.get(Config.API_ROUTES.ostravel + "hotels", {search: params})
+            .map((res: Response) => {
+                if (res.json().length == 1)
+                    return res.json()[0];
+                else
+                    return null;
+            })
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
     getCount(): Observable<number> {
         let params = new URLSearchParams();
         if (this.loginService.logedUser != null)
