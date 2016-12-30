@@ -47,7 +47,7 @@ export class HotelService {
         params.set('etoile', this.searchService.getSearch().etoiles);
         params.set('orderBy', this.searchService.getSearch().orderBy);
         params.set('order', this.searchService.getSearch().order);
-        params.set('idHotel', idHotel);
+        params.set('idHotel', idHotel.toString());
         return this.http.get(Config.API_ROUTES.ostravel + "hotels", {search: params})
             .map((res: Response) => {
                 if (res.json().length == 1)

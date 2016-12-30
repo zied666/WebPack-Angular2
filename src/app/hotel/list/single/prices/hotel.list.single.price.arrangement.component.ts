@@ -9,8 +9,8 @@ import {Router} from "@angular/router";
 
 export class HotelListSinglePriceArrangementComponent implements OnInit {
     @Input() id: number;
-    @Input() search: Search;
     @Input() arrangement: any;
+    private search: Search;
     activeRooms: Array<number>;
     total = 0;
 
@@ -18,6 +18,7 @@ export class HotelListSinglePriceArrangementComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.search = this.searchService.getSearch();
         this.activeRooms = [];
         if (this.search.idHotel == this.id && this.search.activeRooms != null)
             this.activeRooms = this.search.activeRooms;

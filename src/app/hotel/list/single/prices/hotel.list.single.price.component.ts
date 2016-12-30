@@ -1,7 +1,6 @@
 import {Component, Input, OnInit}   from '@angular/core';
 import {Search} from "../../../object/search";
-import {HotelService} from "../../../../shared/services/hotel.service";
-import {SearchService} from "../../../../shared/services/search.service";
+import {SearchService} from "../../../../shared/services";
 
 @Component({
     templateUrl: './hotel.list.single.price.html',
@@ -10,7 +9,6 @@ import {SearchService} from "../../../../shared/services/search.service";
 
 export class HotelListSinglePriceComponent implements OnInit {
     @Input() id: number;
-    @Input() search: Search;
     @Input() arrangements: any;
     private search: Search;
     private defaultIdArrangement: number;
@@ -24,6 +22,5 @@ export class HotelListSinglePriceComponent implements OnInit {
             this.defaultIdArrangement = this.search.idArrangement;
         else
             this.defaultIdArrangement = this.arrangements[0].id;
-        console.log(this.arrangements,this.defaultIdArrangement);
     }
 }
