@@ -327,21 +327,21 @@
                                 <option value="4">4 {{'HOTELS.NIGHTS'|translate}}</option>
                                 <option value="5">5 {{'HOTELS.NIGHTS'|translate}}</option>
                             </select>
-                            <input type="text" class="form-control" name="searchName"
+                            <input type="text" class="form-control" name="searchName" *ngIf="allDetails"
                                    [(ngModel)]="search.nom" placeholder="{{'HOTELS.SEARCH'|translate}}"
                                    source="http://os-travel.com/api/nameshotels?name=:keyword" ng2-auto-complete
                                    value-property-name="false"
                                    display-property-name="libelle"
                                    blank-option-text='{{"HOTELS.CLEAR"|translate}}'
                                    min-chars="2"/>
-                            <input type="text" class="form-control" name="city"
+                            <input type="text" class="form-control" name="city" *ngIf="allDetails"
                                    [(ngModel)]="search.ville" placeholder="{{'HOTELS.CITY'|translate}}"
                                    source="http://os-travel.com/api/villes?name=:keyword" ng2-auto-complete
                                    value-property-name="false"
                                    display-property-name="libelle"
                                    blank-option-text='{{"HOTELS.CLEAR"|translate}}'
                                    min-chars="2"/>
-                            <select class="form-control" [(ngModel)]="search.etoiles"  name="stars">
+                            <select class="form-control" [(ngModel)]="search.etoiles"  name="stars" *ngIf="allDetails">
                                 <option value="">{{'HOTELS.NUMBER_OF_STARS'|translate}}</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>

@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <dl class="dl-horizontal">
             <dt>Name :</dt>
             <dd>{{ hotel.libelle }}</dd>
@@ -13,19 +13,7 @@
             <dd>{{ hotel.ville.libelle }}</dd>
         </dl>
     </div>
-    <div class="col-md-4">
-        <dl class="dl-horizontal">
-            <dt>Rooms :</dt>
-            <dd>
-                <div *ngFor="let chambre of hotel.chambres">- {{ chambre.libelle }}</div>
-            </dd>
-            <dt>Arrangement :</dt>
-            <dd>
-                <div *ngFor="let arrangement of hotel.arrangements">- {{ arrangement.libelle }}</div>
-            </dd>
-        </dl>
-    </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
         <dl class="dl-horizontal">
             <dt>Address :</dt>
             <dd>{{ hotel.adresse }}</dd>

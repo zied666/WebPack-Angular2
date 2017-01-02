@@ -32,7 +32,8 @@
     "NIGHT": "Night",
     "NIGHTS": "Nights",
     "CLEAR": "Clear",
-    "BOOKING": "Booking Now"
+    "BOOKING": "Booking Now",
+    "BOOKING_VALIDATE": "Validate booking"
   },
   "PROFILE": {
     "TITLE": "My Profil",
@@ -54,5 +55,8 @@
     "PHONE_REQUIRED": " Phone is required",
     "NOM_REQUIRED": " First Name is required",
     "PRENOM_REQUIRED": " Last Name is required"
+  },
+  "BOOKING": {
+    "TITLE": "Booking"
   }
 }

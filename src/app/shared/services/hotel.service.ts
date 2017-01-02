@@ -28,7 +28,7 @@ export class HotelService {
         params.set('etoile', this.searchService.getSearch().etoiles);
         params.set('orderBy', this.searchService.getSearch().orderBy);
         params.set('order', this.searchService.getSearch().order);
-        return this.http.get(Config.API_ROUTES.ostravel + "hotels", {search: params})
+        return this.http.get(Config.API_ROUTES.ostravel + "api/hotels", {search: params})
             .map((res: Response) => res.json())
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
@@ -48,7 +48,7 @@ export class HotelService {
         params.set('orderBy', this.searchService.getSearch().orderBy);
         params.set('order', this.searchService.getSearch().order);
         params.set('idHotel', idHotel.toString());
-        return this.http.get(Config.API_ROUTES.ostravel + "hotels", {search: params})
+        return this.http.get(Config.API_ROUTES.ostravel + "api/hotels", {search: params})
             .map((res: Response) => {
                 if (res.json().length == 1)
                     return res.json()[0];
@@ -70,7 +70,7 @@ export class HotelService {
         params.set('etoile', this.searchService.getSearch().etoiles);
         params.set('orderBy', this.searchService.getSearch().orderBy);
         params.set('order', this.searchService.getSearch().order);
-        return this.http.get(Config.API_ROUTES.ostravel + "hotelscount", {search: params})
+        return this.http.get(Config.API_ROUTES.ostravel + "api/hotelscount", {search: params})
             .map((res: Response) => res.json())
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
@@ -81,19 +81,19 @@ export class HotelService {
         params.set('checkIn', this.searchService.getSearch().checkIn);
         params.set('hotel', id);
         params.set('rooms', this.searchService.getSearch().rooms);
-        return this.http.get(Config.API_ROUTES.ostravel + "price", {search: params})
+        return this.http.get(Config.API_ROUTES.ostravel + "api/price", {search: params})
             .map((res: Response) => res.json())
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
     getHotel(id): Observable<Details> {
-        return this.http.get(Config.API_ROUTES.ostravel + "hotels" + '/' + id)
+        return this.http.get(Config.API_ROUTES.ostravel + "api/hotels" + '/' + id)
             .map((res: Response) => res.json())
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
     getSaisons(id): Observable<Object[]> {
-        return this.http.get(Config.API_ROUTES.ostravel + "hotels" + '/' + id + '/saisons')
+        return this.http.get(Config.API_ROUTES.ostravel + "api/hotels" + '/' + id + '/saisons')
             .map((res: Response) => res.json())
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }

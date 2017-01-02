@@ -1,4 +1,4 @@
-<hotel-list-search (sendSearch)="updateSearch($event)"></hotel-list-search>
+<hotel-list-search (sendSearch)="updateSearch($event)" [allDetails]="true"></hotel-list-search>
 <hotel-list-sort [countHotels]="countHotels" (sendSearch)="updateSearch($event)" ></hotel-list-sort>
 <loading *ngIf="loadingList"></loading>
 <alert class="info" [view]="!loadingList && hotels.length ==0" text="HOTELS.NO_AVAILABLE"></alert>

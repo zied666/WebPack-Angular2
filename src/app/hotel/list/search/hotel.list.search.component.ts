@@ -11,6 +11,7 @@ import {Search} from "../../object/search";
 export class HotelListSearchComponent implements OnInit {
 
     @Output() sendSearch = new EventEmitter();
+    @Input() allDetails: boolean;
     chambreCount: number;
     room1: Room;
     room2: Room;
@@ -21,7 +22,7 @@ export class HotelListSearchComponent implements OnInit {
     private search: Search;
 
     constructor(private searchService: SearchService) {
-        this.search =searchService.getSearch();
+        this.search = searchService.getSearch();
     }
 
     ngOnInit() {
@@ -44,7 +45,7 @@ export class HotelListSearchComponent implements OnInit {
             roomsString += ";";
         }
         roomsString = roomsString.substr(0, roomsString.length - 1);
-        this.search.rooms=roomsString;
+        this.search.rooms = roomsString;
         this.searchService.setSearch(this.search);
         this.sendSearch.emit(true);
     }

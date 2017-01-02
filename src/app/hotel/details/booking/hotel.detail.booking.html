@@ -1,3 +1,6 @@
-<div class="col-md-12 animated tab1">
-    <list-single-hotel *ngIf="!loading" [hotel]="hotel"></list-single-hotel>
+<div class="col-md-12">
+    <hotel-list-search [allDetails]="false" (sendSearch)="updateSearch($event)"></hotel-list-search>
+    <list-single-hotel *ngIf="!loading && hotel" [hotel]="hotel"></list-single-hotel>
+    <loading *ngIf="loading"></loading>
+    <alert class="danger" [view]="!hotel && !loading" text="HOTELS.ROOMS_NO_AVAILABLE"></alert>
 </div>

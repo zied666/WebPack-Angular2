@@ -1,6 +1,6 @@
-import {Component, Input, trigger, state, transition, animate, style}   from '@angular/core';
+import {Component, Input, trigger, state, style, OnInit}   from '@angular/core';
 import {Hotel} from "../../object/hotel";
-import {Search} from "../../object/search";
+import {Config} from "../../../shared/config/config";
 
 @Component({
     templateUrl: './hotel.single.html',
@@ -12,6 +12,12 @@ import {Search} from "../../object/search";
     ]
 })
 
-export class HotelListSingleComponent {
+export class HotelListSingleComponent implements OnInit {
     @Input() hotel: Hotel;
+    private pathPhoto:string;
+
+    ngOnInit() {
+        this.pathPhoto=Config.API_ROUTES.ostravel;
+    }
+
 }

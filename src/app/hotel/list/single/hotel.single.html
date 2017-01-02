@@ -10,7 +10,7 @@
                 <div [innerHTML]="hotel.details.description_courte"></div>
             </div>
             <div class="col-md-2" style="    margin-top: 30px;">
-                <img *ngIf=" hotel.photo" [src]="hotel.photo" alt="{{ hotel.details.libelle }}" width="200px" height="300px" class="img-thumbnail img-responsive">
+                <img *ngIf=" hotel.photo" [src]="pathPhoto+hotel.photo" alt="{{ hotel.details.libelle }}" width="200px" height="300px" class="img-thumbnail img-responsive">
                 <img *ngIf="!hotel.photo" src="http://www.pestworld.org/media/1030/300x200.gif" alt="{{ hotel.details.libelle }}" width="200px" height="300px" class="img-thumbnail img-responsive">
             </div>
         </div>

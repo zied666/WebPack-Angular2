@@ -32,7 +32,8 @@
     "NIGHT": "Nuitée",
     "NIGHTS": "Nuitées",
     "CLEAR": "Effacer",
-    "BOOKING": "Réserver Maintenant"
+    "BOOKING": "Réserver Maintenant",
+    "BOOKING_VALIDATE": "Valider la réservation"
   },
   "PROFILE": {
     "TITLE": "Mon Profile",
@@ -54,5 +55,8 @@
     "PHONE_REQUIRED": "Téléphone obligatoire ",
     "NOM_REQUIRED": "Nom obligatoire ",
     "PRENOM_REQUIRED": "Prénom obligatoire "
+  },
+  "BOOKING": {
+    "TITLE": "Validation"
   }
 }

@@ -40,6 +40,7 @@ export class HotelListComponent implements OnInit {
         this.haveMore = true;
         this.hotels = [];
         this.searchService.resetOffset();
+        this.searchService.resetSearch();
         if (updateCount)
             this.updateCountHotels();
         this.update();

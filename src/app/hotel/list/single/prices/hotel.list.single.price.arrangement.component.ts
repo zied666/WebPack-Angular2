@@ -11,6 +11,7 @@ export class HotelListSinglePriceArrangementComponent implements OnInit {
     @Input() id: number;
     @Input() arrangement: any;
     private search: Search;
+    private isPageDetails: boolean;
     activeRooms: Array<number>;
     total = 0;
 
@@ -18,6 +19,10 @@ export class HotelListSinglePriceArrangementComponent implements OnInit {
     }
 
     ngOnInit() {
+        if(this.router.url =="/")
+            this.isPageDetails=false;
+        else
+            this.isPageDetails=true;
         this.search = this.searchService.getSearch();
         this.activeRooms = [];
         if (this.search.idHotel == this.id && this.search.activeRooms != null)
@@ -38,9 +43,15 @@ export class HotelListSinglePriceArrangementComponent implements OnInit {
         this.updateTotal();
     }
 
-    booking() {
+    goPageDetails() {
         this.searchService.updateHotelsReservation(this.id, this.arrangement.id, this.activeRooms);
         this.router.navigateByUrl('hotel/' + this.id);
+    }
+
+    goValidatePage()
+    {
+        this.searchService.updateHotelsReservation(this.id, this.arrangement.id, this.activeRooms);
+        this.router.navigateByUrl('booking');
     }
 
     updateTotal()

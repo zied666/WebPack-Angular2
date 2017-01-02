@@ -49,6 +49,13 @@ export class SearchService implements OnChanges {
         LocalStorageService.setItem("search", this.search);
     }
 
+    resetSearch(): void {
+        this.search.idHotel = null;
+        this.search.idArrangement = null;
+        this.search.activeRooms = null;
+        LocalStorageService.setItem("search", this.search);
+    }
+
     incrementLimit(): void {
         this.search.offset += this.search.limit;
         LocalStorageService.setItem("search", this.search);
