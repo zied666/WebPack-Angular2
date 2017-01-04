@@ -3,10 +3,11 @@ import {Search} from "../../object/search";
 import {Room} from "../../object/room";
 import {SearchService} from "../../../shared/services/search.service";
 
+/*<p><small>521 hotels found in New York. &nbsp;&nbsp;Showing 1 – 15</small></p>*/
 @Component({
     selector: 'hotel-list-sort',
     template: `
-                <nav class="navbar navbar-default">
+                <nav class="navbar navbar-default booking-item-dates-change mb40" style="padding: 0px;">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#filtre-hotels" aria-expanded="true">
@@ -25,22 +26,22 @@ import {SearchService} from "../../../shared/services/search.service";
                 <li ngClass="{'active':search.orderBy=='libelle'}">
                     <a href="javascript:void(0)" (click)=" updateSort('libelle');">
                         {{'HOTELS.NAMES'|translate}}
-                        <span *ngIf="search.order=='DESC' && search.orderBy=='libelle'" class="glyphicon glyphicon-sort-by-alphabet-alt"></span>
-                        <span *ngIf="search.order=='ASC' && search.orderBy=='libelle'" class="glyphicon glyphicon-sort-by-alphabet"></span>
+                        <span *ngIf="search.order=='DESC' && search.orderBy=='libelle'" class="fa fa-angle-up"></span>
+                        <span *ngIf="search.order=='ASC' && search.orderBy=='libelle'" class="fa fa-angle-down"></span>
                     </a>
                 </li>
                 <li ngClass="{'active':search.orderBy=='categorie'}">
                     <a href="javascript:void(0)" (click)=" updateSort('categorie');">
                         {{'HOTELS.STARS'|translate}}
-                        <span *ngIf="search.order=='DESC' && search.orderBy=='categorie'" class="glyphicon glyphicon-sort-by-order-alt"></span>
-                        <span *ngIf="search.order=='ASC' && search.orderBy=='categorie'" class="glyphicon glyphicon-sort-by-order"></span>
+                        <span *ngIf="search.order=='DESC' && search.orderBy=='categorie'" class="fa fa-angle-up"></span>
+                        <span *ngIf="search.order=='ASC' && search.orderBy=='categorie'" class="fa fa-angle-down"></span>
                     </a>
                 </li>
                 <li ngClass="{'active':search.orderBy=='ville'}">
                     <a href="javascript:void(0)" (click)=" updateSort('ville');">
                         {{'HOTELS.CITIES'|translate}}
-                        <span *ngIf="search.order=='DESC' && search.orderBy=='ville'" class="glyphicon glyphicon-sort-by-alphabet-alt"></span>
-                        <span *ngIf="search.order=='ASC' && search.orderBy=='ville'" class="glyphicon glyphicon-sort-by-alphabet"></span>
+                        <span *ngIf="search.order=='DESC' && search.orderBy=='ville'" class="fa fa-angle-up"></span>
+                        <span *ngIf="search.order=='ASC' && search.orderBy=='ville'" class="fa fa-angle-down"></span>
                     </a>
                 </li>
             </ul>

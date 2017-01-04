@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {LoadingService} from "./shared/services/loading.service";
+import {LoginService} from "./login/login.service";
+import {Router} from "@angular/router";
 //declare var $: any;
 declare var classie: any;
 
@@ -9,7 +11,7 @@ declare var classie: any;
 })
 export class AppComponent implements OnInit {
 
-    constructor(private loadingService : LoadingService){
+    constructor(){
 
     }
 

@@ -5,6 +5,8 @@ import {HotelService} from "../../shared/services/hotel.service";
 import {SearchService} from "../../shared/services/search.service";
 import {Title} from "@angular/platform-browser";
 import {LoadingService} from "../../shared/services/loading.service";
+import {Router} from "@angular/router";
+import {LoginService} from "../../login/login.service";
 
 @Component({
     templateUrl: './hotel.list.html',
@@ -19,11 +21,14 @@ export class HotelListComponent implements OnInit {
     haveMore: Boolean;
     subscribe: Subscription;
 
-    constructor(private hotelService: HotelService, private searchService: SearchService,private titleService: Title,private loadingService : LoadingService) {
+    constructor(private hotelService: HotelService, private searchService: SearchService,private titleService: Title,private loadingService : LoadingService,
+    private router: Router,private loginService : LoginService) {
     }
 
 
     ngOnInit() {
+        if(this.loginService.logedUser== null)
+            this.router.navigateByUrl('login');
         this.searchService.resetOffset();
         this.titleService.setTitle("Hotels");
         this.subscribe = null;

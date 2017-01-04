@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="col-md-2">
-            <h3>{{total}} DT</h3>
+            <h4>{{total|devise}}</h4>
             <h5> {{arrangement.libelle}}</h5>
             <a (click)="goPageDetails()" *ngIf="total != 0 && !isPageDetails" type="button" class="btn btn-block btn-primary btn-sm">
                 {{"HOTELS.BOOKING"|translate}}

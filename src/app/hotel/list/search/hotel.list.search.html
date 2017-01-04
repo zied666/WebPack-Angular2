@@ -1,361 +1,351 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#rooms-hotels" aria-expanded="true">
-                <span class="sr-only">{{"HOTELS.ROOMS"|translate}}</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-        <div class="collapse navbar-collapse" id="rooms-hotels">
-            <div class="row form-inline" style="padding-top: 25px;padding-bottom: 20px;">
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label>{{"HOTELS.ROOMS"|translate}} : </label>
-                        <select class="form-control" name="rooms" [(ngModel)]="chambreCount">
-                            <option value="1">1 {{"HOTELS.ROOM"|translate}}</option>
-                            <option value="2">2 {{"HOTELS.ROOMS"|translate}}</option>
-                            <option value="3">3 {{"HOTELS.ROOMS"|translate}}</option>
-                            <option value="4">4 {{"HOTELS.ROOMS"|translate}}</option>
-                            <option value="5">5 {{"HOTELS.ROOMS"|translate}}</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <div *ngIf="chambreCount>=1">
-                        <strong>{{"HOTELS.ROOM"|translate}} 1 : </strong>
-                        <select class="form-control" name="adults_1" [(ngModel)]="room1.countAdult">
-                            <option value="1">1 {{"HOTELS.ADULT"|translate}}</option>
-                            <option value="2">2 {{"HOTELS.ADULTS"|translate}}</option>
-                            <option value="3">3 {{"HOTELS.ADULTS"|translate}}</option>
-                            <option value="4">4 {{"HOTELS.ADULTS"|translate}}</option>
-                            <option value="5">5 {{"HOTELS.ADULTS"|translate}}</option>
-                        </select>
-                        <select class="form-control" name="childs_1" [(ngModel)]="room1.countChild">
-                            <option value="0">0 {{"HOTELS.CHILD"|translate}}</option>
-                            <option value="1">1 {{"HOTELS.CHILD"|translate}}</option>
-                            <option value="2">2 {{"HOTELS.CHILDS"|translate}}</option>
-                            <option value="3">3 {{"HOTELS.CHILDS"|translate}}</option>
-                        </select>
-                        <select class="form-control" name="child_1_1" *ngIf="room1.countChild>=1" [(ngModel)]="room1.age1">
-                            <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                        </select>
-                        <select class="form-control" name="child_1_2" *ngIf="room1.countChild>=2" [(ngModel)]="room1.age2">
-                            <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                        </select>
-                        <select class="form-control" name="child_1_3" *ngIf="room1.countChild>=3" [(ngModel)]="room1.age3">
-                            <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                        </select>
-                    </div>
-                    <div *ngIf="chambreCount>=2">
-                        <strong>{{"HOTELS.ROOM"|translate}} 2 : </strong>
-                        <select class="form-control" name="adults_2" [(ngModel)]="room2.countAdult">
-                            <option value="1">1 {{"HOTELS.ADULT"|translate}}</option>
-                            <option value="2">2 {{"HOTELS.ADULTS"|translate}}</option>
-                            <option value="3">3 {{"HOTELS.ADULTS"|translate}}</option>
-                            <option value="4">4 {{"HOTELS.ADULTS"|translate}}</option>
-                            <option value="5">5 {{"HOTELS.ADULTS"|translate}}</option>
-                        </select>
-                        <select class="form-control" name="childs_2" [(ngModel)]="room2.countChild">
-                            <option value="0">0 {{"HOTELS.CHILD"|translate}}</option>
-                            <option value="1">1 {{"HOTELS.CHILD"|translate}}</option>
-                            <option value="2">2 {{"HOTELS.CHILDS"|translate}}</option>
-                            <option value="3">3 {{"HOTELS.CHILDS"|translate}}</option>
-                        </select>
-                        <select class="form-control" name="child_2_1" *ngIf="room2.countChild>=1" [(ngModel)]="room2.age1">
-                            <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                        </select>
-                        <select class="form-control" name="child_2_2" *ngIf="room2.countChild>=2" [(ngModel)]="room2.age2">
-                            <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                        </select>
-                        <select class="form-control" name="child_2_3" *ngIf="room2.countChild>=3" [(ngModel)]="room2.age3">
-                            <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                        </select>
-                    </div>
-                    <div *ngIf="chambreCount>=3">
-                        <strong>{{"HOTELS.ROOM"|translate}} 3 : </strong>
-                        <select class="form-control" name="adults_3" [(ngModel)]="room3.countAdult">
-                            <option value="1">1 {{"HOTELS.ADULT"|translate}}</option>
-                            <option value="2">2 {{"HOTELS.ADULTS"|translate}}</option>
-                            <option value="3">3 {{"HOTELS.ADULTS"|translate}}</option>
-                            <option value="4">4 {{"HOTELS.ADULTS"|translate}}</option>
-                            <option value="5">5 {{"HOTELS.ADULTS"|translate}}</option>
-                        </select>
-                        <select class="form-control" name="childs_3" [(ngModel)]="room3.countChild">
-                            <option value="0">0 {{"HOTELS.CHILD"|translate}}</option>
-                            <option value="1">1 {{"HOTELS.CHILD"|translate}}</option>
-                            <option value="2">2 {{"HOTELS.CHILDS"|translate}}</option>
-                            <option value="3">3 {{"HOTELS.CHILDS"|translate}}</option>
-                        </select>
-                        <select class="form-control" name="child_3_1" *ngIf="room3.countChild>=1" [(ngModel)]="room3.age1">
-                            <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                        </select>
-                        <select class="form-control" name="child_3_2" *ngIf="room3.countChild>=2" [(ngModel)]="room3.age2">
-                            <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                        </select>
-                        <select class="form-control" name="child_3_3" *ngIf="room3.countChild>=3" [(ngModel)]="room3.age3">
-                            <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                        </select>
-                    </div>
-                    <div *ngIf="chambreCount>=4">
-                        <strong>{{"HOTELS.ROOM"|translate}} 4 : </strong>
-                        <select class="form-control" name="adults_4" [(ngModel)]="room4.countAdult">
-                            <option value="1">1 {{"HOTELS.ADULT"|translate}}</option>
-                            <option value="2">2 {{"HOTELS.ADULTS"|translate}}</option>
-                            <option value="3">3 {{"HOTELS.ADULTS"|translate}}</option>
-                            <option value="4">4 {{"HOTELS.ADULTS"|translate}}</option>
-                            <option value="5">5 {{"HOTELS.ADULTS"|translate}}</option>
-                        </select>
-                        <select class="form-control" name="childs_4" [(ngModel)]="room4.countChild">
-                            <option value="0">0 {{"HOTELS.CHILD"|translate}}</option>
-                            <option value="1">1 {{"HOTELS.CHILD"|translate}}</option>
-                            <option value="2">2 {{"HOTELS.CHILDS"|translate}}</option>
-                            <option value="3">3 {{"HOTELS.CHILDS"|translate}}</option>
-                        </select>
-                        <select class="form-control" name="child_4_1" *ngIf="room4.countChild>=1" [(ngModel)]="room4.age1">
-                            <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                        </select>
-                        <select class="form-control" name="child_4_2" *ngIf="room4.countChild>=2" [(ngModel)]="room4.age2">
-                            <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                        </select>
-                        <select class="form-control" name="child_4_3" *ngIf="room4.countChild>=3" [(ngModel)]="room4.age3">
-                            <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                        </select>
-                    </div>
-                    <div *ngIf="chambreCount>=5">
-                        <strong>{{"HOTELS.ROOM"|translate}} 5 : </strong>
-                        <select class="form-control" name="adults_5" [(ngModel)]="room5.countAdult">
-                            <option value="1">1 {{"HOTELS.ADULT"|translate}}</option>
-                            <option value="2">2 {{"HOTELS.ADULTS"|translate}}</option>
-                            <option value="3">3 {{"HOTELS.ADULTS"|translate}}</option>
-                            <option value="4">4 {{"HOTELS.ADULTS"|translate}}</option>
-                            <option value="5">5 {{"HOTELS.ADULTS"|translate}}</option>
-                        </select>
-                        <select class="form-control" name="childs_5" [(ngModel)]="room5.countChild">
-                            <option value="0">0 {{"HOTELS.CHILD"|translate}}</option>
-                            <option value="1">1 {{"HOTELS.CHILD"|translate}}</option>
-                            <option value="2">2 {{"HOTELS.CHILDS"|translate}}</option>
-                            <option value="3">3 {{"HOTELS.CHILDS"|translate}}</option>
-                        </select>
-                        <select class="form-control" name="child_5_1" *ngIf="room5.countChild>=1" [(ngModel)]="room5.age1">
-                            <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                        </select>
-                        <select class="form-control" name="child_5_2" *ngIf="room5.countChild>=2" [(ngModel)]="room5.age2">
-                            <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                        </select>
-                        <select class="form-control" name="child_5_3" *ngIf="room5.countChild>=3" [(ngModel)]="room5.age3">
-                            <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                            <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
-                        </select>
-                    </div>
-                </div>
+<form class="booking-item-dates-change mb40">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>{{"HOTELS.ROOMS"|translate}} : </label>
+                <select class="form-control" name="rooms" [(ngModel)]="chambreCount">
+                    <option value="1">1 {{"HOTELS.ROOM"|translate}}</option>
+                    <option value="2">2 {{"HOTELS.ROOMS"|translate}}</option>
+                    <option value="3">3 {{"HOTELS.ROOMS"|translate}}</option>
+                    <option value="4">4 {{"HOTELS.ROOMS"|translate}}</option>
+                    <option value="5">5 {{"HOTELS.ROOMS"|translate}}</option>
+                </select>
             </div>
-            <div class="row">
-                <div class="col-md-10">
-                    <form class="navbar-form navbar-left" #filtreForm="ngForm">
-                        <div class="form-group">
-                            <input type="date" class="form-control" [(ngModel)]="search.checkIn" placeholder="checkIn"  name="searchCheckIn">
-                            <select class="form-control" [(ngModel)]="search.nuitees"  name="searchNuitees">
-                                <option value="1">1 {{'HOTELS.NIGHT'|translate}}</option>
-                                <option value="2">2 {{'HOTELS.NIGHTS'|translate}}</option>
-                                <option value="3">3 {{'HOTELS.NIGHTS'|translate}}</option>
-                                <option value="4">4 {{'HOTELS.NIGHTS'|translate}}</option>
-                                <option value="5">5 {{'HOTELS.NIGHTS'|translate}}</option>
-                            </select>
-                            <input type="text" class="form-control" name="searchName" *ngIf="allDetails"
-                                   [(ngModel)]="search.nom" placeholder="{{'HOTELS.SEARCH'|translate}}"
-                                   source="http://os-travel.com/api/nameshotels?name=:keyword" ng2-auto-complete
-                                   value-property-name="false"
-                                   display-property-name="libelle"
-                                   blank-option-text='{{"HOTELS.CLEAR"|translate}}'
-                                   min-chars="2"/>
-                            <input type="text" class="form-control" name="city" *ngIf="allDetails"
-                                   [(ngModel)]="search.ville" placeholder="{{'HOTELS.CITY'|translate}}"
-                                   source="http://os-travel.com/api/villes?name=:keyword" ng2-auto-complete
-                                   value-property-name="false"
-                                   display-property-name="libelle"
-                                   blank-option-text='{{"HOTELS.CLEAR"|translate}}'
-                                   min-chars="2"/>
-                            <select class="form-control" [(ngModel)]="search.etoiles"  name="stars" *ngIf="allDetails">
-                                <option value="">{{'HOTELS.NUMBER_OF_STARS'|translate}}</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-md-2 navbar-form">
-                    <button type="button" class="btn btn-primary  btn-block"  (click)="updateRooms()">{{"HOTELS.SEARCH_HOTELS"|translate}}</button>
-                </div>
+        </div>
+        <div class="col-md-9 mt30">
+            <div class="row" *ngIf="chambreCount>=1">
+                <div class="col-md-2"><strong>{{"HOTELS.ROOM"|translate}} 1 : </strong></div>
+                <div class="col-md-2"><select class="form-control" name="adults_1" [(ngModel)]="room1.countAdult">
+                    <option value="1">1 {{"HOTELS.ADULT"|translate}}</option>
+                    <option value="2">2 {{"HOTELS.ADULTS"|translate}}</option>
+                    <option value="3">3 {{"HOTELS.ADULTS"|translate}}</option>
+                    <option value="4">4 {{"HOTELS.ADULTS"|translate}}</option>
+                    <option value="5">5 {{"HOTELS.ADULTS"|translate}}</option>
+                </select></div>
+                <div class="col-md-2"><select class="form-control" name="childs_1" [(ngModel)]="room1.countChild">
+                    <option value="0">0 {{"HOTELS.CHILD"|translate}}</option>
+                    <option value="1">1 {{"HOTELS.CHILD"|translate}}</option>
+                    <option value="2">2 {{"HOTELS.CHILDS"|translate}}</option>
+                    <option value="3">3 {{"HOTELS.CHILDS"|translate}}</option>
+                </select></div>
+                <div class="col-md-2"><select class="form-control" name="child_1_1" *ngIf="room1.countChild>=1" [(ngModel)]="room1.age1">
+                    <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                </select></div>
+                <div class="col-md-2"><select class="form-control" name="child_1_2" *ngIf="room1.countChild>=2" [(ngModel)]="room1.age2">
+                    <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                </select></div>
+                <div class="col-md-2"><select class="form-control" name="child_1_3" *ngIf="room1.countChild>=3" [(ngModel)]="room1.age3">
+                    <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                </select></div>
+            </div>
+            <div class="row" *ngIf="chambreCount>=2">
+                <div class="col-md-2"><strong>{{"HOTELS.ROOM"|translate}} 2 : </strong></div>
+                <div class="col-md-2"><select class="form-control" name="adults_2" [(ngModel)]="room2.countAdult">
+                    <option value="1">1 {{"HOTELS.ADULT"|translate}}</option>
+                    <option value="2">2 {{"HOTELS.ADULTS"|translate}}</option>
+                    <option value="3">3 {{"HOTELS.ADULTS"|translate}}</option>
+                    <option value="4">4 {{"HOTELS.ADULTS"|translate}}</option>
+                    <option value="5">5 {{"HOTELS.ADULTS"|translate}}</option>
+                </select></div>
+                <div class="col-md-2"><select class="form-control" name="childs_2" [(ngModel)]="room2.countChild">
+                    <option value="0">0 {{"HOTELS.CHILD"|translate}}</option>
+                    <option value="1">1 {{"HOTELS.CHILD"|translate}}</option>
+                    <option value="2">2 {{"HOTELS.CHILDS"|translate}}</option>
+                    <option value="3">3 {{"HOTELS.CHILDS"|translate}}</option>
+                </select></div>
+                <div class="col-md-2"><select class="form-control" name="child_2_1" *ngIf="room2.countChild>=1" [(ngModel)]="room2.age1">
+                    <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                </select></div>
+                <div class="col-md-2"><select class="form-control" name="child_2_2" *ngIf="room2.countChild>=2" [(ngModel)]="room2.age2">
+                    <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                </select></div>
+                <div class="col-md-2"><select class="form-control" name="child_2_3" *ngIf="room2.countChild>=3" [(ngModel)]="room2.age3">
+                    <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                </select></div>
+            </div>
+            <div class="row" *ngIf="chambreCount>=3">
+                <div class="col-md-2"><strong>{{"HOTELS.ROOM"|translate}} 3 : </strong></div>
+                <div class="col-md-2"><select class="form-control" name="adults_3" [(ngModel)]="room3.countAdult">
+                    <option value="1">1 {{"HOTELS.ADULT"|translate}}</option>
+                    <option value="2">2 {{"HOTELS.ADULTS"|translate}}</option>
+                    <option value="3">3 {{"HOTELS.ADULTS"|translate}}</option>
+                    <option value="4">4 {{"HOTELS.ADULTS"|translate}}</option>
+                    <option value="5">5 {{"HOTELS.ADULTS"|translate}}</option>
+                </select></div>
+                <div class="col-md-2"><select class="form-control" name="childs_3" [(ngModel)]="room3.countChild">
+                    <option value="0">0 {{"HOTELS.CHILD"|translate}}</option>
+                    <option value="1">1 {{"HOTELS.CHILD"|translate}}</option>
+                    <option value="2">2 {{"HOTELS.CHILDS"|translate}}</option>
+                    <option value="3">3 {{"HOTELS.CHILDS"|translate}}</option>
+                </select></div>
+                <div class="col-md-2"><select class="form-control" name="child_3_1" *ngIf="room3.countChild>=1" [(ngModel)]="room3.age1">
+                    <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                </select></div>
+                <div class="col-md-2"><select class="form-control" name="child_3_2" *ngIf="room3.countChild>=2" [(ngModel)]="room3.age2">
+                    <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                </select></div>
+                <div class="col-md-2"><select class="form-control" name="child_3_3" *ngIf="room3.countChild>=3" [(ngModel)]="room3.age3">
+                    <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                </select></div>
+            </div>
+            <div class="row" *ngIf="chambreCount>=4">
+                <div class="col-md-2"><strong>{{"HOTELS.ROOM"|translate}} 4 : </strong></div>
+                <div class="col-md-2"><select class="form-control" name="adults_4" [(ngModel)]="room4.countAdult">
+                    <option value="1">1 {{"HOTELS.ADULT"|translate}}</option>
+                    <option value="2">2 {{"HOTELS.ADULTS"|translate}}</option>
+                    <option value="3">3 {{"HOTELS.ADULTS"|translate}}</option>
+                    <option value="4">4 {{"HOTELS.ADULTS"|translate}}</option>
+                    <option value="5">5 {{"HOTELS.ADULTS"|translate}}</option>
+                </select></div>
+                <div class="col-md-2"><select class="form-control" name="childs_4" [(ngModel)]="room4.countChild">
+                    <option value="0">0 {{"HOTELS.CHILD"|translate}}</option>
+                    <option value="1">1 {{"HOTELS.CHILD"|translate}}</option>
+                    <option value="2">2 {{"HOTELS.CHILDS"|translate}}</option>
+                    <option value="3">3 {{"HOTELS.CHILDS"|translate}}</option>
+                </select></div>
+                <div class="col-md-2"><select class="form-control" name="child_4_1" *ngIf="room4.countChild>=1" [(ngModel)]="room4.age1">
+                    <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                </select></div>
+                <div class="col-md-2"><select class="form-control" name="child_4_2" *ngIf="room4.countChild>=2" [(ngModel)]="room4.age2">
+                    <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                </select></div>
+                <div class="col-md-2"><select class="form-control" name="child_4_3" *ngIf="room4.countChild>=3" [(ngModel)]="room4.age3">
+                    <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                </select></div>
+            </div>
+            <div class="row" *ngIf="chambreCount>=5">
+                <div class="col-md-2"><strong>{{"HOTELS.ROOM"|translate}} 5 : </strong></div>
+                <div class="col-md-2"><select class="form-control" name="adults_5" [(ngModel)]="room5.countAdult">
+                    <option value="1">1 {{"HOTELS.ADULT"|translate}}</option>
+                    <option value="2">2 {{"HOTELS.ADULTS"|translate}}</option>
+                    <option value="3">3 {{"HOTELS.ADULTS"|translate}}</option>
+                    <option value="4">4 {{"HOTELS.ADULTS"|translate}}</option>
+                    <option value="5">5 {{"HOTELS.ADULTS"|translate}}</option>
+                </select></div>
+                <div class="col-md-2"><select class="form-control" name="childs_5" [(ngModel)]="room5.countChild">
+                    <option value="0">0 {{"HOTELS.CHILD"|translate}}</option>
+                    <option value="1">1 {{"HOTELS.CHILD"|translate}}</option>
+                    <option value="2">2 {{"HOTELS.CHILDS"|translate}}</option>
+                    <option value="3">3 {{"HOTELS.CHILDS"|translate}}</option>
+                </select></div>
+                <div class="col-md-2"><select class="form-control" name="child_5_1" *ngIf="room5.countChild>=1" [(ngModel)]="room5.age1">
+                    <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                </select></div>
+                <div class="col-md-2"><select class="form-control" name="child_5_2" *ngIf="room5.countChild>=2" [(ngModel)]="room5.age2">
+                    <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                </select></div>
+                <div class="col-md-2"><select class="form-control" name="child_5_3" *ngIf="room5.countChild>=3" [(ngModel)]="room5.age3">
+                    <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                    <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                </select></div>
             </div>
         </div>
     </div>
-</nav>
+</form>
+<form class="booking-item-dates-change mb40">
+    <div class="row">
+        <div class="col-md-10">
+            <form class="navbar-form navbar-left" #filtreForm="ngForm">
+                <div class="form-group">
+                    <input type="date" class="form-control" [(ngModel)]="search.checkIn" placeholder="checkIn"  name="searchCheckIn">
+                    <select class="form-control" [(ngModel)]="search.nuitees"  name="searchNuitees">
+                        <option value="1">1 {{'HOTELS.NIGHT'|translate}}</option>
+                        <option value="2">2 {{'HOTELS.NIGHTS'|translate}}</option>
+                        <option value="3">3 {{'HOTELS.NIGHTS'|translate}}</option>
+                        <option value="4">4 {{'HOTELS.NIGHTS'|translate}}</option>
+                        <option value="5">5 {{'HOTELS.NIGHTS'|translate}}</option>
+                    </select>
+                    <input type="text" class="form-control" name="searchName" *ngIf="allDetails"
+                           [(ngModel)]="search.nom" placeholder="{{'HOTELS.SEARCH'|translate}}"
+                           source="http://os-travel.com/api/nameshotels?name=:keyword" ng2-auto-complete
+                           value-property-name="false"
+                           display-property-name="libelle"
+                           blank-option-text='{{"HOTELS.CLEAR"|translate}}'
+                           min-chars="2"/>
+                    <input type="text" class="form-control" name="city" *ngIf="allDetails"
+                           [(ngModel)]="search.ville" placeholder="{{'HOTELS.CITY'|translate}}"
+                           source="http://os-travel.com/api/villes?name=:keyword" ng2-auto-complete
+                           value-property-name="false"
+                           display-property-name="libelle"
+                           blank-option-text='{{"HOTELS.CLEAR"|translate}}'
+                           min-chars="2"/>
+                    <select class="form-control" [(ngModel)]="search.etoiles"  name="stars" *ngIf="allDetails">
+                        <option value="">{{'HOTELS.NUMBER_OF_STARS'|translate}}</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-2 navbar-form">
+            <button type="button" class="btn btn-primary  btn-block"  (click)="updateRooms()">{{"HOTELS.SEARCH_HOTELS"|translate}}</button>
+        </div>
+    </div>
+</form>

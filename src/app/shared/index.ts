@@ -2,11 +2,16 @@ import {NgModule}            from '@angular/core';
 import {CommonModule}        from '@angular/common';
 import {FormsModule}         from '@angular/forms';
 import {TranslateModule, TranslateLoader, TranslateStaticLoader} from "ng2-translate";
-import {AwesomePipe,PersonsPipe,ShowsignePipe} from "./pipes";
-import {HighlightDirective,StateDirective} from "./directives";
-import {LoadingComponent,AlertComponent} from "./components";
-import {LocalStorageService,HotelService,SearchService,LoadingService} from "./services";;
+import {AwesomePipe, PersonsPipe, ShowsignePipe} from "./pipes";
+import {HighlightDirective, StateDirective} from "./directives";
+import {LoadingComponent, AlertComponent} from "./components";
+import {LocalStorageService, HotelService, SearchService, LoadingService} from "./services";
+;
 import {Http} from "@angular/http";
+import {DevisePipe} from "./pipes/devise.pipe";
+import {DeviseService} from "./services/devise.service";
+import {StarsPipe} from "./pipes/stars.pipe";
+import {AddDatePipe} from "./pipes/add_date.pipe";
 
 @NgModule({
     imports: [
@@ -19,6 +24,9 @@ import {Http} from "@angular/http";
         })
     ],
     declarations: [
+        AddDatePipe,
+        StarsPipe,
+        DevisePipe,
         AwesomePipe,
         PersonsPipe,
         ShowsignePipe,
@@ -28,6 +36,9 @@ import {Http} from "@angular/http";
         StateDirective
     ],
     exports: [
+        AddDatePipe,
+        StarsPipe,
+        DevisePipe,
         PersonsPipe,
         AwesomePipe,
         ShowsignePipe,
@@ -43,7 +54,8 @@ import {Http} from "@angular/http";
         LocalStorageService,
         HotelService,
         SearchService,
-        LoadingService
+        LoadingService,
+        DeviseService
     ]
 })
 export class SharedModule {

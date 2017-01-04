@@ -15,6 +15,7 @@ import {CoreModule} from "./core";
 import {AppRoutingModule} from './app-routing.module';
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 import {SharedModule} from "./shared";
+import {FooterComponent} from "./footer/footer.component";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -32,11 +33,12 @@ type StoreType = {
  * `AppModule` is the main entry point into Angular2's bootstraping process
  */
 @NgModule({
-    bootstrap: [AppComponent, HeaderComponent],
+    bootstrap: [AppComponent, HeaderComponent,FooterComponent],
     declarations: [
         AppComponent,
         HomepageComponent,
-        HeaderComponent
+        HeaderComponent,
+        FooterComponent
     ],
     imports: [ // import Angular's modules
         SharedModule,

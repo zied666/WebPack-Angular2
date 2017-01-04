@@ -15,37 +15,69 @@
     <base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>">
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet" href="assets/css/custom.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <script src="assets/js/jquery-3.1.1.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/component.css"/>
     <link rel="stylesheet" href="assets/css/main.css">
-    <script src="assets/js/modernizr-2.6.2.min.js"></script>
-    <script src="assets/js/modernizr.custom.js"></script>
     <script src="assets/js/classie.js"></script>
 
-    <style>
+
+    <!-- GOOGLE FONTS -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600' rel='stylesheet' type='text/css'>
+    <!-- /GOOGLE FONTS -->
+    <link rel="stylesheet" href="assets/template/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/template/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/template/css/icomoon.css">
+    <link rel="stylesheet" href="assets/template/css/styles.css">
+    <link rel="stylesheet" href="assets/template/css/mystyles.css">
+    <script src="assets/template/js/modernizr.js"></script>
+
+    <!--<style>
         body {
             padding-top: 70px;
         }
-    </style>
+    </style>-->
 </head>
 
 <body>
-<div class="la-anim-10"></div>
-<my-header></my-header>
-<div class="container">
-    <app>
-        <div id="loader-wrapper">
-            <div id="loader"></div>
-        </div>
-    </app>
-</div>
+<div class="global-wrap">
 
-<!-- Google Analytics-->
-<% if (htmlWebpackPlugin.options.metadata.isDevServer && htmlWebpackPlugin.options.metadata.HMR !== true) { %>
-<!-- Webpack Dev Server reload -->
-<script src="/webpack-dev-server.js"></script>
-<% } %>
+    <div class="la-anim-10"></div>
+    <my-header></my-header>
+
+    <div class="container">
+        <app>
+            <div id="loader-wrapper">
+                <div id="loader"></div>
+            </div>
+        </app>
+    </div>
+    <my-footer></my-footer>
+
+    <script src="assets/template/js/jquery.js"></script>
+    <script src="assets/template/js/bootstrap.js"></script>
+    <script src="assets/template/js/slimmenu.js"></script>
+    <script src="assets/template/js/bootstrap-datepicker.js"></script>
+    <script src="assets/template/js/bootstrap-timepicker.js"></script>
+    <script src="assets/template/js/nicescroll.js"></script>
+    <script src="assets/template/js/dropit.js"></script>
+    <script src="assets/template/js/ionrangeslider.js"></script>
+    <script src="assets/template/js/icheck.js"></script>
+    <script src="assets/template/js/fotorama.js"></script>
+    <!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>-->
+    <script src="assets/template/js/typeahead.js"></script>
+    <script src="assets/template/js/card-payment.js"></script>
+    <script src="assets/template/js/magnific.js"></script>
+    <script src="assets/template/js/owl-carousel.js"></script>
+    <script src="assets/template/js/fitvids.js"></script>
+    <script src="assets/template/js/tweet.js"></script>
+    <script src="assets/template/js/countdown.js"></script>
+    <script src="assets/template/js/gridrotator.js"></script>
+    <script src="assets/template/js/custom.js"></script>
+    <!-- Google Analytics-->
+    <% if (htmlWebpackPlugin.options.metadata.isDevServer && htmlWebpackPlugin.options.metadata.HMR !== true) { %>
+    <!-- Webpack Dev Server reload -->
+    <script src="/webpack-dev-server.js"></script>
+    <% } %>
+</div>
 </body>
 </html>

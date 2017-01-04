@@ -2,6 +2,7 @@ import {Component, Input, OnInit}   from '@angular/core';
 import {Search} from "../../../object/search";
 import {SearchService} from "../../../../shared/services/search.service";
 import {Router} from "@angular/router";
+import {DeviseService} from "../../../../shared/services/devise.service";
 @Component({
     templateUrl: './hotel.list.single.price.arrangement.html',
     selector: 'list-single-hotel-price-arrangement',
@@ -15,7 +16,7 @@ export class HotelListSinglePriceArrangementComponent implements OnInit {
     activeRooms: Array<number>;
     total = 0;
 
-    constructor(private searchService: SearchService, private router: Router) {
+    constructor(private searchService: SearchService, private router: Router,private deviseService:DeviseService) {
     }
 
     ngOnInit() {

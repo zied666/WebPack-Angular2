@@ -44,17 +44,17 @@ export class LoginComponent implements OnInit {
         this.login = "";
         this.password = "";
         if (this.loginService.logedUser != null)
-            this.router.navigateByUrl('profile');
+            this.router.navigateByUrl('/');
     }
 
     onSubmit() {
-        if (this.token) {
+       /* if (this.token) {*/
             this.loading = true;
             this.loadingService.start();
             this.loginService.connection(this.login, this.password).subscribe(response => {
                 if (response.data != null) {
                     this.loginService.logedUser = response.data;
-                    this.router.navigateByUrl('profile');
+                    this.router.navigateByUrl('/');
                     LocalStorageService.setItem("currentUser", response.data);
                 }
                 else {
@@ -64,10 +64,10 @@ export class LoginComponent implements OnInit {
                 }
                 this.loadingService.end();
             });
-        } else {
+       /* } else {
             this.captchaError = true;
             setTimeout(() => this.captchaError = false, 3000);
-        }
+        }*/
     }
 
 
