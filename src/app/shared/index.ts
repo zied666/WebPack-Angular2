@@ -12,6 +12,7 @@ import {DevisePipe} from "./pipes/devise.pipe";
 import {DeviseService} from "./services/devise.service";
 import {StarsPipe} from "./pipes/stars.pipe";
 import {AddDatePipe} from "./pipes/add_date.pipe";
+import {LoginService} from "./services/login.service";
 
 @NgModule({
     imports: [
@@ -51,6 +52,7 @@ import {AddDatePipe} from "./pipes/add_date.pipe";
         StateDirective
     ],
     providers: [
+        LoginService,
         LocalStorageService,
         HotelService,
         SearchService,

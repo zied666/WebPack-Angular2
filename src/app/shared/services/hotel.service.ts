@@ -7,7 +7,7 @@ import "rxjs/Rx";
 import {Hotel, Details} from "../../hotel/object";
 import {Config} from "../config/config";
 import {SearchService} from "./search.service";
-import {LoginService} from "../../login/login.service";
+import {LoginService} from "./login.service";
 
 @Injectable()
 export class HotelService {

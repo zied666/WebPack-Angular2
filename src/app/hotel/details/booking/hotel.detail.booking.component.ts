@@ -1,5 +1,5 @@
 import {Component, Input, OnInit}   from '@angular/core';
-import {HotelService, LoadingService, SearchService} from "../../../shared/services";
+import {HotelService, SearchService} from "../../../shared/services";
 import {Hotel} from "../../object/hotel";
 @Component({
     templateUrl: "./hotel.detail.booking.html",

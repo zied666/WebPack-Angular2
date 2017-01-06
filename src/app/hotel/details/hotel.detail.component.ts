@@ -3,8 +3,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Details} from "../object/hotel";
 import {HotelService} from "../../shared/services/hotel.service";
 import {Title} from "@angular/platform-browser";
-import {LoginService} from "../../login/login.service";
 import {Config} from "../../shared/config/config";
+import {LoginService} from "../../shared/services/login.service";
 
 @Component({
     templateUrl: './hotel.detail.html'

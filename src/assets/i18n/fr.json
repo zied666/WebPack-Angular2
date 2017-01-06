@@ -50,6 +50,7 @@
     "PASSWORD": "Mot de passe",
     "LOADING": "Chargement",
     "INVALID_FORM": "Mot de passe ou email est invalide",
+    "INVALID_PROFILE": "Email est déja utilisé par un autre utilisateur",
     "ERROR": "Erreur",
     "SUBMIT": "Se Connecter",
     "NOM": "Nom",
@@ -71,6 +72,9 @@
     "SUCCESS": "Votre réservation a été enregistré avec succées",
     "SEND": "Les détails de réservation ont été envoyés à ",
     "FROM": "Du",
-    "REF": "Réservation REF "
+    "REF": "Réservation REF ",
+    "TIMBRE_FISCAL": "Timbre Fiscal",
+    "FRAIS_DOSSIER": "Frais Dossier",
+    "REMISE_INTERNET": "Remise Internet"
   }
 }

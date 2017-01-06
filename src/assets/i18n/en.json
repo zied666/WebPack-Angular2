@@ -50,6 +50,7 @@
     "PASSWORD": "Password",
     "LOADING": "Loading",
     "INVALID_FORM": "Invalid  login or password",
+    "INVALID_PROFILE": "Email is already used by another user",
     "ERROR": "Error",
     "SUBMIT": "Submit",
     "NOM": "First Name",
@@ -71,7 +72,10 @@
     "SUCCESS": "Your booking has been saved successfully",
     "SEND": "Booking details has been send to ",
     "FROM": "From",
-    "REF": "Booking REF "
+    "REF": "Booking REF ",
+    "TIMBRE_FISCAL": "Tax Stamp",
+    "FRAIS_DOSSIER": "Costs of file",
+    "REMISE_INTERNET": "Discount internet"
 
   }
 }

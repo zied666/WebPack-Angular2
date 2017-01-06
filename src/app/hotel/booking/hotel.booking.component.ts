@@ -6,10 +6,9 @@ import {LoadingService} from "../../shared/services/loading.service";
 import {Hotel} from "../object/hotel";
 import {Search} from "../object/search";
 import {Config} from "../../shared/config/config";
-import {LoginService} from "../../login/login.service";
 import {Router} from "@angular/router";
 import {User} from "../../login/user";
-import {LocalStorageService} from "../../shared/services/localStorage.service";
+import {LoginService} from "../../shared/services/login.service";
 
 @Component({
     templateUrl: './hotel.booking.html',

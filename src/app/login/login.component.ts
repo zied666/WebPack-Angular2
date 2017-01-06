@@ -1,11 +1,11 @@
 import {Component, OnInit, animate, transition, trigger, state, style, ViewChild,}      from '@angular/core';
-import {LoginService} from "./login.service";
 import {Router} from "@angular/router";
 import {LocalStorageService} from "../shared/services/localStorage.service";
 import {ReCaptchaComponent} from "angular2-recaptcha/lib/captcha.component";
 import {Title} from "@angular/platform-browser";
 import {LoadingService} from "../shared/services/loading.service";
 import {Config} from "../shared/config/config";
+import {LoginService} from "../shared/services/login.service";
 
 @Component({
     templateUrl: './login.html',

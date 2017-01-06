@@ -6,7 +6,7 @@ import {SearchService} from "../../shared/services/search.service";
 import {Title} from "@angular/platform-browser";
 import {LoadingService} from "../../shared/services/loading.service";
 import {Router} from "@angular/router";
-import {LoginService} from "../../login/login.service";
+import {LoginService} from "../../shared/services/login.service";
 
 @Component({
     templateUrl: './hotel.list.html',
@@ -27,6 +27,7 @@ export class HotelListComponent implements OnInit {
 
 
     ngOnInit() {
+        console.log(this.loginService.logedUser);
         if(this.loginService.logedUser== null)
             this.router.navigateByUrl('login');
         this.searchService.resetOffset();

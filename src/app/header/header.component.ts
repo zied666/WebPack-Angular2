@@ -1,10 +1,10 @@
 import {Component, OnInit, transition} from '@angular/core';
-import {LoginService} from "../login/login.service";
 import {Router} from "@angular/router";
 import {TranslateService} from "ng2-translate";
 import {LocalStorageService} from "../shared/services/localStorage.service";
 import {Config} from "../shared/config/config";
 import {DeviseService} from "../shared/services/devise.service";
+import {LoginService} from "../shared/services/login.service";
 
 @Component({
     selector: 'my-header',

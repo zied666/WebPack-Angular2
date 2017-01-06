@@ -52,9 +52,14 @@
                 <div class="row">
                     <div class="col-xs-9">
                         <h5><i class="fa fa-building"></i> {{ booking.hotel.libelle }}</h5>
-                        <p>
-                            <small>{{ 'BOOKING.FROM'|translate }} {{ booking.date_debut| date: 'dd/MM/yyyy' }}, {{ 'BOOKING.BOOKING_FOR'|translate }} {{ booking.nuitees }} {{ 'HOTELS.NIGHTS'|translate }}
-                            </small>
+                        <p *ngIf="booking.timbre>0">
+                            <small> + {{ "BOOKING.TIMBRE_FISCAL"|translate }} : {{ booking.timbre|devise }}</small>
+                        </p>
+                        <p *ngIf="booking.frais_dossier>0">
+                            <small> + {{ "BOOKING.FRAIS_DOSSIER"|translate }} : {{ booking.frais_dossier|devise }}</small>
+                        </p>
+                        <p *ngIf="booking.remise_internet>0">
+                            <small> - {{ "BOOKING.REMISE_INTERNET"|translate }} : {{ booking.remise_internet|devise }}</small>
                         </p>
                     </div>
                     <div class="col-xs-3">

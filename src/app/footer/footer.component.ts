@@ -1,4 +1,5 @@
-import {Component, OnInit, transition} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {LoginService} from "../shared/services/login.service";
 
 @Component({
     selector: 'my-footer',
@@ -7,7 +8,11 @@ import {Component, OnInit, transition} from '@angular/core';
 export class FooterComponent implements OnInit {
 
 
+    constructor(private loginService: LoginService) {
+    }
+
     ngOnInit() {
+
 
     }
 

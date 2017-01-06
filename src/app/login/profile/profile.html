@@ -1,5 +1,6 @@
 <h1>{{"PROFILE.TITLE"|translate}}</h1>
 <alert class="success" [view]="success" text="PROFILE.VALID_FORM"></alert>
+<alert class="danger" [view]="error" text="PROFILE.INVALID_PROFILE"></alert>
 <form *ngIf="logedUser!=null" (ngSubmit)="update()" #profileForm="ngForm">
     <div class="form-group">
         <label>{{ 'PROFILE.NOM'|translate }}</label>
@@ -27,7 +28,8 @@
         <div [hidden]="tel.valid || tel.pristine" class="alert alert-danger">{{ 'PROFILE.PHONE_REQUIRED'|translate }}
         </div>
     </div>
-    <button type="submit" class="btn btn-default" [disabled]="!profileForm.form.valid">{{ 'PROFILE.UPDATE'|translate
-        }}
+    <button type="submit" class="btn btn-primary" [disabled]="!profileForm.form.valid  || loading">
+        <span *ngIf="loading">{{"PROFILE.LOADING"|translate}} ...</span>
+        <span *ngIf="!loading">{{"PROFILE.UPDATE"|translate}}</span>
     </button>
 </form>
