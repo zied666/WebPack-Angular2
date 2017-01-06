@@ -14,6 +14,7 @@ import {Config} from "../../../shared/config/config";
 
 export class HotelListSingleComponent implements OnInit {
     @Input() hotel: Hotel;
+    @Input() booking: boolean;
     private pathPhoto:string;
 
     ngOnInit() {

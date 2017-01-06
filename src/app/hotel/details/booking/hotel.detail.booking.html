@@ -1,6 +1,8 @@
 <div class="col-md-12">
     <hotel-list-search [allDetails]="false" (sendSearch)="updateSearch($event)"></hotel-list-search>
-    <list-single-hotel *ngIf="!loading && hotel" [hotel]="hotel"></list-single-hotel>
+    <ul class="booking-list" *ngIf="!loading && hotel">
+        <list-single-hotel [hotel]="hotel" [booking]="true"></list-single-hotel>
+    </ul>
     <loading *ngIf="loading"></loading>
     <alert class="danger" [view]="!hotel && !loading" text="HOTELS.ROOMS_NO_AVAILABLE"></alert>
 </div>

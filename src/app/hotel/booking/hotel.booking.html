@@ -1,153 +1,116 @@
 <loading *ngIf="loading"></loading>
 <div class="row" *ngIf="!loading">
-    <div class="col-md-8">
-        <h2>Form Validation</h2>
+    <div class="col-md-8" *ngIf="!booking">
+        <h2>{{ 'BOOKING.VALIDATION'|translate }}</h2>
         <hr>
-        <form action="">
-            <div class="form-group row">
-                <label for="example-text-input" class="col-xs-2 col-form-label">Text</label>
-                <div class="col-xs-10">
-                    <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
+        <alert class="success" [view]="success" text="BOOKING.SUCCESS"></alert>
+        <form (ngSubmit)="update()" #profileForm="ngForm">
+            <div class="form-group">
+                <label>{{ 'PROFILE.NOM'|translate }}</label>
+                <input type="text" [(ngModel)]="logedUser.nom" required name="nom" class="form-control" #nom="ngModel">
+                <div [hidden]="nom.valid || nom.pristine" class="alert alert-danger">{{ 'PROFILE.NOM_REQUIRED'|translate
+                    }}
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="example-search-input" class="col-xs-2 col-form-label">Search</label>
-                <div class="col-xs-10">
-                    <input class="form-control" type="search" value="How do I shoot web" id="example-search-input">
+            <div class="form-group">
+                <label>{{ 'PROFILE.PRENOM'|translate }}</label>
+                <input type="text" [(ngModel)]="logedUser.prenom" required name="prenom" class="form-control"
+                       #prenom="ngModel">
+                <div [hidden]="prenom.valid || prenom.pristine" class="alert alert-danger">{{
+                    'PROFILE.PRENOM_REQUIRED'|translate }}
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="example-email-input" class="col-xs-2 col-form-label">Email</label>
-                <div class="col-xs-10">
-                    <input class="form-control" type="email" value="bootstrap@example.com" id="example-email-input">
+            <div class="form-group">
+                <label>{{ 'PROFILE.EMAIL'|translate }}</label>
+                <input type="email" [(ngModel)]="logedUser.email" required name="email" class="form-control"
+                       #email="ngModel">
+                <div [hidden]="email.valid || email.pristine" class="alert alert-danger"> {{
+                    'PROFILE.EMAIL_REQUIRED'|translate }}
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="example-url-input" class="col-xs-2 col-form-label">URL</label>
-                <div class="col-xs-10">
-                    <input class="form-control" type="url" value="https://getbootstrap.com" id="example-url-input">
+            <div class="form-group">
+                <label>{{ 'PROFILE.PHONE'|translate }}</label>
+                <input type="text" [(ngModel)]="logedUser.tel" required name="tel" class="form-control" #tel="ngModel">
+                <div [hidden]="tel.valid || tel.pristine" class="alert alert-danger">{{
+                    'PROFILE.PHONE_REQUIRED'|translate }}
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="example-tel-input" class="col-xs-2 col-form-label">Telephone</label>
-                <div class="col-xs-10">
-                    <input class="form-control" type="tel" value="1-(555)-555-5555" id="example-tel-input">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="example-password-input" class="col-xs-2 col-form-label">Password</label>
-                <div class="col-xs-10">
-                    <input class="form-control" type="password" value="hunter2" id="example-password-input">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="example-number-input" class="col-xs-2 col-form-label">Number</label>
-                <div class="col-xs-10">
-                    <input class="form-control" type="number" value="42" id="example-number-input">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="example-datetime-local-input" class="col-xs-2 col-form-label">Date and time</label>
-                <div class="col-xs-10">
-                    <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="example-date-input" class="col-xs-2 col-form-label">Date</label>
-                <div class="col-xs-10">
-                    <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="example-month-input" class="col-xs-2 col-form-label">Month</label>
-                <div class="col-xs-10">
-                    <input class="form-control" type="month" value="2011-08" id="example-month-input">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="example-week-input" class="col-xs-2 col-form-label">Week</label>
-                <div class="col-xs-10">
-                    <input class="form-control" type="week" value="2011-W33" id="example-week-input">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="example-time-input" class="col-xs-2 col-form-label">Time</label>
-                <div class="col-xs-10">
-                    <input class="form-control" type="time" value="13:45:00" id="example-time-input">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="example-color-input" class="col-xs-2 col-form-label">Color</label>
-                <div class="col-xs-10">
-                    <input class="form-control" type="color" value="#563d7c" id="example-color-input">
-                </div>
-            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!profileForm.form.valid ||loadingBooking">
+                <span *ngIf="loadingBooking">{{"PROFILE.LOADING"|translate}} ...</span>
+                <span *ngIf="!loadingBooking">{{ 'BOOKING.BOOKING_NOW'|translate }}</span>
+            </button>
         </form>
     </div>
+    <div class="col-md-8" *ngIf="booking">
+        <h2>{{ 'BOOKING.REF'|translate }} #{{booking.id}}</h2>
+        <hr>
+        <i class="fa fa-check round box-icon-large box-icon-center box-icon-success mb30"></i>
+        <h2 class="text-center">{{ 'BOOKING.SUCCESS'|translate }}</h2>
+        <h5 class="text-center mb30">{{ 'BOOKING.SEND'|translate }} {{ booking.client_array.email }}</h5>
+        <ul class="order-payment-list list mb30">
+            <li>
+                <div class="row">
+                    <div class="col-xs-9">
+                        <h5><i class="fa fa-building"></i> {{ booking.hotel.libelle }}</h5>
+                        <p>
+                            <small>{{ 'BOOKING.FROM'|translate }} {{ booking.date_debut| date: 'dd/MM/yyyy' }}, {{ 'BOOKING.BOOKING_FOR'|translate }} {{ booking.nuitees }} {{ 'HOTELS.NIGHTS'|translate }}
+                            </small>
+                        </p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p class="text-right"><span class="text-lg">{{ booking.account|devise }}</span>
+                        </p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
     <div class="col-md-4">
-        <h2>Booking Details</h2>
+        <h2>{{ 'BOOKING.DETAILS'|translate }}</h2>
         <hr>
         <div class="booking-item-payment">
             <header class="clearfix">
-                <a class="booking-item-payment-img" href="#">
-                    <img *ngIf=" hotel.photo" [src]="pathPhoto+hotel.photo" alt="{{ hotel.details.libelle }}" width="98px" height="74px">
-                    <img *ngIf="!hotel.photo" src="http://www.pestworld.org/media/1030/300x200.gif" alt="{{ hotel.details.libelle }}" width="98px" height="74px">
+                <a class="booking-item-payment-img" href="javascript:void(0)">
+                    <img *ngIf=" hotel.photo" [src]="pathPhoto+hotel.photo" alt="{{ hotel.details.libelle }}"
+                         width="98px" height="74px">
+                    <img *ngIf="!hotel.photo" src="http://www.pestworld.org/media/1030/300x200.gif"
+                         alt="{{ hotel.details.libelle }}" width="98px" height="74px">
                 </a>
                 <h5 class="booking-item-payment-title"><a href="#">{{ hotel.details.libelle }}</a></h5>
                 <span [innerHTML]="hotel.details.categorie.nombre_etoiles|stars"></span>
             </header>
             <ul class="booking-item-payment-details">
                 <li>
-                    <h5>Booking for {{ search.nuitees }} night(s) {{arrangement}}</h5>
+                    <h5>{{ 'BOOKING.BOOKING_FOR'|translate }} {{ search.nuitees }} {{ 'HOTELS.NIGHTS'|translate }}  {{arrangement}}</h5>
                     <div class="booking-item-payment-date">
                         <p class="booking-item-payment-date-day">{{ search.checkIn|date }}</p>
-                    </div><i class="fa fa-arrow-right booking-item-payment-date-separator"></i>
+                    </div>
+                    <i class="fa fa-arrow-right booking-item-payment-date-separator"></i>
                     <div class="booking-item-payment-date">
                         <p class="booking-item-payment-date-day">{{ search.checkIn|addDate:search.nuitees|date }}</p>
                     </div>
                 </li>
                 <li>
-                    <h5>Room</h5>
+                    <h5>{{ 'HOTELS.ROOMS'|translate }}</h5>
                     <div *ngFor="let room of rooms">
                         <hr>
                         <p class="booking-item-payment-item-title">{{room[3].libelle}}</p>
                         <ul class="booking-item-payment-price">
                             <li>
-                                <p class="booking-item-payment-price-title">Adult(s)</p>
-                                <p class="booking-item-payment-price-amount">{{room[1]}}
-                                </p>
+                                <p class="booking-item-payment-price-title">{{ 'HOTELS.ADULTS'|translate }}</p>
+                                <p class="booking-item-payment-price-amount">{{room[1]}} </p>
                             </li>
                             <li>
-                                <p class="booking-item-payment-price-title">Child</p>
-                                <p class="booking-item-payment-price-amount">{{room[2]}}
-                                </p>
+                                <p class="booking-item-payment-price-title">{{ 'HOTELS.CHILDS'|translate }}</p>
+                                <p class="booking-item-payment-price-amount">{{room[2]}} </p>
                             </li>
                         </ul>
                     </div>
                 </li>
             </ul>
-            <p class="booking-item-payment-total">Total trip: <span>{{ total|devise }}</span>
+            <p class="booking-item-payment-total">Total : <span>{{ total|devise }}</span>
             </p>
         </div>
     </div>
-
-    <!--<div class="col-md-4">
-        <h2>Booking Details</h2>
-        <hr>
-        <div class="thumbnail">
-            <img *ngIf=" hotel.photo" [src]="pathPhoto+hotel.photo" alt="{{ hotel.details.libelle }}" width="200px" height="300px" class="img-thumbnail img-responsive">
-            <img *ngIf="!hotel.photo" src="http://www.pestworld.org/media/1030/300x200.gif" alt="{{ hotel.details.libelle }}" width="200px" height="300px" class="img-thumbnail img-responsive">
-            <div class="caption">
-                <h3>{{ hotel.details.libelle }}</h3>
-                <dl class="dl-horizontal">
-                    <dt>CheckIN : </dt><dd>{{ search.checkIn }}</dd>
-                    <dt>Nights :</dt><dd>{{ search.nuitees }}</dd>
-                    <dt>Rooms : </dt><dd>{{ search.activeRooms.length }}</dd>
-                    <hr>
-                    <hr>
-                    <dt>Total : </dt><dd>{{ total|devise }}</dd>
-                </dl>
-            </div>
-        </div>
-    </div>-->
 </div>

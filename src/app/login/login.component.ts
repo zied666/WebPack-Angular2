@@ -5,6 +5,7 @@ import {LocalStorageService} from "../shared/services/localStorage.service";
 import {ReCaptchaComponent} from "angular2-recaptcha/lib/captcha.component";
 import {Title} from "@angular/platform-browser";
 import {LoadingService} from "../shared/services/loading.service";
+import {Config} from "../shared/config/config";
 
 @Component({
     templateUrl: './login.html',
@@ -26,6 +27,7 @@ export class LoginComponent implements OnInit {
     loading: boolean;
     error: boolean;
     captchaError: boolean;
+    config= Config;
 
     constructor(private loginService: LoginService, private router: Router, private  titleService: Title,private loadingService : LoadingService) {
         this.titleService.setTitle("Login");

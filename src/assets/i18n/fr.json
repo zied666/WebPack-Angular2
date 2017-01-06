@@ -6,6 +6,9 @@
     "LOGOUT": "Déconnexion",
     "HI": "Bonjour"
   },
+  "LOGIN":{
+    "WELOME":"Bienvenu dans"
+  },
   "HOME": {
     "TITLE": "Accueil"
   },
@@ -33,7 +36,10 @@
     "NIGHTS": "Nuitées",
     "CLEAR": "Effacer",
     "BOOKING": "Réserver Maintenant",
-    "BOOKING_VALIDATE": "Valider la réservation"
+    "BOOKING_VALIDATE": "Valider la réservation",
+    "MAP": "Sur la carte",
+    "ABOUT_HOTEL": "A propos l'hotel",
+    "AVAILABLE_ROOMS": "Chambres disponibles"
   },
   "PROFILE": {
     "TITLE": "Mon Profile",
@@ -57,6 +63,14 @@
     "PRENOM_REQUIRED": "Prénom obligatoire "
   },
   "BOOKING": {
-    "TITLE": "Validation"
+    "TITLE": "Validation",
+    "VALIDATION": "Formulaire de validation",
+    "DETAILS": "Réservation",
+    "BOOKING_FOR": "Réservation pour",
+    "BOOKING_NOW": "Réservation Maintenant",
+    "SUCCESS": "Votre réservation a été enregistré avec succées",
+    "SEND": "Les détails de réservation ont été envoyés à ",
+    "FROM": "Du",
+    "REF": "Réservation REF "
   }
 }

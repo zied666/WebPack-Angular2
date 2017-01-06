@@ -1,20 +1,24 @@
-<div class="thumbnail animated" [@myAnimation]="true" style="background-color: beige;">
-    <div class="caption">
-        <div class="row">
-            <div class="col-md-10">
-                <h4 style="color: black;font-weight: bolder;">
-                    {{hotel.details.libelle}}
-                    <small>({{hotel.saison}})</small>
-                    <span style="float: right"><small>{{hotel.details.ville.libelle }} - {{hotel.details.categorie.libelle }}</small></span>
-                </h4>
-                <div [innerHTML]="hotel.details.description_courte"></div>
+<li class="mb30">
+    <a class="booking-item" href="javascript:void(0)">
+        <div class="row" *ngIf="!booking">
+            <div class="col-md-2">
+                <div class="booking-item-img-wrap">
+                    <img *ngIf=" hotel.photo" [src]="pathPhoto+hotel.photo" alt="{{ hotel.details.libelle }}">
+                    <img *ngIf="!hotel.photo" src="assets/template/img/800x600.png" alt="{{ hotel.details.libelle }}" >
+                </div>
             </div>
-            <div class="col-md-2" style="    margin-top: 30px;">
-                <img *ngIf=" hotel.photo" [src]="pathPhoto+hotel.photo" alt="{{ hotel.details.libelle }}" width="200px" height="300px" class="img-thumbnail img-responsive">
-                <img *ngIf="!hotel.photo" src="http://www.pestworld.org/media/1030/300x200.gif" alt="{{ hotel.details.libelle }}" width="200px" height="300px" class="img-thumbnail img-responsive">
+            <div class="col-md-3">
+                <div class="booking-item-rating">
+                    <span [innerHTML]="hotel.details.categorie.nombre_etoiles|stars"></span>
+                </div>
+                <h5 class="booking-item-title">{{hotel.details.libelle}}</h5>
+                <p class="booking-item-address"><i class="fa fa-map-marker"></i> {{hotel.details.ville.libelle }}, {{hotel.details.ville.pays.libelle }}</p>
             </div>
+            <div class="col-md-7">
+                <p [innerHTML]="hotel.details.description_courte"></p>
+            </div>
+            <div class="col-md-12"><hr></div>
         </div>
-        <hr style="border: 1px solid gray;">
         <list-single-hotel-price [arrangements]="hotel.prices.arrangements" [id]="hotel.details.id"></list-single-hotel-price>
-    </div>
-</div>
+    </a>
+</li>

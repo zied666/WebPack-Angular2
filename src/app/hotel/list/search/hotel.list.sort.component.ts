@@ -1,9 +1,7 @@
-import {Component, OnInit, Input, Output, EventEmitter}   from '@angular/core';
+import {Component, Input, Output, EventEmitter}   from '@angular/core';
 import {Search} from "../../object/search";
-import {Room} from "../../object/room";
 import {SearchService} from "../../../shared/services/search.service";
 
-/*<p><small>521 hotels found in New York. &nbsp;&nbsp;Showing 1 – 15</small></p>*/
 @Component({
     selector: 'hotel-list-sort',
     template: `
@@ -71,6 +69,7 @@ export class HotelListSortComponent {
         }
         else
             this.search.orderBy = lib;
+        this.searchService.setSearch(this.search);
         this.sendSearch.emit(false);
     }
 

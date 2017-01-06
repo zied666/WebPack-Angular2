@@ -3,10 +3,11 @@
 <alert class="danger" [view]="captchaError" text="PROFILE.INVALID_CAPTCHA"></alert>
 <div class="row" data-gutter="60">
     <div class="col-md-4">
-        <h3>Welcome to Traveler</h3>
+        <h3>{{ "LOGIN.WELOME"|translate }} {{config.AGENCE}}</h3>
         <p>Euismod nunc porta magna elementum penatibus amet gravida sit ligula odio id nunc proin sem augue quis
-            posuere interdum in sapien congue rutrum scelerisque sociosqu cubilia ridiculus et luctus mollis</p>
-        <p>Praesent est semper massa lobortis quisque lectus ridiculus hac eget</p>
+            posuere interdum in sapien congue rutrum scelerisque sociosqu cubilia ridiculus et luctus mollis
+            Praesent est semper massa lobortis quisque lectus ridiculus hac eget
+        </p>
     </div>
     <div class="col-md-4">
         <h3>{{"MENU.LOGIN"|translate}}</h3>
@@ -20,8 +21,7 @@
             </div>
             <div class="form-group form-group-icon-left"><i class="fa fa-lock input-icon input-icon-show"></i>
                 <label>{{"PROFILE.PASSWORD"|translate}}</label>
-                <input type="password" [(ngModel)]="password" required name="password" class="form-control"
-                       #pwd="ngModel">
+                <input type="password" [(ngModel)]="password" required name="password" class="form-control"  #pwd="ngModel">
                 <div [@errorMessage]="pwd.valid || pwd.pristine" class="text-danger">
                     {{"PROFILE.PASSWORD_REQUIRED"|translate}}
                 </div>

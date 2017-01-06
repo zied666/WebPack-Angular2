@@ -14,6 +14,21 @@ export class HotelService {
     constructor(private http: Http, private searchService: SearchService, private loginService: LoginService) {
     }
 
+    booking(idHotel: number,typeChambres:string): Observable<any> {
+        let params = new URLSearchParams();
+        if (this.loginService.logedUser != null)
+            params.set('idClient', this.loginService.logedUser.id.toString());
+        params.set('rooms', this.searchService.getSearch().rooms);
+        params.set('nuitees', this.searchService.getSearch().nuitees.toString());
+        params.set('checkIn', this.searchService.getSearch().checkIn);
+        params.set('arrangement', this.searchService.getSearch().idArrangement.toString());
+        params.set('typeChambres', typeChambres);
+        params.set('idHotel', idHotel.toString());
+        return this.http.get(Config.API_ROUTES.ostravel + "api/booking", {search: params})
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
     getHotels(): Observable<Hotel[]> {
         let params = new URLSearchParams();
         if (this.loginService.logedUser != null)
