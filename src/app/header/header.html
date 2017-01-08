@@ -7,7 +7,7 @@
                         <img src="{{ loginService.getPhoto() }}" alt="Login" title="Login" width="110px" height="40px" />
                     </a>
                 </div>
-                <div class="col-md-3 col-md-offset-2">
+                <div class="col-md-3 col-md-offset-1">
                     <!--<form class="main-header-search">
                         <div class="form-group form-group-icon-left">
                             <i class="fa fa-search input-icon"></i>
@@ -15,23 +15,33 @@
                         </div>
                     </form>-->
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-5">
                     <div class="top-user-area clearfix">
                         <ul class="top-user-area-list list list-horizontal list-border">
                             <li *ngIf="loginService.logedUser == null" [ngClass]="{active: router.url=='/login'}">
                                 <a routerLink="login" routerLinkActive="active">{{"MENU.LOGIN"|translate}}</a>
                             </li>
-                            <li *ngIf="loginService.logedUser != null" [ngClass]="{active: router.url=='/profile'}">
-                                <a routerLink="profile" routerLinkActive="active">{{"MENU.HI"|translate}} {{loginService.logedUser.nom}} {{loginService.logedUser.prenom}}</a>
+                            <li *ngIf="loginService.logedUser != null" >
+                                <a href="javascript:void(0)" id="drop8" data-toggle="dropdown" class="dropdown-toggle">{{"MENU.HI"|translate}} {{loginService.logedUser.nom}} {{loginService.logedUser.prenom}} <span class="caret"></span></a>
+                                <ul  class="dropdown-menu">
+                                    <li [ngClass]="{active: router.url=='/profile'}">
+                                        <a routerLink="profile" >{{ "PROFILE.TITLE"|translate }}</a>
+                                    </li>
+                                    <li [ngClass]="{active: router.url=='/password'}">
+                                        <a routerLink="password" >{{ "PASSWORD.TITLE"|translate }}</a>
+                                    </li>
+                                </ul>
                             </li>
                             <li *ngIf="loginService.logedUser != null">
                                 <a href="javascript:void(0)" (click)="logout()">{{"MENU.LOGOUT"|translate}}</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)" id="drop6" data-toggle="dropdown" class="dropdown-toggle">{{translate.currentLang.toUpperCase()}}<span class="caret"></span></a>
+                                <a href="javascript:void(0)" id="drop6" data-toggle="dropdown" class="dropdown-toggle"><img src="assets/template/img/flags/32/{{translate.currentLang}}.png" style="width: 20px;height: 20px"> {{translate.currentLang.toUpperCase()}}<span class="caret"></span></a>
                                 <ul  class="dropdown-menu">
                                     <li *ngFor="let lang of translate.getLangs()" [ngClass]="{'active': translate.currentLang==lang}">
-                                        <a href="javascript:void(0)" (click)="changeTranlsation(lang)" >{{lang.toUpperCase()}}</a>
+                                        <a href="javascript:void(0)" (click)="changeTranlsation(lang)" >
+                                            <img src="assets/template/img/flags/32/{{lang}}.png" style="width: 20px;height: 20px"> {{lang.toUpperCase()}}
+                                        </a>
                                     </li>
                                 </ul>
                             </li>
@@ -44,6 +54,9 @@
                                         <a href="javascript:void(0)" (click)="changeDevise(devise)"  >{{devise.code }}</a>
                                     </li>
                                 </ul>
+                            </li>
+                            <li [ngClass]="{active: router.url=='/contact'}">
+                                <a routerLink="contact">{{ 'CONTACT.TITLE'|translate }}</a>
                             </li>
                         </ul>
                     </div>

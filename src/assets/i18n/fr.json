@@ -7,7 +7,12 @@
     "HI": "Bonjour"
   },
   "LOGIN":{
-    "WELOME":"Bienvenu dans"
+    "WELOME":"Bienvenu dans",
+    "FULL_NAME":"Nom",
+    "REQUEST_REGISTER":"Demande d'inscription",
+    "REQUEST_SUCCESS":"Votre demande  a été envoyé avec succées",
+    "REQUIRED": "Champ est obligatoire",
+    "SEND": "Envoyer"
   },
   "HOME": {
     "TITLE": "Accueil"
@@ -76,5 +81,20 @@
     "TIMBRE_FISCAL": "Timbre Fiscal",
     "FRAIS_DOSSIER": "Frais Dossier",
     "REMISE_INTERNET": "Remise Internet"
+  },
+  "PASSWORD": {
+    "TITLE": "Modification mot de passe",
+    "CURRENET_PASSWORD": "Ancien mot de passe",
+    "NEW_PASSWORD": "Nouveau mot de passe",
+    "CONFIRMATION_PASSWORD": "Confirmation",
+    "ERROR1": "Les deux mots de passe ne sont pas identique",
+    "ERROR2": "Ancien mot de passe est incorrecte",
+    "PASSWORD_REQUIRED": "Mot de passe erroné",
+    "SUCCESS": "Votre mot de passe a été modifié avec succès",
+    "EDIT": "Modification"
+  },
+  "CONTACT":{
+    "TITLE": "Contactez-nous",
+    "ADDRESS":"Adresse"
   }
 }

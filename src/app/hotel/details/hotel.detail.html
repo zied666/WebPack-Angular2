@@ -6,7 +6,7 @@
             <div class="tabbable booking-details-tabbable">
                 <ul class="nav nav-tabs" id="myTab">
                     <li class="active"><a href="#tab-1" data-toggle="tab"><i class="fa fa-camera"></i>Photos</a></li>
-                    <li><a href="#google-map-tab" (click)="gmaps=true" data-toggle="tab"><i class="fa fa-map-marker"></i>{{ 'HOTELS.MAP'|translate }}</a></li>
+                    <li *ngIf="hotel.longitude && hotel.latitude"><a href="#google-map-tab" (click)="gmaps=true" data-toggle="tab"><i class="fa fa-map-marker"></i>{{ 'HOTELS.MAP'|translate }}</a></li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane fade in active" id="tab-1">

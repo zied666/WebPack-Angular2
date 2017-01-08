@@ -1,4 +1,4 @@
-import {Component, OnInit}   from '@angular/core';
+import {Component, OnInit, trigger, state, transition, style, animate}   from '@angular/core';
 import {HotelService} from "../../shared/services/hotel.service";
 import {SearchService} from "../../shared/services/search.service";
 import {Title} from "@angular/platform-browser";
@@ -12,6 +12,13 @@ import {LoginService} from "../../shared/services/login.service";
 
 @Component({
     templateUrl: './hotel.booking.html',
+    animations: [
+        trigger('errorMessage', [
+            state("true", style({opacity: 0, display: "none"})),
+            state("false", style({opacity: 1, display: "block"})),
+            transition('1 => 0', animate('.5s'))
+        ])
+    ]
 })
 
 export class HotelBookingComponent implements OnInit {

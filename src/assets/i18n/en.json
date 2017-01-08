@@ -7,7 +7,12 @@
     "HI": "Hi"
   },
   "LOGIN":{
-    "WELOME":"Welcome to"
+    "WELOME":"Welcome to",
+    "FULL_NAME":"Full Name",
+    "REQUEST_REGISTER":"Subscription request",
+    "REQUEST_SUCCESS":"Your Subscription request has been sended successfully",
+    "REQUIRED": "Required input",
+    "SEND": "Send"
   },
   "HOME": {
     "TITLE": "Homepage"
@@ -76,6 +81,18 @@
     "TIMBRE_FISCAL": "Tax Stamp",
     "FRAIS_DOSSIER": "Costs of file",
     "REMISE_INTERNET": "Discount internet"
-
+  },
+  "PASSWORD": {
+    "TITLE": "Edit Password",
+    "CURRENET_PASSWORD": "Old Password",
+    "NEW_PASSWORD": "New Password",
+    "CONFIRMATION_PASSWORD": "Confirmation",
+    "ERROR1": "The two passwords are not identical",
+    "ERROR2": "Old password is incorrect",
+    "SUCCESS": "Your password has been changed successfully"
+  },
+  "CONTACT":{
+    "TITLE": "Contact us",
+    "ADDRESS":"Address"
   }
 }

@@ -27,7 +27,6 @@ export class HotelListComponent implements OnInit {
 
 
     ngOnInit() {
-        console.log(this.loginService.logedUser);
         if(this.loginService.logedUser== null)
             this.router.navigateByUrl('login');
         this.searchService.resetOffset();

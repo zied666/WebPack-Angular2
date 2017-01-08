@@ -10,12 +10,12 @@ import {AppState, InternalStateType} from './app.service';
 import {HeaderComponent} from "./header";
 import {HomepageComponent} from "./homepage";
 import {HotelModule} from "./hotel";
-import {LoginModule} from "./login";
 import {CoreModule} from "./core";
 import {AppRoutingModule} from './app-routing.module';
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 import {SharedModule} from "./shared";
 import {FooterComponent} from "./footer/footer.component";
+import {LoginModule} from "./login/index";
 
 // Application wide providers
 const APP_PROVIDERS = [

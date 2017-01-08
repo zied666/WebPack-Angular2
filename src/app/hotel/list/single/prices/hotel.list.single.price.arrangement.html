@@ -1,28 +1,28 @@
 <div class="row" style="margin: 15px;">
     <div class="row">
-        <div class="col-md-10">
-            <div class="row">
-                <div class="col-md-2" *ngFor="let room of arrangement.rooms;let i = index">
-                    <h5 style="text-align: center;">
-                        [ <span [innerHTML]="room.occupationAdulte|persons"></span>
-                        <span [innerHTML]="room.occupationEnfant|persons" style="font-size: 8px"></span> ]
-                    </h5>
-                    <div class="list-group">
-                        <span class="label label-danger" *ngIf="room.chambres.length==0">{{ "HOTELS.ROOMS_NO_AVAILABLE"|translate }}</span>
-                        <a href="javascript:void(0)" *ngFor="let chambre of room.chambres;let j = index" [ngClass]="{active: activeRooms[i]==j}" (click)="updateActiveRooms(i,j)"  class="list-group-item" style="font-size: 11px;">
-                            {{chambre.libelle}}
-                        </a>
-                    </div>
-                </div>
+        <div class="col-md-2" *ngFor="let room of arrangement.rooms;let i = index">
+            <h5 style="text-align: center;">
+                [ <span [innerHTML]="room.occupationAdulte|persons"></span> <span [innerHTML]="room.occupationEnfant|persons" style="font-size: 8px"></span> ]
+            </h5>
+            <div class="list-group">
+                <span class="label label-danger" *ngIf="room.chambres.length==0">{{ "HOTELS.ROOMS_NO_AVAILABLE"|translate }}</span>
+                <a href="javascript:void(0)" *ngFor="let chambre of room.chambres;let j = index"
+                   [ngClass]="{active: activeRooms[i]==j}" (click)="updateActiveRooms(i,j)"
+                   class="list-group-item small" style="font-size: 11px;">
+                    {{chambre.libelle}}
+                </a>
             </div>
         </div>
-        <div class="col-md-2">
+
+        <div class="col-md-2 col-md-offset-{{ 10-arrangement.rooms.length*2 }}">
             <h4>{{total|devise}}</h4>
             <h5> {{arrangement.libelle}}</h5>
-            <a (click)="goPageDetails()" *ngIf="total != 0 && !isPageDetails" type="button" class="btn btn-block btn-primary btn-sm">
+            <a (click)="goPageDetails()" *ngIf="total != 0 && !isPageDetails" type="button"
+               class="btn btn-block btn-primary btn-sm">
                 {{"HOTELS.BOOKING"|translate}}
             </a>
-            <a (click)="goValidatePage()" *ngIf="total != 0 && isPageDetails" type="button" class="btn btn-block btn-success btn-sm">
+            <a (click)="goValidatePage()" *ngIf="total != 0 && isPageDetails" type="button"
+               class="btn btn-block btn-success btn-sm">
                 {{"HOTELS.BOOKING_VALIDATE"|translate}}
             </a>
         </div>

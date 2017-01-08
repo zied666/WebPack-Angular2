@@ -1,0 +1,48 @@
+<div class="container">
+    <h1 class="page-title">{{ 'CONTACT.TITLE'|translate }}</h1>
+</div>
+<div class="container">
+    <div class="gap"></div>
+    <div class="row">
+        <div class="col-md-7">
+            <form>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>{{ 'LOGIN.FULL_NAME'|translate }}</label>
+                            <input class="form-control" type="text" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>{{ 'PROFILE.EMAIL'|translate }}</label>
+                            <input class="form-control" type="text" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea class="form-control"></textarea>
+                </div>
+                <input class="btn btn-primary" type="submit" value="{{ 'LOGIN.SEND'|translate }}" />
+            </form>
+        </div>
+        <div class="col-md-4">
+            <aside class="sidebar-right">
+                <ul class="address-list list">
+                    <li>
+                        <h5>{{ 'PROFILE.EMAIL'|translate }}</h5><a href="#">{{config.EMAIL}}</a>
+                    </li>
+                    <li>
+                        <h5>{{ 'PROFILE.PHONE'|translate }}</h5><a href="#">{{config.TEL}}</a>
+                    </li>
+                    <li>
+                        <h5>{{ 'CONTACT.ADDRESS'|translate }}</h5><address>{{config.ADRESSE}}</address>
+                    </li>
+                </ul>
+            </aside>
+        </div>
+    </div>
+    <div class="gap"></div>
+</div>
+
