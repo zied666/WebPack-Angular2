@@ -1,37 +1,67 @@
-<h1 class="page-title">{{"MENU.LOGIN"|translate}}</h1>
-<alert class="danger" [view]="error" text="PROFILE.INVALID_FORM"></alert>
-<div class="row" data-gutter="60">
-    <div class="col-md-4">
-        <h3>{{ "LOGIN.WELOME"|translate }} {{config.AGENCE}}</h3>
-        <hr>
-        <p>Euismod nunc porta magna elementum penatibus amet gravida sit ligula odio id nunc proin sem augue quis
-            posuere interdum in sapien congue rutrum scelerisque sociosqu cubilia ridiculus et luctus mollis
-            Praesent est semper massa lobortis quisque lectus ridiculus hac eget
-        </p>
-    </div>
-    <div class="col-md-4">
-        <h3>{{"MENU.LOGIN"|translate}}</h3>
-        <hr>
-        <form [hidden]="confirmed" (ngSubmit)="onSubmit()" #loginForm="ngForm">
-            <div class="form-group form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
-                <label>{{"PROFILE.EMAIL_LOGIN"|translate}}</label>
-                <input type="text" [(ngModel)]="login" required name="login" class="form-control" #email="ngModel">
-                <div [@errorMessage]="email.valid || email.pristine" class="text-danger"> {{"PROFILE.EMAIL_REQUIRED"|translate}}</div>
-            </div>
-            <div class="form-group form-group-icon-left"><i class="fa fa-lock input-icon input-icon-show"></i>
-                <label>{{"PROFILE.PASSWORD"|translate}}</label>
-                <input type="password" [(ngModel)]="password" required name="password" class="form-control"  #pwd="ngModel">
-                <div [@errorMessage]="pwd.valid || pwd.pristine" class="text-danger">
-                    {{"PROFILE.PASSWORD_REQUIRED"|translate}}
+<div class="full-page">
+    <div class="bg-holder full">
+        <div class="bg-mask"></div>
+        <div class="bg-img" style="background-image:url('assets/img/background.jpg');"></div>
+        <div class="bg-holder-content full text-white">
+            <a class="logo-holder" routerLink="/">
+                <img src="{{ loginService.getPhoto() }}" alt="Image Alternative text" title="Image Title"/>
+            </a>
+            <div class="full-center">
+                <div class="container">
+                    <div class="row" data-gutter="60">
+                        <div class="col-md-4">
+                            <h3>{{config.AGENCE}}</h3>
+                            <hr>
+                            <p>Euismod nunc porta magna elementum penatibus amet gravida sit ligula odio id nunc proin
+                                sem augue quis
+                                posuere interdum in sapien congue rutrum scelerisque sociosqu cubilia ridiculus et
+                                luctus mollis
+                                Praesent est semper massa lobortis quisque lectus ridiculus hac eget
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <h3>{{"MENU.LOGIN"|translate}}</h3>
+                            <hr>
+                            <alert class="danger" [view]="error" text="PROFILE.INVALID_FORM"></alert>
+                            <form [hidden]="confirmed" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+                                <div class="form-group form-group-icon-left"><i
+                                        class="fa fa-user input-icon input-icon-show"></i>
+                                    <label>{{"PROFILE.EMAIL_LOGIN"|translate}}</label>
+                                    <input type="text" [(ngModel)]="login" required name="login" class="form-control"
+                                           #email="ngModel">
+                                    <div [@errorMessage]="email.valid || email.pristine" class="text-danger">
+                                        {{"PROFILE.EMAIL_REQUIRED"|translate}}
+                                    </div>
+                                </div>
+                                <div class="form-group form-group-icon-left"><i
+                                        class="fa fa-lock input-icon input-icon-show"></i>
+                                    <label>{{"PROFILE.PASSWORD"|translate}}</label>
+                                    <input type="password" [(ngModel)]="password" required name="password"
+                                           class="form-control" #pwd="ngModel">
+                                    <div [@errorMessage]="pwd.valid || pwd.pristine" class="text-danger">
+                                        {{"PROFILE.PASSWORD_REQUIRED"|translate}}
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary"
+                                        [disabled]="!loginForm.form.valid || loading">
+                                    <span *ngIf="loading">{{"PROFILE.LOADING"|translate}} ...</span>
+                                    <span *ngIf="!loading">{{"PROFILE.SUBMIT"|translate}}</span>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="col-md-4">
+                            <login-register></login-register>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid || loading">
-                <span *ngIf="loading">{{"PROFILE.LOADING"|translate}} ...</span>
-                <span *ngIf="!loading">{{"PROFILE.SUBMIT"|translate}}</span>
-            </button>
-        </form>
-    </div>
-    <div class="col-md-4">
-        <login-register></login-register>
+            <ul class="footer-links">
+
+                <li><span>Contactez nous au +216 52 557 390</span>
+                </li>
+                <li><span>© 2017 MYBOOKING.COM. All rights reserved. By </span><a href="http://www.octasoft.com.tn">OCTASOFT</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>

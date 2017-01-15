@@ -40,8 +40,7 @@ export class HotelBookingComponent implements OnInit {
 
 
     ngOnInit() {
-        if(this.loginService.logedUser== null)
-            this.router.navigateByUrl('login');
+        this.loginService.verifUserLogged();
         this.booking = null;
         this.logedUser = Object.assign({}, this.loginService.logedUser);
         this.pathPhoto = Config.API_ROUTES.ostravel;

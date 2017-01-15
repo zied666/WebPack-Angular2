@@ -16,6 +16,7 @@ import {HotelListSearchComponent} from "./list/search";
 import {HotelListSortComponent} from "./list/search";
 import {HotelDetailBookingComponent} from "./details/booking";
 import {HotelBookingComponent} from "./booking/hotel.booking.component";
+import {HotelListSearchv2Component} from "./list/search/hotel.list.searchv2.component";
 
 @NgModule({
     imports: [
@@ -31,6 +32,7 @@ import {HotelBookingComponent} from "./booking/hotel.booking.component";
         HotelListComponent,
         HotelListSortComponent,
         HotelListSearchComponent,
+        HotelListSearchv2Component,
         HotelListSingleComponent,
         HotelListSinglePriceComponent,
         HotelListSinglePriceArrangementComponent,

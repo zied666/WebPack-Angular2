@@ -44,7 +44,8 @@
     "BOOKING_VALIDATE": "Validate booking",
     "MAP": "On the Map",
     "ABOUT_HOTEL": "About the Hotel",
-    "AVAILABLE_ROOMS": "Available Rooms"
+    "AVAILABLE_ROOMS": "Available Rooms",
+    "FIND_HOTELS_TUNISIA": "Search Hotels in Tunisia"
   },
   "PROFILE": {
     "TITLE": "My Profil",
@@ -88,8 +89,10 @@
     "NEW_PASSWORD": "New Password",
     "CONFIRMATION_PASSWORD": "Confirmation",
     "ERROR1": "The two passwords are not identical",
-    "ERROR2": "Old password is incorrect",
-    "SUCCESS": "Your password has been changed successfully"
+    "ERROR2": "Old password is wrong",
+    "PASSWORD_REQUIRED": "Mot de passe is wrong",
+    "SUCCESS": "Your password has been changed successfully",
+    "EDIT": "Edit"
   },
   "CONTACT":{
     "TITLE": "Contact us",

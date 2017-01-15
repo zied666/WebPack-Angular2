@@ -10,10 +10,10 @@ $('ul.slimmenu').slimmenu({
 
 
 // Countdown
-$('.countdown').each(function() {
+$('.countdown').each(function () {
     var count = $(this);
     $(this).countdown({
-        zeroCallback: function(options) {
+        zeroCallback: function (options) {
             var newDate = new Date(),
                 newDate = newDate.setHours(newDate.getHours() + 130);
 
@@ -30,15 +30,15 @@ $('.btn').button();
 
 $("[rel='tooltip']").tooltip();
 
-$('.form-group').each(function() {
+$('.form-group').each(function () {
     var self = $(this),
         input = self.find('input');
 
-    input.focus(function() {
+    input.focus(function () {
         self.addClass('form-group-focus');
     })
 
-    input.blur(function() {
+    input.blur(function () {
         if (input.val()) {
             self.addClass('form-group-filled');
         } else {
@@ -54,15 +54,15 @@ $('.typeahead').typeahead({
     minLength: 3,
     limit: 8
 }, {
-    source: function(q, cb) {
+    source: function (q, cb) {
         return $.ajax({
             dataType: 'json',
             type: 'get',
             url: 'http://gd.geobytes.com/AutoCompleteCity?callback=?&q=' + q,
             chache: false,
-            success: function(data) {
+            success: function (data) {
                 var result = [];
-                $.each(data, function(index, val) {
+                $.each(data, function (index, val) {
                     result.push({
                         value: val
                     });
@@ -79,7 +79,6 @@ $('input.date-pick, .input-daterange, .date-pick-inline').datepicker({
 });
 
 
-
 $('input.date-pick, .input-daterange input[name="start"]').datepicker('setDate', 'today');
 $('.input-daterange input[name="end"]').datepicker('setDate', '+7d');
 
@@ -93,9 +92,7 @@ $('input.date-pick-years').datepicker({
 });
 
 
-
-
-$('.booking-item-price-calc .checkbox label').click(function() {
+$('.booking-item-price-calc .checkbox label').click(function () {
     var checkbox = $(this).find('input'),
         // checked = $(checkboxDiv).hasClass('checked'),
         checked = $(checkbox).prop('checked'),
@@ -105,8 +102,8 @@ $('.booking-item-price-calc .checkbox label').click(function() {
         eqPriceInt = parseInt(eqPrice.attr('data-value')),
         tPriceInt = parseInt(tPrice.attr('data-value')),
         value,
-        animateInt = function(val, el, plus) {
-            value = function() {
+        animateInt = function (val, el, plus) {
+            value = function () {
                 if (plus) {
                     return el.attr('data-value', val + price);
                 } else {
@@ -120,7 +117,7 @@ $('.booking-item-price-calc .checkbox label').click(function() {
             }, {
                 duration: 500,
                 easing: 'swing',
-                step: function() {
+                step: function () {
                     if (plus) {
                         el.text(Math.ceil(this.val));
                     } else {
@@ -139,10 +136,10 @@ $('.booking-item-price-calc .checkbox label').click(function() {
 });
 
 
-$('div.bg-parallax').each(function() {
+$('div.bg-parallax').each(function () {
     var $obj = $(this);
-    if($(window).width() > 992 ){
-        $(window).scroll(function() {
+    if ($(window).width() > 992) {
+        $(window).scroll(function () {
             var animSpeed;
             if ($obj.hasClass('bg-blur')) {
                 animSpeed = 10;
@@ -158,27 +155,26 @@ $('div.bg-parallax').each(function() {
 });
 
 
-
 $(document).ready(
-    function() {
+    function () {
 
-    $('html').niceScroll({
-        cursorcolor: "#000",
-        cursorborder: "0px solid #fff",
-        railpadding: {
-            top: 0,
-            right: 0,
-            left: 0,
-            bottom: 0
-        },
-        cursorwidth: "10px",
-        cursorborderradius: "0px",
-        cursoropacitymin: 0.2,
-        cursoropacitymax: 0.8,
-        boxzoom: true,
-        horizrailenabled: false,
-        zindex: 9999
-    });
+        $('html').niceScroll({
+            cursorcolor: "#000",
+            cursorborder: "0px solid #fff",
+            railpadding: {
+                top: 0,
+                right: 0,
+                left: 0,
+                bottom: 0
+            },
+            cursorwidth: "10px",
+            cursorborderradius: "0px",
+            cursoropacitymin: 0.2,
+            cursoropacitymax: 0.8,
+            boxzoom: true,
+            horizrailenabled: false,
+            zindex: 9999
+        });
 
 
         // Owl Carousel
@@ -206,17 +202,18 @@ $(document).ready(
         });
 
 
-    // footer always on bottom
-    var docHeight = $(window).height();
-   var footerHeight = $('#main-footer').height();
-   var footerTop = $('#main-footer').position().top + footerHeight;
-   
-   if (footerTop < docHeight) {
-    $('#main-footer').css('margin-top', (docHeight - footerTop) + 'px');
-   }
+        // footer always on bottom
+        var docHeight = $(window).height();
+        var footerHeight = $('#main-footer').height();
+        if ($('#main-footer').length) {
+
+            var footerTop = $('#main-footer').position().top + footerHeight;
+
+            if (footerTop < docHeight) {
+                $('#main-footer').css('margin-top', (docHeight - footerTop) + 'px');
+            }
+        }
     }
-
-
 );
 
 
@@ -239,8 +236,7 @@ $('.i-check, .i-radio').iCheck({
 });
 
 
-
-$('.booking-item-review-expand').click(function(event) {
+$('.booking-item-review-expand').click(function (event) {
     console.log('baz');
     var parent = $(this).parent('.booking-item-review-content');
     if (parent.hasClass('expanded')) {
@@ -251,43 +247,44 @@ $('.booking-item-review-expand').click(function(event) {
 });
 
 
-$('.stats-list-select > li > .booking-item-rating-stars > li').each(function() {
+$('.stats-list-select > li > .booking-item-rating-stars > li').each(function () {
     var list = $(this).parent(),
         listItems = list.children(),
         itemIndex = $(this).index();
 
-    $(this).hover(function() {
+    $(this).hover(function () {
         for (var i = 0; i < listItems.length; i++) {
             if (i <= itemIndex) {
                 $(listItems[i]).addClass('hovered');
             } else {
                 break;
             }
-        };
-        $(this).click(function() {
+        }
+        ;
+        $(this).click(function () {
             for (var i = 0; i < listItems.length; i++) {
                 if (i <= itemIndex) {
                     $(listItems[i]).addClass('selected');
                 } else {
                     $(listItems[i]).removeClass('selected');
                 }
-            };
+            }
+            ;
         });
-    }, function() {
+    }, function () {
         listItems.removeClass('hovered');
     });
 });
 
 
-
-$('.booking-item-container').children('.booking-item').click(function(event) {
+$('.booking-item-container').children('.booking-item').click(function (event) {
     if ($(this).hasClass('active')) {
         $(this).removeClass('active');
         $(this).parent().removeClass('active');
     } else {
         $(this).addClass('active');
         $(this).parent().addClass('active');
-        $(this).delay(1500).queue(function() {
+        $(this).delay(1500).queue(function () {
             $(this).addClass('viewed')
         });
     }
@@ -299,14 +296,12 @@ $('.form-group-cc-date input').payment('formatCardExpiry');
 $('.form-group-cc-cvc input').payment('formatCardCVC');
 
 
-
-
 if ($('#map-canvas').length) {
     var map,
         service;
 
-    jQuery(function($) {
-        $(document).ready(function() {
+    jQuery(function ($) {
+        $(document).ready(function () {
             var latlng = new google.maps.LatLng(40.7564971, -73.9743277);
             var myOptions = {
                 zoom: 16,
@@ -325,7 +320,7 @@ if ($('#map-canvas').length) {
             marker.setMap(map);
 
 
-            $('a[href="#google-map-tab"]').on('shown.bs.tab', function(e) {
+            $('a[href="#google-map-tab"]').on('shown.bs.tab', function (e) {
                 google.maps.event.trigger(map, 'resize');
                 map.setCenter(latlng);
             });
@@ -334,16 +329,16 @@ if ($('#map-canvas').length) {
 }
 
 
-$('.card-select > li').click(function() {
+$('.card-select > li').click(function () {
     self = this;
     $(self).addClass('card-item-selected');
     $(self).siblings('li').removeClass('card-item-selected');
-    $('.form-group-cc-number input').click(function() {
+    $('.form-group-cc-number input').click(function () {
         $(self).removeClass('card-item-selected');
     });
 });
 // Lighbox gallery
-$('#popup-gallery').each(function() {
+$('#popup-gallery').each(function () {
     $(this).magnificPopup({
         delegate: 'a.popup-gallery-image',
         type: 'image',
@@ -363,7 +358,7 @@ $('.popup-text').magnificPopup({
     removalDelay: 500,
     closeBtnInside: true,
     callbacks: {
-        beforeOpen: function() {
+        beforeOpen: function () {
             this.st.mainClass = this.st.el.attr('data-effect');
         }
     },
@@ -380,28 +375,28 @@ $('.popup-iframe').magnificPopup({
 });
 
 
-$('.form-group-select-plus').each(function() {
+$('.form-group-select-plus').each(function () {
     var self = $(this),
         btnGroup = self.find('.btn-group').first(),
         select = self.find('select');
-    btnGroup.children('label').last().click(function() {
+    btnGroup.children('label').last().click(function () {
         btnGroup.addClass('hidden');
         select.removeClass('hidden');
     });
 });
 // Responsive videos
-$(document).ready(function() {
+$(document).ready(function () {
     $("body").fitVids();
 });
 
-$(function($) {
+$(function ($) {
     $("#twitter").tweet({
         username: "remtsoy", //!paste here your twitter username!
         count: 3
     });
 });
 
-$(function($) {
+$(function ($) {
     $("#twitter-ticker").tweet({
         username: "remtsoy", //!paste here your twitter username!
         page: 1,
@@ -409,13 +404,13 @@ $(function($) {
     });
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
     var ul = $('#twitter-ticker').find(".tweet-list");
-    var ticker = function() {
-        setTimeout(function() {
+    var ticker = function () {
+        setTimeout(function () {
             ul.find('li:first').animate({
                 marginTop: '-4.7em'
-            }, 850, function() {
+            }, 850, function () {
                 $(this).detach().appendTo(ul).removeAttr('style');
             });
             ticker();
@@ -423,7 +418,7 @@ $(document).ready(function() {
     };
     ticker();
 });
-$(function() {
+$(function () {
     $('#ri-grid').gridrotator({
         rows: 4,
         columns: 8,
@@ -458,7 +453,7 @@ $(function() {
 });
 
 
-$(function() {
+$(function () {
     $('#ri-grid-no-animation').gridrotator({
         rows: 4,
         columns: 8,
@@ -493,7 +488,7 @@ var tid = setInterval(tagline_vertical_slide, 2500);
 function tagline_vertical_slide() {
     var curr = $("#tagline ul li.active");
     curr.removeClass("active").addClass("vs-out");
-    setTimeout(function() {
+    setTimeout(function () {
         curr.removeClass("vs-out");
     }, 500);
 

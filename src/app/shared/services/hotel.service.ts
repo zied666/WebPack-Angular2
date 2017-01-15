@@ -17,7 +17,7 @@ export class HotelService {
     booking(idHotel: number,typeChambres:string): Observable<any> {
         let params = new URLSearchParams();
         if (this.loginService.logedUser != null)
-            params.set('idClient', this.loginService.logedUser.id.toString());
+            params.set('token', this.loginService.logedUser.token.toString());
         params.set('rooms', this.searchService.getSearch().rooms);
         params.set('nuitees', this.searchService.getSearch().nuitees.toString());
         params.set('checkIn', this.searchService.getSearch().checkIn);
@@ -32,7 +32,7 @@ export class HotelService {
     getHotels(): Observable<Hotel[]> {
         let params = new URLSearchParams();
         if (this.loginService.logedUser != null)
-            params.set('idClient', this.loginService.logedUser.id.toString());
+            params.set('token', this.loginService.logedUser.token.toString());
         params.set('rooms', this.searchService.getSearch().rooms);
         params.set('nuitees', this.searchService.getSearch().nuitees.toString());
         params.set('checkIn', this.searchService.getSearch().checkIn);
@@ -51,7 +51,7 @@ export class HotelService {
     getOneHotel(idHotel: number): Observable<Hotel> {
         let params = new URLSearchParams();
         if (this.loginService.logedUser != null)
-            params.set('idClient', this.loginService.logedUser.id.toString());
+            params.set('token', this.loginService.logedUser.token.toString());
         params.set('rooms', this.searchService.getSearch().rooms);
         params.set('nuitees', this.searchService.getSearch().nuitees.toString());
         params.set('checkIn', this.searchService.getSearch().checkIn);
@@ -76,7 +76,7 @@ export class HotelService {
     getCount(): Observable<number> {
         let params = new URLSearchParams();
         if (this.loginService.logedUser != null)
-            params.set('idClient', this.loginService.logedUser.id.toString());
+            params.set('token', this.loginService.logedUser.token.toString());
         params.set('rooms', this.searchService.getSearch().rooms);
         params.set('nuitees', this.searchService.getSearch().nuitees.toString());
         params.set('checkIn', this.searchService.getSearch().checkIn);

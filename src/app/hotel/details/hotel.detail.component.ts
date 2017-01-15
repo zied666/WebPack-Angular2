@@ -25,8 +25,7 @@ export class HotelDetailComponent implements OnInit {
 
     ngOnInit() {
         this.pathPhoto=Config.API_ROUTES.ostravel;
-        if(this.loginService.logedUser== null)
-            this.router.navigateByUrl('login');
+        this.loginService.verifUserLogged();
         this.tab="booking";
         this.gmaps=false;
         this.loadingHotel=true;

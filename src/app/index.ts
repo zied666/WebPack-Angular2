@@ -55,7 +55,7 @@ type StoreType = {
     ]
 })
 export class AppModule {
-    constructor(public appRef: ApplicationRef, public appState: AppState) {
+/*    constructor(public appRef: ApplicationRef, public appState: AppState) {
     }
 
     hmrOnInit(store: StoreType) {
@@ -91,7 +91,7 @@ export class AppModule {
         // display new elements
         store.disposeOldHosts();
         delete store.disposeOldHosts;
-    }
+    }*/
 
 }
 

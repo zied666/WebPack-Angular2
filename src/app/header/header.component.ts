@@ -38,8 +38,6 @@ export class HeaderComponent implements OnInit {
             this.translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
             LocalStorageService.setItem("locale", browserLang.match(/en|fr/) ? browserLang : 'en');
         }
-        if (LocalStorageService.getItem("currentUser"))
-            this.loginService.logedUser = LocalStorageService.getItem("currentUser");
     }
 
     changeDevise(devise) {

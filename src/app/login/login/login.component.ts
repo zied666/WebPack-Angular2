@@ -1,4 +1,4 @@
-import {Component, OnInit, animate, transition, trigger, state, style, ViewChild,}      from '@angular/core';
+import {Component, OnInit, animate, transition, trigger, state, style, ViewChild, OnDestroy,}      from '@angular/core';
 import {Router} from "@angular/router";
 import {ReCaptchaComponent} from "angular2-recaptcha/lib/captcha.component";
 import {Title} from "@angular/platform-browser";
@@ -7,6 +7,7 @@ import {LoadingService} from "../../shared/services/loading.service";
 import {LocalStorageService} from "../../shared/services/localStorage.service";
 import {Config} from "../../shared/config/config";
 
+declare var $: any;
 @Component({
     templateUrl: './login.html',
     styleUrls: ['../form.css'],
@@ -18,7 +19,7 @@ import {Config} from "../../shared/config/config";
         ])
     ]
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit,OnDestroy {
 
     @ViewChild(ReCaptchaComponent) captcha: ReCaptchaComponent;
     token: string;
@@ -39,7 +40,13 @@ export class LoginComponent implements OnInit {
         this.token = $event;
     }
 
+    ngOnDestroy()
+    {
+        $("html").removeClass("full");
+    }
+
     ngOnInit() {
+        $("html").addClass("full");
         this.token = null;
         this.captchaError = false;
         this.error = false;
@@ -47,8 +54,8 @@ export class LoginComponent implements OnInit {
         this.loadingRegister = false;
         this.login = "";
         this.password = "";
-        if (this.loginService.logedUser != null)
-            this.router.navigateByUrl('/');
+        /*if (this.loginService.logedUser != null)
+            this.router.navigateByUrl('/');*/
     }
 
     onSubmit() {

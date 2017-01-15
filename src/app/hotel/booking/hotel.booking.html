@@ -1,113 +1,115 @@
-<loading *ngIf="loading"></loading>
-<div class="row" *ngIf="!loading">
-    <div class="col-md-8" *ngIf="!booking">
-        <h2>{{ 'BOOKING.VALIDATION'|translate }}</h2>
-        <hr>
-        <alert class="success" [view]="success" text="BOOKING.SUCCESS"></alert>
-        <loading *ngIf="loadingBooking"></loading>
-        <form *ngIf="!loadingBooking" (ngSubmit)="update()" #profileForm="ngForm">
-            <div class="form-group">
-                <label>{{ 'PROFILE.NOM'|translate }}</label>
-                <input type="text" [(ngModel)]="logedUser.nom" required name="nom" class="form-control" #nom="ngModel">
-                <div [@errorMessage]="nom.valid || nom.pristine" class="text-danger"> {{"PROFILE.NOM_REQUIRED"|translate}}</div>
-            </div>
-            <div class="form-group">
-                <label>{{ 'PROFILE.PRENOM'|translate }}</label>
-                <input type="text" [(ngModel)]="logedUser.prenom" required name="prenom" class="form-control" #prenom="ngModel">
-                <div [@errorMessage]="prenom.valid || prenom.pristine" class="text-danger"> {{"PROFILE.PRENOM_REQUIRED"|translate}}</div>
-            </div>
-            <div class="form-group">
-                <label>{{ 'PROFILE.EMAIL'|translate }}</label>
-                <input type="email" [(ngModel)]="logedUser.email" required name="email" class="form-control"
-                       #email="ngModel">
-                <div [@errorMessage]="email.valid || email.pristine" class="text-danger"> {{"PROFILE.EMAIL_REQUIRED"|translate}}</div>
-            </div>
-            <div class="form-group">
-                <label>{{ 'PROFILE.PHONE'|translate }}</label>
-                <input type="text" [(ngModel)]="logedUser.tel" required name="tel" class="form-control" #tel="ngModel">
-                <div [@errorMessage]="tel.valid || tel.pristine" class="text-danger"> {{"PROFILE.PHONE_REQUIRED"|translate}}</div>
-            </div>
-            <button type="submit" class="btn btn-primary" [disabled]="!profileForm.form.valid ||loadingBooking">
-                <span *ngIf="loadingBooking">{{"PROFILE.LOADING"|translate}} ...</span>
-                <span *ngIf="!loadingBooking">{{ 'BOOKING.BOOKING_NOW'|translate }}</span>
-            </button>
-        </form>
-    </div>
-    <div class="col-md-8" *ngIf="booking">
-        <h2>{{ 'BOOKING.REF'|translate }} #{{booking.id}}</h2>
-        <hr>
-        <i class="fa fa-check round box-icon-large box-icon-center box-icon-success mb30"></i>
-        <h2 class="text-center">{{ 'BOOKING.SUCCESS'|translate }}</h2>
-        <h5 class="text-center mb30">{{ 'BOOKING.SEND'|translate }} {{ booking.client_array.email }}</h5>
-        <ul class="order-payment-list list mb30">
-            <li>
-                <div class="row">
-                    <div class="col-xs-9">
-                        <h5><i class="fa fa-building"></i> {{ booking.hotel.libelle }}</h5>
-                        <p *ngIf="booking.timbre>0">
-                            <small> + {{ "BOOKING.TIMBRE_FISCAL"|translate }} : {{ booking.timbre|devise }}</small>
-                        </p>
-                        <p *ngIf="booking.frais_dossier>0">
-                            <small> + {{ "BOOKING.FRAIS_DOSSIER"|translate }} : {{ booking.frais_dossier|devise }}</small>
-                        </p>
-                        <p *ngIf="booking.remise_internet>0">
-                            <small> - {{ "BOOKING.REMISE_INTERNET"|translate }} : {{ booking.remise_internet|devise }}</small>
-                        </p>
-                    </div>
-                    <div class="col-xs-3">
-                        <p class="text-right"><span class="text-lg">{{ booking.account|devise }}</span>
-                        </p>
-                    </div>
+<div class="container">
+    <loading *ngIf="loading"></loading>
+    <div class="row" *ngIf="!loading">
+        <div class="col-md-8" *ngIf="!booking">
+            <h2>{{ 'BOOKING.VALIDATION'|translate }}</h2>
+            <hr>
+            <alert class="success" [view]="success" text="BOOKING.SUCCESS"></alert>
+            <loading *ngIf="loadingBooking"></loading>
+            <form *ngIf="!loadingBooking" (ngSubmit)="update()" #profileForm="ngForm">
+                <div class="form-group">
+                    <label>{{ 'PROFILE.NOM'|translate }}</label>
+                    <input type="text" [(ngModel)]="logedUser.nom" required name="nom" class="form-control" #nom="ngModel">
+                    <div [@errorMessage]="nom.valid || nom.pristine" class="text-danger"> {{"PROFILE.NOM_REQUIRED"|translate}}</div>
                 </div>
-            </li>
-        </ul>
-    </div>
-
-    <div class="col-md-4">
-        <h2>{{ 'BOOKING.DETAILS'|translate }}</h2>
-        <hr>
-        <div class="booking-item-payment">
-            <header class="clearfix">
-                <a class="booking-item-payment-img" href="javascript:void(0)">
-                    <img *ngIf=" hotel.photo" [src]="pathPhoto+hotel.photo" alt="{{ hotel.details.libelle }}"
-                         width="98px" height="74px">
-                    <img *ngIf="!hotel.photo" src="http://www.pestworld.org/media/1030/300x200.gif"
-                         alt="{{ hotel.details.libelle }}" width="98px" height="74px">
-                </a>
-                <h5 class="booking-item-payment-title"><a href="#">{{ hotel.details.libelle }}</a></h5>
-                <span [innerHTML]="hotel.details.categorie.nombre_etoiles|stars"></span>
-            </header>
-            <ul class="booking-item-payment-details">
+                <div class="form-group">
+                    <label>{{ 'PROFILE.PRENOM'|translate }}</label>
+                    <input type="text" [(ngModel)]="logedUser.prenom" required name="prenom" class="form-control" #prenom="ngModel">
+                    <div [@errorMessage]="prenom.valid || prenom.pristine" class="text-danger"> {{"PROFILE.PRENOM_REQUIRED"|translate}}</div>
+                </div>
+                <div class="form-group">
+                    <label>{{ 'PROFILE.EMAIL'|translate }}</label>
+                    <input type="email" [(ngModel)]="logedUser.email" required name="email" class="form-control"
+                           #email="ngModel">
+                    <div [@errorMessage]="email.valid || email.pristine" class="text-danger"> {{"PROFILE.EMAIL_REQUIRED"|translate}}</div>
+                </div>
+                <div class="form-group">
+                    <label>{{ 'PROFILE.PHONE'|translate }}</label>
+                    <input type="text" [(ngModel)]="logedUser.tel" required name="tel" class="form-control" #tel="ngModel">
+                    <div [@errorMessage]="tel.valid || tel.pristine" class="text-danger"> {{"PROFILE.PHONE_REQUIRED"|translate}}</div>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="!profileForm.form.valid ||loadingBooking">
+                    <span *ngIf="loadingBooking">{{"PROFILE.LOADING"|translate}} ...</span>
+                    <span *ngIf="!loadingBooking">{{ 'BOOKING.BOOKING_NOW'|translate }}</span>
+                </button>
+            </form>
+        </div>
+        <div class="col-md-8" *ngIf="booking">
+            <h2>{{ 'BOOKING.REF'|translate }} #{{booking.id}}</h2>
+            <hr>
+            <i class="fa fa-check round box-icon-large box-icon-center box-icon-success mb30"></i>
+            <h2 class="text-center">{{ 'BOOKING.SUCCESS'|translate }}</h2>
+            <h5 class="text-center mb30">{{ 'BOOKING.SEND'|translate }} {{ booking.client_array.email }}</h5>
+            <ul class="order-payment-list list mb30">
                 <li>
-                    <h5>{{ 'BOOKING.BOOKING_FOR'|translate }} {{ search.nuitees }} {{ 'HOTELS.NIGHTS'|translate }}  {{arrangement}}</h5>
-                    <div class="booking-item-payment-date">
-                        <p class="booking-item-payment-date-day">{{ search.checkIn|date }}</p>
-                    </div>
-                    <i class="fa fa-arrow-right booking-item-payment-date-separator"></i>
-                    <div class="booking-item-payment-date">
-                        <p class="booking-item-payment-date-day">{{ search.checkIn|addDate:search.nuitees|date }}</p>
-                    </div>
-                </li>
-                <li>
-                    <h5>{{ 'HOTELS.ROOMS'|translate }}</h5>
-                    <div *ngFor="let room of rooms">
-                        <hr>
-                        <p class="booking-item-payment-item-title">{{room[3].libelle}}</p>
-                        <ul class="booking-item-payment-price">
-                            <li>
-                                <p class="booking-item-payment-price-title">{{ 'HOTELS.ADULTS'|translate }}</p>
-                                <p class="booking-item-payment-price-amount">{{room[1]}} </p>
-                            </li>
-                            <li>
-                                <p class="booking-item-payment-price-title">{{ 'HOTELS.CHILDS'|translate }}</p>
-                                <p class="booking-item-payment-price-amount">{{room[2]}} </p>
-                            </li>
-                        </ul>
+                    <div class="row">
+                        <div class="col-xs-9">
+                            <h5><i class="fa fa-building"></i> {{ booking.hotel.libelle }}</h5>
+                            <p *ngIf="booking.timbre>0">
+                                <small> + {{ "BOOKING.TIMBRE_FISCAL"|translate }} : {{ booking.timbre|devise }}</small>
+                            </p>
+                            <p *ngIf="booking.frais_dossier>0">
+                                <small> + {{ "BOOKING.FRAIS_DOSSIER"|translate }} : {{ booking.frais_dossier|devise }}</small>
+                            </p>
+                            <p *ngIf="booking.remise_internet>0">
+                                <small> - {{ "BOOKING.REMISE_INTERNET"|translate }} : {{ booking.remise_internet|devise }}</small>
+                            </p>
+                        </div>
+                        <div class="col-xs-3">
+                            <p class="text-right"><span class="text-lg">{{ booking.account|devise }}</span>
+                            </p>
+                        </div>
                     </div>
                 </li>
             </ul>
-            <p class="booking-item-payment-total">Total : <span>{{ total|devise }}</span>
-            </p>
+        </div>
+
+        <div class="col-md-4">
+            <h2>{{ 'BOOKING.DETAILS'|translate }}</h2>
+            <hr>
+            <div class="booking-item-payment">
+                <header class="clearfix">
+                    <a class="booking-item-payment-img" href="javascript:void(0)">
+                        <img *ngIf=" hotel.photo" [src]="pathPhoto+hotel.photo" alt="{{ hotel.details.libelle }}"
+                             width="98px" height="74px">
+                        <img *ngIf="!hotel.photo" src="http://www.pestworld.org/media/1030/300x200.gif"
+                             alt="{{ hotel.details.libelle }}" width="98px" height="74px">
+                    </a>
+                    <h5 class="booking-item-payment-title"><a href="#">{{ hotel.details.libelle }}</a></h5>
+                    <span [innerHTML]="hotel.details.categorie.nombre_etoiles|stars"></span>
+                </header>
+                <ul class="booking-item-payment-details">
+                    <li>
+                        <h5>{{ 'BOOKING.BOOKING_FOR'|translate }} {{ search.nuitees }} {{ 'HOTELS.NIGHTS'|translate }}  {{arrangement}}</h5>
+                        <div class="booking-item-payment-date">
+                            <p class="booking-item-payment-date-day">{{ search.checkIn|date }}</p>
+                        </div>
+                        <i class="fa fa-arrow-right booking-item-payment-date-separator"></i>
+                        <div class="booking-item-payment-date">
+                            <p class="booking-item-payment-date-day">{{ search.checkIn|addDate:search.nuitees|date }}</p>
+                        </div>
+                    </li>
+                    <li>
+                        <h5>{{ 'HOTELS.ROOMS'|translate }}</h5>
+                        <div *ngFor="let room of rooms">
+                            <hr>
+                            <p class="booking-item-payment-item-title">{{room[3].libelle}}</p>
+                            <ul class="booking-item-payment-price">
+                                <li>
+                                    <p class="booking-item-payment-price-title">{{ 'HOTELS.ADULTS'|translate }}</p>
+                                    <p class="booking-item-payment-price-amount">{{room[1]}} </p>
+                                </li>
+                                <li>
+                                    <p class="booking-item-payment-price-title">{{ 'HOTELS.CHILDS'|translate }}</p>
+                                    <p class="booking-item-payment-price-amount">{{room[2]}} </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <p class="booking-item-payment-total">Total : <span>{{ total|devise }}</span>
+                </p>
+            </div>
         </div>
     </div>
 </div>

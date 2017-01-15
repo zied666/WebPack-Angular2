@@ -1,44 +1,46 @@
-<loading *ngIf="loadingHotel"></loading>
-<div *ngIf="!loadingHotel">
-    <h1 class="page-title">{{hotel.libelle}}</h1>
-    <div class="row">
-        <div class="col-md-8">
-            <div class="tabbable booking-details-tabbable">
-                <ul class="nav nav-tabs" id="myTab">
-                    <li class="active"><a href="#tab-1" data-toggle="tab"><i class="fa fa-camera"></i>Photos</a></li>
-                    <li *ngIf="hotel.longitude && hotel.latitude"><a href="#google-map-tab" (click)="gmaps=true" data-toggle="tab"><i class="fa fa-map-marker"></i>{{ 'HOTELS.MAP'|translate }}</a></li>
-                </ul>
-                <div class="tab-content">
-                    <div class="tab-pane fade in active" id="tab-1">
-                        <div class="fotorama" data-allowfullscreen="true" data-nav="thumbs">
-                            <img *ngIf="hotel.photo" [src]="pathPhoto+hotel.photo" alt="{{ hotel.libelle }}"  title="{{hotel.libelle}}" >
-                            <img *ngIf="!hotel.photo" src="assets/template/img/800x600.png" alt="{{hotel.libelle}}" title="{{hotel.libelle}}" />
+<div class="container">
+    <loading *ngIf="loadingHotel"></loading>
+    <div *ngIf="!loadingHotel">
+        <h1 class="page-title">{{hotel.libelle}}</h1>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="tabbable booking-details-tabbable">
+                    <ul class="nav nav-tabs" id="myTab">
+                        <li class="active"><a href="#tab-1" data-toggle="tab"><i class="fa fa-camera"></i>Photos</a></li>
+                        <li *ngIf="hotel.longitude && hotel.latitude"><a href="#google-map-tab" (click)="gmaps=true" data-toggle="tab"><i class="fa fa-map-marker"></i>{{ 'HOTELS.MAP'|translate }}</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="tab-1">
+                            <div class="fotorama" data-allowfullscreen="true" data-nav="thumbs">
+                                <img *ngIf="hotel.photo" [src]="pathPhoto+hotel.photo" alt="{{ hotel.libelle }}"  title="{{hotel.libelle}}" >
+                                <img *ngIf="!hotel.photo" src="assets/template/img/800x600.png" alt="{{hotel.libelle}}" title="{{hotel.libelle}}" />
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="google-map-tab">
+                            <hotel-geolocation *ngIf="gmaps" [hotel]="hotel"></hotel-geolocation>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="google-map-tab">
-                        <hotel-geolocation *ngIf="gmaps" [hotel]="hotel"></hotel-geolocation>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="ml20">
+                    <div class="booking-item-meta">
+                        <h2 class="lh1em mt40">{{hotel.libelle}}</h2>
+                        <div class="booking-item-rating">
+                            <span [innerHTML]="hotel.categorie.nombre_etoiles|stars"></span>
+                        </div>
                     </div>
+                    <h4>{{ 'HOTELS.ABOUT_HOTEL'|translate }}</h4>
+                    <p [innerHTML]="hotel.description_longue"></p>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="ml20">
-                <div class="booking-item-meta">
-                    <h2 class="lh1em mt40">{{hotel.libelle}}</h2>
-                    <div class="booking-item-rating">
-                        <span [innerHTML]="hotel.categorie.nombre_etoiles|stars"></span>
-                    </div>
-                </div>
-                <h4>{{ 'HOTELS.ABOUT_HOTEL'|translate }}</h4>
-                <p [innerHTML]="hotel.description_longue"></p>
+        <div class="gap"></div>
+        <h3>{{ 'HOTELS.AVAILABLE_ROOMS'|translate }}</h3>
+        <div class="row">
+            <div class="col-md-12">
+                <hotel-booking [id]="hotel.id"></hotel-booking>
             </div>
-        </div>
-    </div>
-    <div class="gap"></div>
-    <h3>{{ 'HOTELS.AVAILABLE_ROOMS'|translate }}</h3>
-    <div class="row">
-        <div class="col-md-12">
-            <hotel-booking [id]="hotel.id"></hotel-booking>
         </div>
     </div>
 </div>

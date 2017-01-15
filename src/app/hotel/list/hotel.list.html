@@ -1,24 +1,22 @@
-<h1  class="page-title">{{ "HOTELS.LIST"|translate }}</h1>
-<hotel-list-search (sendSearch)="updateSearch($event)" [allDetails]="true"></hotel-list-search>
-<hotel-list-sort [countHotels]="countHotels" (sendSearch)="updateSearch($event)" ></hotel-list-sort>
-<loading *ngIf="loadingList"></loading>
-<alert class="info" [view]="!loadingList && hotels.length ==0" text="HOTELS.NO_AVAILABLE"></alert>
-<!--
-<div class="col-md-12" *ngFor="let hotel of hotels">
-    <list-single-hotel [hotel]="hotel"></list-single-hotel>
-</div>
--->
-<div class="row">
-    <div class="col-md-12">
-        <ul class="booking-list">
-            <list-single-hotel *ngFor="let hotel of hotels" [hotel]="hotel"></list-single-hotel>
-        </ul>
+<hotel-list-search-2 (sendSearch)="updateSearch($event)" [allDetails]="true"></hotel-list-search-2>
+<div class="container">
+    <h1 class="page-title">{{ "HOTELS.LIST"|translate }}</h1>
+    <!--<hotel-list-search (sendSearch)="updateSearch($event)" [allDetails]="true"></hotel-list-search>-->
+    <hotel-list-sort [countHotels]="countHotels" (sendSearch)="updateSearch($event)"></hotel-list-sort>
+    <loading *ngIf="loadingList"></loading>
+    <alert class="info" [view]="!loadingList && hotels.length ==0" text="HOTELS.NO_AVAILABLE"></alert>
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="booking-list">
+                <list-single-hotel *ngFor="let hotel of hotels" [hotel]="hotel"></list-single-hotel>
+            </ul>
+        </div>
+        <loading *ngIf="loadingMore"></loading>
     </div>
-    <loading *ngIf="loadingMore"></loading>
-</div>
-<div class="search-results"
-     infinite-scroll
-     [infiniteScrollDistance]="2"
-     [infiniteScrollThrottle]="500"
-     (scrolled)="onScroll()">
+    <div class="search-results"
+         infinite-scroll
+         [infiniteScrollDistance]="2"
+         [infiniteScrollThrottle]="500"
+         (scrolled)="onScroll()">
+    </div>
 </div>
