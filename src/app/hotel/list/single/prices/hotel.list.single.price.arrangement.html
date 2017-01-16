@@ -1,22 +1,19 @@
-<div class="row" style="margin: 15px;">
-    <div class="row">
-        <div class="col-md-2" *ngFor="let room of arrangement.rooms;let i = index">
-            <h5 style="text-align: center;">
-                [ <span [innerHTML]="room.occupationAdulte|persons"></span> <span [innerHTML]="room.occupationEnfant|persons" style="font-size: 8px"></span> ]
-            </h5>
-            <div class="list-group">
-                <span class="label label-danger" *ngIf="room.chambres.length==0">{{ "HOTELS.ROOMS_NO_AVAILABLE"|translate }}</span>
-                <a href="javascript:void(0)" *ngFor="let chambre of room.chambres;let j = index"
-                   [ngClass]="{active: activeRooms[i]==j}" (click)="updateActiveRooms(i,j)"
-                   class="list-group-item small" style="font-size: 11px;">
-                    {{chambre.libelle}}
-                </a>
+<div class="row" style=" margin-top: 20px;">
+    <div class="col-md-8">
+        <div class="col-md-6"  *ngFor="let room of arrangement.rooms;let i = index">
+            <div class="form-group">
+                <label style="display:inline-block;">{{"HOTELS.ROOM"|translate}} {{i+1}} </label>
+                <span [innerHTML]="room.occupationAdulte|persons"></span> <span [innerHTML]="room.occupationEnfant|persons" style="font-size: 8px"></span>
+                <span class="label label-warning" style=" margin-left: 5px;"  [innerHTML]="room.chambres[activeRooms[i]].data.total|devise"></span>
+                <select class="form-control" name="Chambre" (change)="updateActiveRooms(i,$event.target.value)">
+                    <option *ngFor="let chambre of room.chambres;let j = index" value="{{j}}"  [selected]="activeRooms[i]==j">{{chambre.libelle}}</option>
+                </select>
             </div>
         </div>
-
-        <div class="col-md-2 col-md-offset-{{ 10-arrangement.rooms.length*2 }}">
-            <h4>{{total|devise}}</h4>
-            <h5> {{arrangement.libelle}}</h5>
+    </div>
+    <div class="col-md-4" style="text-align:right;">
+        <div class="col-md-12">
+            <span class="booking-item-price" [innerHTML]="total|devise"></span>
             <a (click)="goPageDetails()" *ngIf="total != 0 && !isPageDetails" type="button"
                class="btn btn-block btn-primary btn-sm">
                 {{"HOTELS.BOOKING"|translate}}

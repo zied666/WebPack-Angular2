@@ -14,8 +14,8 @@ export class DevisePipe implements PipeTransform {
     transform(price: number) {
         if(this.deviseService.currentDevise)
         {
-            return (price*this.deviseService.currentDevise.montant).toFixed(this.deviseService.currentDevise.scale)+' '+this.deviseService.currentDevise.code;
+            return (price*this.deviseService.currentDevise.montant).toFixed(this.deviseService.currentDevise.scale)+' <sup>'+this.deviseService.currentDevise.code+'</sup>';
         }
-        return price+" DT";
+        return price+" <sup>DT</sup>";
     }
 }

@@ -310,7 +310,7 @@
         <div class="col-md-10">
             <form class="navbar-form navbar-left" #filtreForm="ngForm">
                 <div class="form-group">
-                    <input type="date" class="form-control" [(ngModel)]="search.checkIn" placeholder="checkIn"  name="searchCheckIn">
+                    <input type="date" class="form-control" min="{{search.checkIn}}" [(ngModel)]="search.checkIn" placeholder="checkIn"  name="searchCheckIn">
                     <select class="form-control" [(ngModel)]="search.nuitees"  name="searchNuitees">
                         <option value="1">1 {{'HOTELS.NIGHT'|translate}}</option>
                         <option value="2">2 {{'HOTELS.NIGHTS'|translate}}</option>

@@ -5,7 +5,7 @@
 <td class="booking-history-title">{{ booking.hotel.libelle }}</td>
 <td>{{ booking.hotel.ville.libelle }} {{ booking.hotel.ville.pays.libelle }}</td>
 <td>{{ booking.date_debut | date: 'dd/MM/yyyy' }}, {{booking.nuitees}} {{"HOTELS.NIGHTS"|translate}}</td>
-<td>{{ booking.account |devise }}</td>
+<td [innerHTML]="booking.account |devise"></td>
 <td>
     <span *ngIf="booking.etat == 1">{{ "ETAT.ENREGISTRE"|translate }}</span>
     <span *ngIf="booking.etat == 9">{{ "ETAT.CANCELED"|translate }}</span>
