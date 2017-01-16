@@ -13,6 +13,7 @@ import {DeviseService} from "./services/devise.service";
 import {StarsPipe} from "./pipes/stars.pipe";
 import {AddDatePipe} from "./pipes/add_date.pipe";
 import {LoginService} from "./services/login.service";
+import {BookingService} from "./services/booking.service";
 
 @NgModule({
     imports: [
@@ -57,6 +58,7 @@ import {LoginService} from "./services/login.service";
         HotelService,
         SearchService,
         LoadingService,
+        BookingService,
         DeviseService
     ]
 })

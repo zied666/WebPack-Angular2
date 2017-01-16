@@ -6,11 +6,11 @@
     "LOGOUT": "Logout",
     "HI": "Hi"
   },
-  "LOGIN":{
-    "WELOME":"Welcome to",
-    "FULL_NAME":"Full Name",
-    "REQUEST_REGISTER":"Subscription request",
-    "REQUEST_SUCCESS":"Your Subscription request has been sended successfully",
+  "LOGIN": {
+    "WELOME": "Welcome to",
+    "FULL_NAME": "Full Name",
+    "REQUEST_REGISTER": "Subscription request",
+    "REQUEST_SUCCESS": "Your Subscription request has been sended successfully",
     "REQUIRED": "Required input",
     "SEND": "Send"
   },
@@ -45,11 +45,13 @@
     "MAP": "On the Map",
     "ABOUT_HOTEL": "About the Hotel",
     "AVAILABLE_ROOMS": "Available Rooms",
-    "FIND_HOTELS_TUNISIA": "Search Hotels in Tunisia"
+    "FIND_HOTELS_TUNISIA": "Search Hotels in Tunisia",
+    "CHECK_IN": "Check IN"
   },
   "PROFILE": {
     "TITLE": "My Profil",
     "EMAIL": "Email address",
+    "USERNAME": "Nom d'utilisateur",
     "EMAIL_LOGIN": "Email address or username",
     "EMAIL_REQUIRED": "Email is required",
     "PASSWORD_REQUIRED": "Password is required ",
@@ -85,6 +87,7 @@
   },
   "PASSWORD": {
     "TITLE": "Edit Password",
+    "USERNAME": "Edit Username",
     "CURRENET_PASSWORD": "Old Password",
     "NEW_PASSWORD": "New Password",
     "CONFIRMATION_PASSWORD": "Confirmation",
@@ -94,8 +97,22 @@
     "SUCCESS": "Your password has been changed successfully",
     "EDIT": "Edit"
   },
-  "CONTACT":{
+  "CONTACT": {
     "TITLE": "Contact us",
-    "ADDRESS":"Address"
+    "ADDRESS": "Address"
+  },
+  "MYBOOKING": {
+    "TITLE": "My Bookings",
+    "CANCEL": "Cancel",
+    "CONFIRM": "Confirm",
+    "RETURN": "Return",
+    "ORDER_DATE": "Order Date",
+    "STATUS": "Status",
+    "PRIX": "Price"
+  },
+  "ETAT": {
+    "ENREGISTRE": "Waiting",
+    "VALDATED": "Validated",
+    "CANCELED": "Canceled"
   }
 }

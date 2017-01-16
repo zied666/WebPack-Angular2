@@ -1,29 +1,31 @@
-<h1>{{"PROFILE.TITLE"|translate}}</h1>
-<alert class="success" [view]="success" text="PROFILE.VALID_FORM"></alert>
-<alert class="danger" [view]="error" text="PROFILE.INVALID_PROFILE"></alert>
-<form *ngIf="logedUser!=null" (ngSubmit)="update()" #profileForm="ngForm">
-    <div class="form-group">
-        <label>{{ 'PROFILE.NOM'|translate }}</label>
-        <input type="text" [(ngModel)]="logedUser.nom" required name="nom" class="form-control" #nom="ngModel">
-        <div [@errorMessage]="nom.valid || nom.pristine" class="text-danger"> {{"PROFILE.NOM_REQUIRED"|translate}}</div>
-    </div>
-    <div class="form-group">
-        <label>{{ 'PROFILE.PRENOM'|translate }}</label>
-        <input type="text" [(ngModel)]="logedUser.prenom" required name="prenom" class="form-control" #prenom="ngModel">
-        <div [@errorMessage]="prenom.valid || prenom.pristine" class="text-danger"> {{"PROFILE.PRENOM_REQUIRED"|translate}}</div>
-    </div>
-    <div class="form-group">
-        <label>{{ 'PROFILE.EMAIL'|translate }}</label>
-        <input type="email" [(ngModel)]="logedUser.email" required name="email" class="form-control" #email="ngModel">
-        <div [@errorMessage]="email.valid || email.pristine" class="text-danger"> {{"PROFILE.EMAIL_REQUIRED"|translate}}</div>
-    </div>
-    <div class="form-group">
-        <label>{{ 'PROFILE.PHONE'|translate }}</label>
-        <input type="text" [(ngModel)]="logedUser.tel" required name="tel" class="form-control" #tel="ngModel">
-        <div [@errorMessage]="tel.valid || tel.pristine" class="text-danger"> {{"PROFILE.PHONE_REQUIRED"|translate}}</div>
-    </div>
-    <button type="submit" class="btn btn-primary" [disabled]="!profileForm.form.valid  || loading">
-        <span *ngIf="loading">{{"PROFILE.LOADING"|translate}} ...</span>
-        <span *ngIf="!loading">{{"PROFILE.UPDATE"|translate}}</span>
-    </button>
-</form>
+<div class="container">
+    <h1>{{"PROFILE.TITLE"|translate}}</h1>
+    <alert class="success" [view]="success" text="PROFILE.VALID_FORM"></alert>
+    <alert class="danger" [view]="error" text="PROFILE.INVALID_PROFILE"></alert>
+    <form *ngIf="logedUser!=null" (ngSubmit)="update()" #profileForm="ngForm">
+        <div class="form-group">
+            <label>{{ 'PROFILE.NOM'|translate }}</label>
+            <input type="text" [(ngModel)]="logedUser.nom" required name="nom" class="form-control" #nom="ngModel">
+            <div [@errorMessage]="nom.valid || nom.pristine" class="text-danger"> {{"PROFILE.NOM_REQUIRED"|translate}}</div>
+        </div>
+        <div class="form-group">
+            <label>{{ 'PROFILE.PRENOM'|translate }}</label>
+            <input type="text" [(ngModel)]="logedUser.prenom" required name="prenom" class="form-control" #prenom="ngModel">
+            <div [@errorMessage]="prenom.valid || prenom.pristine" class="text-danger"> {{"PROFILE.PRENOM_REQUIRED"|translate}}</div>
+        </div>
+        <div class="form-group">
+            <label>{{ 'PROFILE.EMAIL'|translate }}</label>
+            <input type="email" [(ngModel)]="logedUser.email" required name="email" class="form-control" #email="ngModel">
+            <div [@errorMessage]="email.valid || email.pristine" class="text-danger"> {{"PROFILE.EMAIL_REQUIRED"|translate}}</div>
+        </div>
+        <div class="form-group">
+            <label>{{ 'PROFILE.PHONE'|translate }}</label>
+            <input type="text" [(ngModel)]="logedUser.tel" required name="tel" class="form-control" #tel="ngModel">
+            <div [@errorMessage]="tel.valid || tel.pristine" class="text-danger"> {{"PROFILE.PHONE_REQUIRED"|translate}}</div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!profileForm.form.valid  || loading">
+            <span *ngIf="loading">{{"PROFILE.LOADING"|translate}} ...</span>
+            <span *ngIf="!loading">{{"PROFILE.UPDATE"|translate}}</span>
+        </button>
+    </form>
+</div>

@@ -26,8 +26,7 @@ export class PasswordComponent implements OnInit {
 
     constructor(private loginService: LoginService, private router: Router, private titleService: Title) {
         this.titleService.setTitle("Password");
-        if (this.loginService.logedUser == null)
-            this.router.navigateByUrl('login');
+        this.loginService.verifUserLogged();
         this.currentPassword = "";
         this.newPassword = "";
         this.confirmationPassword = "";
@@ -39,7 +38,7 @@ export class PasswordComponent implements OnInit {
 
     update() {
         if (this.newPassword == this.confirmationPassword) {
-            this.loading=true;
+            this.loading = true;
             this.loginService.updatePassword(this.currentPassword, this.newPassword).subscribe(response => {
                 if (response.status == "succes") {
                     this.success = true;
@@ -49,7 +48,7 @@ export class PasswordComponent implements OnInit {
                     this.error2 = true;
                     setTimeout(() => this.error2 = false, 3000);
                 }
-                this.loading=false;
+                this.loading = false;
             });
         } else {
             this.error = true;

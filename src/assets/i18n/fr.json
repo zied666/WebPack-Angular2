@@ -6,11 +6,11 @@
     "LOGOUT": "Déconnexion",
     "HI": "Bonjour"
   },
-  "LOGIN":{
-    "WELOME":"Bienvenu dans",
-    "FULL_NAME":"Nom",
-    "REQUEST_REGISTER":"Demande d'inscription",
-    "REQUEST_SUCCESS":"Votre demande  a été envoyé avec succées",
+  "LOGIN": {
+    "WELOME": "Bienvenu dans",
+    "FULL_NAME": "Nom",
+    "REQUEST_REGISTER": "Demande d'inscription",
+    "REQUEST_SUCCESS": "Votre demande  a été envoyé avec succées",
     "REQUIRED": "Champ est obligatoire",
     "SEND": "Envoyer"
   },
@@ -45,11 +45,13 @@
     "MAP": "Sur la carte",
     "ABOUT_HOTEL": "A propos l'hotel",
     "AVAILABLE_ROOMS": "Chambres disponibles",
-    "FIND_HOTELS_TUNISIA": "Recherche d'hôtels en Tunisie"
+    "FIND_HOTELS_TUNISIA": "Recherche d'hôtels en Tunisie",
+    "CHECK_IN": "Date Arriver"
   },
   "PROFILE": {
     "TITLE": "Mon Profile",
     "EMAIL": "Adresse Email",
+    "USERNAME": "Username",
     "EMAIL_LOGIN": "Adresse Email ou nom utilisateur",
     "EMAIL_REQUIRED": "Email est obligatoire",
     "PASSWORD_REQUIRED": "Mot de passe est obligatoire",
@@ -85,6 +87,7 @@
   },
   "PASSWORD": {
     "TITLE": "Modification mot de passe",
+    "USERNAME": "Modification nom d'utilisateur",
     "CURRENET_PASSWORD": "Ancien mot de passe",
     "NEW_PASSWORD": "Nouveau mot de passe",
     "CONFIRMATION_PASSWORD": "Confirmation",
@@ -94,8 +97,22 @@
     "SUCCESS": "Votre mot de passe a été modifié avec succès",
     "EDIT": "Modification"
   },
-  "CONTACT":{
+  "CONTACT": {
     "TITLE": "Contactez-nous",
-    "ADDRESS":"Adresse"
+    "ADDRESS": "Adresse"
+  },
+  "MYBOOKING": {
+    "TITLE": "Mes réservations",
+    "CANCEL": "Annuler",
+    "CONFIRM": "Confirmer",
+    "RETURN": "Retourner",
+    "ORDER_DATE": "Date Réservation",
+    "STATUS": "Statut",
+    "PRIX": "Prix"
+  },
+  "ETAT": {
+    "ENREGISTRE": "En Attente de validation",
+    "VALDATED": "Validée",
+    "CANCELED": "Annulée"
   }
 }

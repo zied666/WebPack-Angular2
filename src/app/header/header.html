@@ -24,6 +24,9 @@
                             <li *ngIf="loginService.logedUser != null" >
                                 <a href="javascript:void(0)" id="drop8" data-toggle="dropdown" class="dropdown-toggle">{{"MENU.HI"|translate}} {{loginService.logedUser.nom}} {{loginService.logedUser.prenom}} <span class="caret"></span></a>
                                 <ul  class="dropdown-menu">
+                                    <li [ngClass]="{active: router.url=='/mybookings'}">
+                                        <a routerLink="mybookings" >{{ "MYBOOKING.TITLE"|translate }}</a>
+                                    </li>
                                     <li [ngClass]="{active: router.url=='/profile'}">
                                         <a routerLink="profile" >{{ "PROFILE.TITLE"|translate }}</a>
                                     </li>

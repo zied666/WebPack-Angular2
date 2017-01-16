@@ -1,0 +1,32 @@
+<div class="container">
+    <h1 class="page-title">{{"MYBOOKING.TITLE" |translate}}</h1>
+</div>
+<div class="container" style="min-height: 500px;">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered table-striped table-booking-history">
+                <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>{{"MYBOOKING.ORDER_DATE"|translate}}</th>
+                    <th>{{"MENU.HOTELS"|translate}}</th>
+                    <th>{{"HOTELS.CITY"|translate}}</th>
+                    <th>{{"HOTELS.CHECK_IN"|translate}}</th>
+                    <th>{{"MYBOOKING.PRIX"|translate}}</th>
+                    <th>{{"MYBOOKING.STATUS"|translate}}</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody *ngIf="loading">
+                    <tr>
+                        <td colspan="11" class="text-center">Loading</td>
+                    </tr>
+                </tbody>
+                <tbody *ngIf="!loading">
+                <tr booking-single  *ngFor="let booking of bookings" [booking]="booking"></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

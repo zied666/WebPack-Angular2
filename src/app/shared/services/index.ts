@@ -4,3 +4,4 @@ export * from './loading.service';
 export * from './localStorage.service';
 export * from './search.service';
 export * from './login.service';
+export * from './booking.service';

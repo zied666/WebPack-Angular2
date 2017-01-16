@@ -7,11 +7,13 @@ import {HotelBookingComponent} from "./hotel/booking";
 import {PasswordComponent} from "./login/password";
 import {LoginComponent} from "./login/login/login.component";
 import {ContactComponent} from "./login/contact/contact.component";
+import {AdminBookingComponent} from "./admin/booking/admin.booking.component";
 
 export const routes: Routes = [
     {path: '', component: HotelListComponent},
     {path: 'hotel/:id', component: HotelDetailComponent},
     {path: 'booking', component: HotelBookingComponent},
+    {path: 'mybookings', component: AdminBookingComponent},
     {path: 'login', component: LoginComponent},
     {path: 'profile', component: ProfileComponent},
     {path: 'password', component: PasswordComponent},

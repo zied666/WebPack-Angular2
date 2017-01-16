@@ -1,0 +1,28 @@
+<td class="booking-history-type"><i class="fa fa-building-o"></i>
+    <small>hotel</small>
+</td>
+<td>{{ booking.created | date: 'dd/MM/yyyy HH:mm' }}</td>
+<td class="booking-history-title">{{ booking.hotel.libelle }}</td>
+<td>{{ booking.hotel.ville.libelle }} {{ booking.hotel.ville.pays.libelle }}</td>
+<td>{{ booking.date_debut | date: 'dd/MM/yyyy' }}, {{booking.nuitees}} {{"HOTELS.NIGHTS"|translate}}</td>
+<td>{{ booking.account |devise }}</td>
+<td>
+    <span *ngIf="booking.etat == 1">{{ "ETAT.ENREGISTRE"|translate }}</span>
+    <span *ngIf="booking.etat == 9">{{ "ETAT.CANCELED"|translate }}</span>
+    <span *ngIf="booking.etat == 2">{{ "ETAT.VALDATED"|translate }}</span>
+</td>
+<td>
+    <div *ngIf="loading">
+        Loading ...
+    </div>
+    <div *ngIf="booking.etat == 2 && !loading">
+        <a target="_blank" href="{{ config.API_ROUTES.ostravel }}admin/hotel_tunisie/reservation/voucher/{{ booking.id }}" class="btn btn-success btn-xs">Voucher</a>
+    </div>
+    <div *ngIf="booking.etat == 1 && !loading">
+        <button *ngIf="!preConfirm"  class="btn btn-danger btn-xs" (click)="preConfirm=true">{{ "MYBOOKING.CANCEL"|translate }}</button>
+        <div class="row"  *ngIf="preConfirm">
+            <div class="col-md-6"><button class="btn btn-danger btn-xs" (click)="cancelBooking()">{{ "MYBOOKING.CONFIRM"|translate }}</button></div>
+            <div class="col-md-6"><button class="btn btn-warning btn-xs" (click)="preConfirm=false">{{ "MYBOOKING.RETURN"|translate }}</button></div>
+        </div>
+    </div>
+</td>

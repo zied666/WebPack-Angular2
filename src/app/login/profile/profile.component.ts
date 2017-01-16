@@ -30,8 +30,7 @@ export class ProfileComponent implements OnInit {
 
     ngOnInit() {
         this.success = false;
-        if (this.loginService.logedUser == null)
-            this.router.navigateByUrl('login');
+        this.loginService.verifUserLogged();
         this.logedUser = Object.assign({}, this.loginService.logedUser);
     }
 
