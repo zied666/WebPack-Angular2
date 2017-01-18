@@ -8,11 +8,12 @@ import {PasswordComponent} from "./password/password.component";
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import {ContactComponent} from "./contact/contact.component";
+import {AmicaleComponent} from "./amicale/amicale.component";
 
 
 @NgModule({
     imports: [SharedModule, FormsModule, HttpModule, ReCaptchaModule],
-    declarations: [LoginComponent, ProfileComponent,PasswordComponent,RegisterComponent,ContactComponent],
+    declarations: [LoginComponent, ProfileComponent, PasswordComponent, RegisterComponent, ContactComponent],
 })
 
 

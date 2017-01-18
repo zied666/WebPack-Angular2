@@ -8,6 +8,13 @@ import {PasswordComponent} from "./login/password";
 import {LoginComponent} from "./login/login/login.component";
 import {ContactComponent} from "./login/contact/contact.component";
 import {AdminBookingComponent} from "./admin/booking/admin.booking.component";
+import {TranslateService} from "ng2-translate";
+import {LoginService} from "./shared/services/login.service";
+import {PlafondComponent} from "./amicale/plafond/plafond.component";
+import {AmicaleComponent} from "./amicale/default/amicale.component";
+import {SettingsComponent} from "./amicale/settings/settings.component";
+import {MargeComponent} from "./amicale/marge/marge.component";
+import {ReservationComponent} from "./amicale/reservations/reservation.component";
 
 export const routes: Routes = [
     {path: '', component: HotelListComponent},
@@ -17,6 +24,16 @@ export const routes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'profile', component: ProfileComponent},
     {path: 'password', component: PasswordComponent},
+    {path: 'password', component: PasswordComponent},
+    {
+        path: 'amicale',
+        children: [
+            {path: '', component: PlafondComponent},
+            {path: 'settings', component: SettingsComponent},
+            {path: 'marge', component: MargeComponent},
+            {path: 'bookings', component: ReservationComponent},
+        ]
+    },
     {path: 'contact', component: ContactComponent},
 ];
 

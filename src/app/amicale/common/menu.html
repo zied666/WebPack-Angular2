@@ -1,0 +1,20 @@
+<aside class="user-profile-sidebar">
+    <div class="user-profile-avatar text-center">
+        <img src="{{ loginService.getPhoto() }}" alt="Image Alternative text" title="Logo" />
+        <h5>{{loginService.logedUser.amicale.libelle}}</h5>
+    </div>
+    <ul class="list user-profile-nav">
+        <li  [ngClass]="{active: router.url=='/amicale'}">
+            <a routerLink="/amicale" ><i class="fa fa-user"></i>{{"AMICALE.GENERAL"|translate}}</a>
+        </li>
+        <li [ngClass]="{active: router.url=='/amicale/settings'}">
+            <a routerLink="/amicale/settings"><i class="fa fa-cog"></i>{{"AMICALE.EDIT"|translate}}</a>
+        </li>
+        <li [ngClass]="{active: router.url=='/amicale/marge'}">
+            <a routerLink="/amicale/marge"><i class="fa fa-cog"></i>{{"AMICALE.MARGE"|translate}}</a>
+        </li>
+        <li [ngClass]="{active: router.url=='/amicale/bookings'}">
+            <a routerLink="/amicale/bookings"><i class="fa fa-cog"></i>{{"AMICALE.BOOKING"|translate}}</a>
+        </li>
+    </ul>
+</aside>

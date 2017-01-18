@@ -110,6 +110,22 @@
     "STATUS": "Status",
     "PRIX": "Price"
   },
+  "AMICALE": {
+    "GENERAL": "General",
+    "EDIT": "Settings",
+    "NAME": "Name",
+    "PLAFOND": "Ceiling",
+    "MONTANT": "Current Amount",
+    "MARGE": "Margin of sale",
+    "ADRESSE": "Address",
+    "TEL": "Phone",
+    "FAX": "FAX",
+    "RC": "Trade register",
+    "MF": "Tax identification number",
+    "MONTANT_MARGE": "Amount Sales Margin",
+    "MONTANT_MARGE_POUR": "Percentage",
+    "BOOKING":"Bookings"
+  },
   "ETAT": {
     "ENREGISTRE": "Waiting",
     "VALDATED": "Validated",

@@ -1,0 +1,28 @@
+<div class="container">
+    <h1 class="page-title"> {{loginService.logedUser.amicale.libelle}}
+        <small>{{"AMICALE.GENERAL"|translate}}</small>
+    </h1>
+</div>
+<div class="container" style="min-height: 600px">
+    <div class="row">
+        <div class="col-md-3">
+            <amicale-menu></amicale-menu>
+        </div>
+        <div class="col-md-9">
+            <loading *ngIf="loading"></loading>
+            <ul *ngIf="!loading" class="list list-inline user-profile-statictics mb30" style="display: table;margin: 0 auto;">
+                <li style="width: initial;" >
+                    <i class="fa fa-dollar user-profile-statictics-icon"></i>
+                    <h5 [innerHTML]="amicale.montant|devise"></h5>
+                    <p>{{ "AMICALE.PLAFOND"|translate }}</p>
+                </li>
+                <li style="width: initial;">
+                    <i class="fa fa-dollar user-profile-statictics-icon"></i>
+                    <h5 [innerHTML]="amicale.plafond|devise"></h5>
+                    <p>{{ "AMICALE.MONTANT"|translate }}</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+

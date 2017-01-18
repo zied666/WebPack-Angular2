@@ -110,6 +110,22 @@
     "STATUS": "Statut",
     "PRIX": "Prix"
   },
+  "AMICALE": {
+    "GENERAL": "Général",
+    "EDIT": "Paramétres",
+    "NAME": "Nom",
+    "PLAFOND": "Plafond",
+    "MONTANT": "Montant actuelle",
+    "MARGE": "Marge de vente",
+    "ADRESSE": "Adresse",
+    "TEL": "Téléphone",
+    "FAX": "FAX",
+    "RC": "Registre de commerce",
+    "MF": "Matricule Fiscal",
+    "MONTANT_MARGE":" Montant Marge de vente ",
+    "MONTANT_MARGE_POUR":" En pourcentage",
+    "BOOKING":"Réservations"
+  },
   "ETAT": {
     "ENREGISTRE": "En Attente de validation",
     "VALDATED": "Validée",

@@ -1,0 +1,84 @@
+<div class="container">
+    <h1 class="page-title"> {{loginService.logedUser.amicale.libelle}}
+        <small>{{ 'AMICALE.EDIT'|translate }}</small>
+    </h1>
+</div>
+<div class="container" style="min-height: 600px">
+    <div class="row">
+        <div class="col-md-3">
+            <amicale-menu></amicale-menu>
+        </div>
+        <div class="col-md-9">
+            <alert class="success" [view]="success" text="PROFILE.VALID_FORM"></alert>
+            <alert class="danger" [view]="error" text="PROFILE.INVALID_PROFILE"></alert>
+            <loading *ngIf="loading"></loading>
+            <form *ngIf="!loading" (ngSubmit)="update()" #profileForm="ngForm">
+                <div class="form-group">
+                    <label>{{ 'AMICALE.NAME'|translate }}</label>
+                    <input type="text" [(ngModel)]="amicale.libelle" required name="libelle" class="form-control"
+                           #libelleModel="ngModel">
+                    <div [@errorMessage]="libelleModel.valid || libelleModel.pristine" class="text-danger">
+                        {{"LOGIN.REQUIRED"|translate}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>{{ 'AMICALE.ADRESSE'|translate }}</label>
+                    <input type="text" [(ngModel)]="amicale.adresse" required name="adresse" class="form-control"
+                           #adresseModel="ngModel">
+                    <div [@errorMessage]="adresseModel.valid || adresseModel.pristine" class="text-danger">
+                        {{"LOGIN.REQUIRED"|translate}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>{{ 'AMICALE.TEL'|translate }}</label>
+                            <input type="text" [(ngModel)]="amicale.tel" required name="email" class="form-control"
+                                   #telModel="ngModel">
+                            <div [@errorMessage]="telModel.valid || telModel.pristine" class="text-danger">
+                                {{"LOGIN.REQUIRED"|translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>{{ 'AMICALE.FAX'|translate }}</label>
+                            <input type="text" [(ngModel)]="amicale.fax" required name="email" class="form-control"
+                                   #faxModel="ngModel">
+                            <div [@errorMessage]="faxModel.valid || faxModel.pristine" class="text-danger">
+                                {{"LOGIN.REQUIRED"|translate}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>{{ 'AMICALE.MF'|translate }}</label>
+                            <input type="text" [(ngModel)]="amicale.matricule_fiscale" required name="matricule_fiscale"
+                                   class="form-control" #mfModel="ngModel">
+                            <div [@errorMessage]="mfModel.valid || mfModel.pristine" class="text-danger">
+                                {{"LOGIN.REQUIRED"|translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>{{ 'AMICALE.RC'|translate }}</label>
+                            <input type="text" [(ngModel)]="amicale.registre_commercie" required name="registre_commercie"
+                                   class="form-control" #rcModel="ngModel">
+                            <div [@errorMessage]="rcModel.valid || rcModel.pristine" class="text-danger">
+                                {{"LOGIN.REQUIRED"|translate}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="!profileForm.form.valid  || loadingSubmit">
+                    <span *ngIf="loadingSubmit">{{"PROFILE.LOADING"|translate}} ...</span>
+                    <span *ngIf="!loadingSubmit">{{"PROFILE.UPDATE"|translate}}</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+

@@ -6,5 +6,6 @@ export class User {
     prenom: string;
     tel: string;
     photo: string;
-    amicale: any
+    amicale: any;
+    responsable: boolean;
 }

@@ -1,13 +1,7 @@
-import {Component, OnInit, trigger, state, transition, style, animate}   from '@angular/core';
-import {HotelService} from "../../shared/services/hotel.service";
-import {SearchService} from "../../shared/services/search.service";
+import {Component, OnInit}   from '@angular/core';
 import {Title} from "@angular/platform-browser";
-import {LoadingService} from "../../shared/services/loading.service";
 import {Hotel} from "../object/hotel";
 import {Search} from "../object/search";
-import {Config} from "../../shared/config/config";
-import {Router} from "@angular/router";
-import {User} from "../../login/user";
 import {LoginService} from "../../shared/services/login.service";
 import {BookingService} from "../../shared/services/booking.service";
 

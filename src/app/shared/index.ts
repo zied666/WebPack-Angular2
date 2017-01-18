@@ -14,6 +14,8 @@ import {StarsPipe} from "./pipes/stars.pipe";
 import {AddDatePipe} from "./pipes/add_date.pipe";
 import {LoginService} from "./services/login.service";
 import {BookingService} from "./services/booking.service";
+import {AmicaleService} from "./services/amicale.service";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
     imports: [
@@ -38,6 +40,7 @@ import {BookingService} from "./services/booking.service";
         StateDirective
     ],
     exports: [
+        RouterModule,
         AddDatePipe,
         StarsPipe,
         DevisePipe,
@@ -53,6 +56,7 @@ import {BookingService} from "./services/booking.service";
         StateDirective
     ],
     providers: [
+        AmicaleService,
         LoginService,
         LocalStorageService,
         HotelService,

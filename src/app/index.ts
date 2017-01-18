@@ -17,7 +17,7 @@ import {SharedModule} from "./shared";
 import {FooterComponent} from "./footer/footer.component";
 import {LoginModule} from "./login/index";
 import {AdminModule} from "./admin/index";
-
+import {AmicaleModule} from "./amicale/index";
 // Application wide providers
 const APP_PROVIDERS = [
     ...APP_RESOLVER_PROVIDERS,
@@ -47,6 +47,7 @@ type StoreType = {
         BrowserModule,
         LoginModule,
         AdminModule,
+        AmicaleModule,
         CoreModule.forRoot({userName: 'Miss Marple'}),
         AppRoutingModule
     ],

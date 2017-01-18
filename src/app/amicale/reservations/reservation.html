@@ -1,0 +1,55 @@
+<div class="container">
+    <h1 class="page-title"> {{loginService.logedUser.amicale.libelle}}
+        <small>{{"AMICALE.BOOKING"|translate}}</small>
+    </h1>
+</div>
+<div class="container" style="min-height: 600px">
+    <div class="row">
+        <div class="col-md-3">
+            <amicale-menu></amicale-menu>
+        </div>
+        <div class="col-md-9">
+            <table class="table table-bordered table-striped table-booking-history">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>{{"MYBOOKING.ORDER_DATE"|translate}}</th>
+                        <th>{{"MENU.HOTELS"|translate}}</th>
+                        <th>{{"HOTELS.CITY"|translate}}</th>
+                        <th>{{"HOTELS.CHECK_IN"|translate}}</th>
+                        <th>{{"MYBOOKING.PRIX"|translate}}</th>
+                        <th>{{"MYBOOKING.STATUS"|translate}}</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="loading">
+                    <tr>
+                        <td colspan="11" class="text-center">Loading</td>
+                    </tr>
+                </tbody>
+                <tbody *ngIf="!loading">
+                    <tr *ngFor="let booking of bookings">
+                        <td class="booking-history-type"><i class="fa fa-building-o"></i>
+                            <small>hotel</small>
+                        </td>
+                        <td>{{ booking.created | date: 'dd/MM/yyyy HH:mm' }}</td>
+                        <td class="booking-history-title">{{ booking.hotel.libelle }}</td>
+                        <td>{{ booking.hotel.ville.libelle }} {{ booking.hotel.ville.pays.libelle }}</td>
+                        <td>{{ booking.date_debut | date: 'dd/MM/yyyy' }}, {{booking.nuitees}} {{"HOTELS.NIGHTS"|translate}}</td>
+                        <td [innerHTML]="booking.account |devise"></td>
+                        <td>
+                            <span *ngIf="booking.etat == 1">{{ "ETAT.ENREGISTRE"|translate }}</span>
+                            <span *ngIf="booking.etat == 9">{{ "ETAT.CANCELED"|translate }}</span>
+                            <span *ngIf="booking.etat == 2">{{ "ETAT.VALDATED"|translate }}</span>
+                        </td>
+                        <td>
+
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
