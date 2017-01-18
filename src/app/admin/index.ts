@@ -3,6 +3,9 @@ import {SharedModule}        from '../shared';
 import {AppRoutingModule} from "../app-routing.module";
 import {AdminBookingComponent} from "./booking";
 import {AdminBookingSingleComponent} from "./booking/single/admin.booking.single.component";
+import {AdminPasswordComponent} from "./password/admin.password.component";
+import {AdminProfileComponent} from "./profile/admin.profile.component";
+import {AdminMenuComponent} from "./common/admin.menu.component";
 
 @NgModule({
     imports: [
@@ -11,7 +14,10 @@ import {AdminBookingSingleComponent} from "./booking/single/admin.booking.single
     ],
     declarations: [
         AdminBookingComponent,
-        AdminBookingSingleComponent
+        AdminBookingSingleComponent,
+        AdminPasswordComponent,
+        AdminProfileComponent,
+        AdminMenuComponent
     ]
 })
 export class AdminModule {

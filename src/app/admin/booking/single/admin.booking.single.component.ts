@@ -15,9 +15,8 @@ export class AdminBookingSingleComponent implements OnInit {
     @Input() booking: any;
     private config = Config;
     loading :boolean;
-    preConfirm :boolean;
 
-    constructor(private bookingService: BookingService) {
+    constructor(private bookingService: BookingService,private loginService: LoginService) {
     }
 
     ngOnInit() {

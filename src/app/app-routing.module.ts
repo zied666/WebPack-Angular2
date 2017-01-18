@@ -15,16 +15,14 @@ import {AmicaleComponent} from "./amicale/default/amicale.component";
 import {SettingsComponent} from "./amicale/settings/settings.component";
 import {MargeComponent} from "./amicale/marge/marge.component";
 import {ReservationComponent} from "./amicale/reservations/reservation.component";
+import {AdminProfileComponent} from "./admin/profile/admin.profile.component";
+import {AdminPasswordComponent} from "./admin/password/admin.password.component";
 
 export const routes: Routes = [
     {path: '', component: HotelListComponent},
     {path: 'hotel/:id', component: HotelDetailComponent},
     {path: 'booking', component: HotelBookingComponent},
-    {path: 'mybookings', component: AdminBookingComponent},
     {path: 'login', component: LoginComponent},
-    {path: 'profile', component: ProfileComponent},
-    {path: 'password', component: PasswordComponent},
-    {path: 'password', component: PasswordComponent},
     {
         path: 'amicale',
         children: [
@@ -32,6 +30,14 @@ export const routes: Routes = [
             {path: 'settings', component: SettingsComponent},
             {path: 'marge', component: MargeComponent},
             {path: 'bookings', component: ReservationComponent},
+        ]
+    },
+    {
+        path: 'profile',
+        children: [
+            {path: '', component: AdminProfileComponent},
+            {path: 'password', component: AdminPasswordComponent},
+            {path: 'bookings', component: AdminBookingComponent},
         ]
     },
     {path: 'contact', component: ContactComponent},

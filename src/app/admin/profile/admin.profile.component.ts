@@ -1,13 +1,14 @@
 import {Component, OnInit, trigger, state, style, transition, animate}      from '@angular/core';
-import {User} from "../user";
-import {Router} from "@angular/router";
-import {LocalStorageService} from "../../shared/services/localStorage.service";
-import {Title} from "@angular/platform-browser";
+import {User} from "../../login/user";
 import {LoginService} from "../../shared/services/login.service";
+import {Router} from "@angular/router";
+import {Title} from "@angular/platform-browser";
+import {LocalStorageService} from "../../shared/services/localStorage.service";
+
 
 @Component({
-    styleUrls: ['../form.css'],
-    templateUrl: './profile.html',
+    styleUrls: ['form.css'],
+    templateUrl: 'profile.html',
     animations: [
         trigger('errorMessage', [
             state("true", style({opacity: 0, display: "none"})),
@@ -16,7 +17,7 @@ import {LoginService} from "../../shared/services/login.service";
         ])
     ]
 })
-export class ProfileComponent implements OnInit {
+export class AdminProfileComponent implements OnInit {
 
     logedUser: User = null;
     success: boolean;

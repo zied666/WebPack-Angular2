@@ -1,5 +1,6 @@
 <td>{{ booking.created | date: 'dd/MM/yyyy HH:mm' }}</td>
 <td class="booking-history-title">{{ booking.hotel.libelle }}</td>
+<td>{{booking.client.nom_prenom}}</td>
 <td>{{ booking.date_debut | date: 'dd/MM/yyyy' }}, {{booking.nuitees}} {{"HOTELS.NIGHTS"|translate}}</td>
 <td [innerHTML]="booking.account |devise"></td>
 <td *ngIf="loginService.logedUser.amicale">
@@ -8,7 +9,7 @@
     </span>
 </td>
 <td>
-    <span *ngIf="booking.etat == 1">{{ "ETAT.ENREGISTRE"|translate }}</span>
+    <span *ngIf="booking.etat == 1">{{ "ETAT.ENREGISTRE"|translate }} Agence</span>
     <span *ngIf="booking.etat == 9">{{ "ETAT.CANCELED"|translate }}</span>
     <span *ngIf="booking.etat == 2">{{ "ETAT.VALDATED"|translate }}</span>
 </td>
@@ -20,6 +21,9 @@
         <a target="_blank" href="{{ config.API_ROUTES.ostravel }}admin/hotel_tunisie/reservation/voucher/{{ booking.id }}" class="btn btn-success btn-xs">Voucher</a>
     </div>
     <div *ngIf="booking.etat == 1 && !loading">
-        <button  class="btn btn-danger btn-xs" (click)="cancelBooking()">{{ "MYBOOKING.CANCEL"|translate }}</button>
+        <button class="btn btn-danger btn-xs" (click)="cancelBooking()">{{ "MYBOOKING.CANCEL"|translate }}</button>
+    </div>
+    <div *ngIf="booking.etat == 1 && !booking.responsable_amicale &&  !loading">
+        <button class="btn btn-primary btn-xs" (click)="validateBooking()">{{ "AMICALE.VALDATED"|translate }}</button>
     </div>
 </td>

@@ -4,8 +4,8 @@ import {Title} from "@angular/platform-browser";
 import {LoginService} from "../../shared/services/login.service";
 
 @Component({
-    styleUrls: ['../form.css'],
-    templateUrl: './password.html',
+    styleUrls: ['form.css'],
+    templateUrl: 'password.html',
     animations: [
         trigger('errorMessage', [
             state("true", style({opacity: 0, display: "none"})),
@@ -14,7 +14,7 @@ import {LoginService} from "../../shared/services/login.service";
         ])
     ]
 })
-export class PasswordComponent implements OnInit {
+export class AdminPasswordComponent implements OnInit {
 
     currentPassword: string;
     newPassword: string;

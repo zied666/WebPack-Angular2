@@ -27,27 +27,6 @@
                             <li [ngClass]="{active: router.url=='/contact'}">
                                 <a routerLink="contact">{{ 'CONTACT.TITLE'|translate }}</a>
                             </li>
-
-                            <li *ngIf="loginService.logedUser != null" >
-                                <a href="javascript:void(0)" id="drop8" data-toggle="dropdown" class="dropdown-toggle">{{"MENU.HI"|translate}} {{loginService.logedUser.nom}} {{loginService.logedUser.prenom}} <span class="caret"></span></a>
-                                <ul  class="dropdown-menu">
-                                    <li *ngIf="loginService.logedUser && loginService.logedUser.responsable" [ngClass]="{active: router.url=='/amicale'}" >
-                                        <a routerLink="amicale" >{{loginService.logedUser.amicale.libelle}}</a>
-                                    </li>
-                                    <li [ngClass]="{active: router.url=='/mybookings'}">
-                                        <a routerLink="mybookings" >{{ "MYBOOKING.TITLE"|translate }}</a>
-                                    </li>
-                                    <li [ngClass]="{active: router.url=='/profile'}">
-                                        <a routerLink="profile" >{{ "PROFILE.TITLE"|translate }}</a>
-                                    </li>
-                                    <li [ngClass]="{active: router.url=='/password'}">
-                                        <a routerLink="password" >{{ "PASSWORD.TITLE"|translate }}</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li *ngIf="loginService.logedUser != null">
-                                <a href="javascript:void(0)" (click)="logout()">{{"MENU.LOGOUT"|translate}}</a>
-                            </li>
                             <li>
                                 <a href="javascript:void(0)" id="drop6" data-toggle="dropdown" class="dropdown-toggle"><img src="assets/template/img/flags/32/{{translate.currentLang}}.png" style="width: 20px;height: 20px"> {{translate.currentLang.toUpperCase()}}<span class="caret"></span></a>
                                 <ul  class="dropdown-menu">
@@ -65,6 +44,21 @@
                                 <ul  class="dropdown-menu">
                                     <li *ngFor="let devise of deviseService.devises" [ngClass]="{'active': devise.id==deviseService.currentDevise.id}">
                                         <a href="javascript:void(0)" (click)="changeDevise(devise)"  >{{devise.code }}</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li *ngIf="loginService.logedUser != null" >
+                                <a href="javascript:void(0)" id="drop8" data-toggle="dropdown" class="dropdown-toggle">{{"MENU.HI"|translate}} {{loginService.logedUser.nom}} {{loginService.logedUser.prenom}} <span class="caret"></span></a>
+                                <ul  class="dropdown-menu">
+                                    <li [ngClass]="{active: router.url=='/profile'}">
+                                        <a routerLink="profile" >{{ "PROFILE.TITLE"|translate }}</a>
+                                    </li>
+                                    <li *ngIf="loginService.logedUser && loginService.logedUser.responsable" [ngClass]="{active: router.url=='/amicale'}" >
+                                        <a routerLink="amicale" >{{loginService.logedUser.amicale.libelle}}</a>
+                                    </li>
+                                    <li *ngIf="loginService.logedUser != null">
+                                        <a href="javascript:void(0)" (click)="logout()">{{"MENU.LOGOUT"|translate}}</a>
                                     </li>
                                 </ul>
                             </li>

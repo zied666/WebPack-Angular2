@@ -39,7 +39,6 @@ export class AmicaleService {
         let params = new URLSearchParams();
         params.set('token', this.loginService.logedUser.token.toString());
         params.set('margeSHT', amicale.marge_s_h_t.toString());
-        params.set('margePourSHT', amicale.marge_pour_s_h_t.toString());
         return this.http.get(Config.API_ROUTES.ostravel + "api/updatemargeamicale", {search: params})
             .map((res: Response) => res.json())
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));

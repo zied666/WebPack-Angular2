@@ -37,4 +37,12 @@ export class BookingService {
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
+    validate(id): Observable<any> {
+        let params = new URLSearchParams();
+        params.set('token', this.loginService.logedUser.token.toString());
+        return this.http.get(Config.API_ROUTES.ostravel + "api/amicales/"+id+"/validation", {search: params})
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
 }

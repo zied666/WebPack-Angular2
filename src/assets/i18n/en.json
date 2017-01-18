@@ -124,6 +124,7 @@
     "MF": "Tax identification number",
     "MONTANT_MARGE": "Amount Sales Margin",
     "MONTANT_MARGE_POUR": "Percentage",
+    "VALDATED": "Responsible Validation",
     "BOOKING":"Bookings"
   },
   "ETAT": {

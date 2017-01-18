@@ -2,6 +2,7 @@
     <h1 class="page-title"> {{loginService.logedUser.amicale.libelle}}
         <small>{{ 'AMICALE.EDIT'|translate }}</small>
     </h1>
+    <hr>
 </div>
 <div class="container" style="min-height: 600px">
     <div class="row">
@@ -12,30 +13,32 @@
             <alert class="success" [view]="success" text="PROFILE.VALID_FORM"></alert>
             <alert class="danger" [view]="error" text="PROFILE.INVALID_PROFILE"></alert>
             <loading *ngIf="loading"></loading>
-            <form *ngIf="!loading" (ngSubmit)="update()" #profileForm="ngForm">
+            <form *ngIf="!loading" (ngSubmit)="update()" #profileForm="ngForm" class="form-inline">
+                <div class="col-md-12">
+                    <label>{{ 'AMICALE.MONTANT_MARGE'|translate }}</label>
+                </div>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>{{ 'AMICALE.MONTANT_MARGE'|translate }}</label>
-                            <input type="number" [(ngModel)]="amicale.marge_s_h_t" required name="margeSHT" class="form-control" #margeSHTModel="ngModel">
-                            <div [@errorMessage]="margeSHTModel.valid || margeSHTModel.pristine" class="text-danger">
-                                {{"LOGIN.REQUIRED"|translate}}
+                            <label class="sr-only" for="exampleInputAmount">{{ 'AMICALE.MONTANT_MARGE'|translate }}</label>
+                            <div class="input-group">
+                                <input type="number" min="0" max="100" [(ngModel)]="amicale.marge_s_h_t" required name="margeSHT" id="exampleInputAmount" class="form-control" #margeSHTModel="ngModel">
+                                <div class="input-group-addon">%</div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                            <div class="checkbox" style="margin-top: 33px">
-                                <label>
-                                    <input type="checkbox" [(ngModel)]="amicale.marge_pour_s_h_t"  name="margePourSHT" class="i-check" #margePourSHTModel="ngModel" />
-                                    {{ "AMICALE.MONTANT_MARGE_POUR"|translate }}
-                                </label>
-                            </div>
+                        <button type="submit" class="btn btn-primary" [disabled]="!profileForm.form.valid  || loadingSubmit">
+                            <span *ngIf="loadingSubmit">{{"PROFILE.LOADING"|translate}} ...</span>
+                            <span *ngIf="!loadingSubmit">{{"PROFILE.UPDATE"|translate}}</span>
+                        </button>
+                    </div>
+                    <div class="col-md-12">
+                        <div [@errorMessage]="margeSHTModel.valid || margeSHTModel.pristine" class="text-danger">
+                            {{"LOGIN.REQUIRED"|translate}}
+                        </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary" [disabled]="!profileForm.form.valid  || loadingSubmit">
-                    <span *ngIf="loadingSubmit">{{"PROFILE.LOADING"|translate}} ...</span>
-                    <span *ngIf="!loadingSubmit">{{"PROFILE.UPDATE"|translate}}</span>
-                </button>
             </form>
         </div>
     </div>

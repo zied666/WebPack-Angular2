@@ -8,6 +8,7 @@ import {MenuComponent} from "./common/menu.component";
 import {RouterModule} from "@angular/router";
 import {MargeComponent} from "./marge/marge.component";
 import {ReservationComponent} from "./reservations/reservation.component";
+import {ReservationSingleComponent} from "./reservations/single/reservation.single.component";
 
 @NgModule({
     imports: [
@@ -15,7 +16,12 @@ import {ReservationComponent} from "./reservations/reservation.component";
         InfiniteScrollModule,
     ],
     declarations: [
-        SettingsComponent,PlafondComponent,MenuComponent,MargeComponent,ReservationComponent
+        SettingsComponent,
+        PlafondComponent,
+        MenuComponent,
+        MargeComponent,
+        ReservationComponent,
+        ReservationSingleComponent
     ]
 })
 export class AmicaleModule {

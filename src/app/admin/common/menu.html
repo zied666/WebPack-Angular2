@@ -1,0 +1,17 @@
+<aside class="user-profile-sidebar">
+    <div class="user-profile-avatar text-center">
+        <img src="{{ loginService.getPhoto() }}" alt="Image Alternative text" title="Logo" />
+        <h5>{{loginService.logedUser.nom}} {{loginService.logedUser.prenom}}</h5>
+    </div>
+    <ul class="list user-profile-nav">
+        <li  [ngClass]="{active: router.url=='/profile'}">
+            <a routerLink="/profile" ><i class="fa fa-home"></i>{{ "PROFILE.TITLE"|translate }}</a>
+        </li>
+        <li [ngClass]="{active: router.url=='/profile/password'}">
+            <a routerLink="/profile/password"><i class="fa fa-cog"></i>{{ "PASSWORD.TITLE"|translate }}</a>
+        </li>
+        <li [ngClass]="{active: router.url=='/profile/bookings'}">
+            <a routerLink="/profile/bookings"><i class="fa fa-list-ul"></i>{{ "MYBOOKING.TITLE"|translate }}</a>
+        </li>
+    </ul>
+</aside>
