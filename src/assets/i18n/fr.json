@@ -125,7 +125,8 @@
     "MONTANT_MARGE":" Montant Marge de vente ",
     "MONTANT_MARGE_POUR":" En pourcentage",
     "VALDATED": "Validation Responsable",
-    "BOOKING":"Réservations"
+    "BOOKING":"Réservations",
+    "NEW_CLIENT_SUCCESS":"Votre client a été ajouté avec succés"
   },
   "ETAT": {
     "ENREGISTRE": "En Attente de validation",

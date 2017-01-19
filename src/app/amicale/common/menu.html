@@ -16,5 +16,11 @@
         <li [ngClass]="{active: router.url=='/amicale/bookings'}">
             <a routerLink="/amicale/bookings"><i class="fa fa-list-ul"></i>{{"AMICALE.BOOKING"|translate}}</a>
         </li>
+        <li [ngClass]="{active: router.url=='/amicale/clients'}">
+            <a routerLink="/amicale/clients"><i class="fa fa-list-ul"></i>Clients</a>
+        </li>
+        <li [ngClass]="{active: router.url=='/amicale/newClient'}">
+            <a routerLink="/amicale/newClient"><i class="fa fa-plus"></i>Client</a>
+        </li>
     </ul>
 </aside>

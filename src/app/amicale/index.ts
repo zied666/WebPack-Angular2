@@ -9,6 +9,9 @@ import {RouterModule} from "@angular/router";
 import {MargeComponent} from "./marge/marge.component";
 import {ReservationComponent} from "./reservations/reservation.component";
 import {ReservationSingleComponent} from "./reservations/single/reservation.single.component";
+import {AmicaleClientsComponent} from "./clients/amicale.clients.component";
+import {AmicaleClientComponent} from "./clients/amicale.client.component";
+import {AmicaleAddclientComponent} from "./newClient/amicale.addclient.component";
 
 @NgModule({
     imports: [
@@ -21,7 +24,10 @@ import {ReservationSingleComponent} from "./reservations/single/reservation.sing
         MenuComponent,
         MargeComponent,
         ReservationComponent,
-        ReservationSingleComponent
+        ReservationSingleComponent,
+        AmicaleClientsComponent,
+        AmicaleClientComponent,
+        AmicaleAddclientComponent
     ]
 })
 export class AmicaleModule {

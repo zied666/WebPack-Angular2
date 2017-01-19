@@ -13,6 +13,37 @@ export class AmicaleService {
     constructor(private http: Http, private searchService: SearchService, private loginService: LoginService) {
     }
 
+    addClient(user:any): Observable<any> {
+        let params = new URLSearchParams();
+        params.set('token', this.loginService.logedUser.token.toString());
+        params.set('userEmail', user.email);
+        params.set('userUsername', user.username);
+        params.set('userNom', user.nom);
+        params.set('userPrenom', user.prenom);
+        params.set('userPassword', user.password);
+        params.set('userResponsable', user.responsable);
+        return this.http.get(Config.API_ROUTES.ostravel + "api/user/create", {search: params})
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
+    lockUser(id): Observable<any> {
+        let params = new URLSearchParams();
+        params.set('token', this.loginService.logedUser.token.toString());
+        return this.http.get(Config.API_ROUTES.ostravel + "api/users/"+id+"/lock", {search: params})
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
+
+    getClients(): Observable<any> {
+        let params = new URLSearchParams();
+        params.set('token', this.loginService.logedUser.token.toString());
+        return this.http.get(Config.API_ROUTES.ostravel + "api/amicale/clients", {search: params})
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
     getAmicale(): Observable<any> {
         let params = new URLSearchParams();
         params.set('token', this.loginService.logedUser.token.toString());

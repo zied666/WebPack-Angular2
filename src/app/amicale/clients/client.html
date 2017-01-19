@@ -1,0 +1,15 @@
+<td>{{client.created|date:"dd/MM/yyyy"}}</td>
+<td>{{client.nom_prenom}}</td>
+<td>{{client.tel1}} <span *ngIf="client.tel2">/ {{client.tel2}}</span></td>
+<td><span *ngIf="client.user">{{client.user.email}}</span></td>
+<td><span *ngIf="client.user">{{client.user.username }}</span></td>
+<td class="text-center">
+    <i *ngIf="client.responsable" class="fa fa-check"></i>
+</td>
+<td>
+    <span *ngIf="loading">Loading ...</span>
+    <div *ngIf="!loading">
+        <button *ngIf="client.user && client.user.locked" class="btn btn-primary btn-xs" (click)="lockUser(client.id)">Locked</button>
+        <button *ngIf="client.user && !client.user.locked" class="btn btn-success btn-xs" (click)="lockUser(client.id)">Active</button>
+    </div>
+</td>

@@ -38,6 +38,21 @@ var AmicaleService = (function () {
             .map(function (res) { return res.json(); })
             .catch(function (error) { return rxjs_1.Observable.throw(error.json().error || 'Server error'); });
     };
+    AmicaleService.prototype.updateMargeAmicale = function (amicale) {
+        var params = new http_1.URLSearchParams();
+        params.set('token', this.loginService.logedUser.token.toString());
+        params.set('margeSHT', amicale.marge_s_h_t.toString());
+        return this.http.get(config_1.Config.API_ROUTES.ostravel + "api/updatemargeamicale", { search: params })
+            .map(function (res) { return res.json(); })
+            .catch(function (error) { return rxjs_1.Observable.throw(error.json().error || 'Server error'); });
+    };
+    AmicaleService.prototype.getBookings = function () {
+        var params = new http_1.URLSearchParams();
+        params.set('token', this.loginService.logedUser.token.toString());
+        return this.http.get(config_1.Config.API_ROUTES.ostravel + "api/amicale/hotels", { search: params })
+            .map(function (res) { return res.json(); })
+            .catch(function (error) { return rxjs_1.Observable.throw(error.json().error || 'Server error'); });
+    };
     return AmicaleService;
 }());
 AmicaleService = __decorate([

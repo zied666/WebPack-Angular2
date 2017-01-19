@@ -1,0 +1,85 @@
+<div class="container">
+    <h1 class="page-title"> {{loginService.logedUser.amicale.libelle}}
+        <small><i class="fa fa-plus"></i> Client</small>
+    </h1>
+    <hr>
+</div>
+<div class="container" style="min-height: 600px">
+    <div class="row">
+        <div class="col-md-3">
+            <amicale-menu></amicale-menu>
+        </div>
+        <div class="col-md-9">
+            <alert class="success" [view]="success" text="AMICALE.NEW_CLIENT_SUCCESS"></alert>
+            <form (ngSubmit)="addClient()" #profileForm="ngForm">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>{{ 'PROFILE.EMAIL'|translate }}</label>
+                            <input type="email" [(ngModel)]="user.email" required name="emailModel" class="form-control" #emailModel="ngModel">
+                            <div [@errorMessage]="emailModel.valid || emailModel.pristine" class="text-danger"> {{"LOGIN.REQUIRED"|translate}}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>{{ 'PROFILE.USERNAME'|translate }}</label>
+                            <input type="text" minlength="5" maxlength="15" [(ngModel)]="user.username" required name="usernameModel" class="form-control" #usernameModel="ngModel">
+                            <div [@errorMessage]="usernameModel.valid || usernameModel.pristine" class="text-danger"> {{"LOGIN.REQUIRED"|translate}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>{{ 'PROFILE.NOM'|translate }}</label>
+                            <input type="text" [(ngModel)]="user.nom" required name="nomModel" class="form-control" #nomModel="ngModel">
+                            <div [@errorMessage]="nomModel.valid || nomModel.pristine" class="text-danger"> {{"PROFILE.NOM_REQUIRED"|translate}}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>{{ 'PROFILE.PRENOM'|translate }}</label>
+                            <input type="text" [(ngModel)]="user.prenom" required name="prenomModel" class="form-control" #prenomModel="ngModel">
+                            <div [@errorMessage]="prenomModel.valid || prenomModel.pristine" class="text-danger"> {{"PROFILE.PRENOM_REQUIRED"|translate}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>{{ 'PROFILE.PASSWORD'|translate }}</label>
+                            <input type="password" [(ngModel)]="user.password" minlength="5" maxlength="15" required name="passwordModel" class="form-control" #passwordModel="ngModel">
+                            <div [@errorMessage]="passwordModel.valid || passwordModel.pristine" class="text-danger"> {{"LOGIN.REQUIRED"|translate}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>{{ 'PASSWORD.CONFIRMATION_PASSWORD'|translate }}</label>
+                            <input type="password" [(ngModel)]="user.passwordConfirmation" minlength="5" maxlength="15" required name="passwordConfirmationModel" class="form-control" #passwordConfirmationModel="ngModel">
+                            <div [@errorMessage]="user.passwordConfirmation==user.password && (passwordConfirmationModel.valid ||  (passwordConfirmationModel.pristine && !profileForm.submitted))" class="text-danger"> {{"PASSWORD.PASSWORD_REQUIRED"|translate}}</div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" [(ngModel)]="user.responsable"  name="responsableModel"  #responsableModel="ngModel">
+                                {{ 'AMICALE.VALDATED'|translate }}
+                            </label>
+                            <div [@errorMessage]="responsableModel.valid || responsableModel.pristine" class="text-danger"> {{"LOGIN.REQUIRED"|translate}}</div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="!profileForm.form.valid  || loading">
+                    <span *ngIf="loading">{{"PROFILE.LOADING"|translate}} ...</span>
+                    <span *ngIf="!loading">{{"PROFILE.UPDATE"|translate}}</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
