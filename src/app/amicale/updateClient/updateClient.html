@@ -1,0 +1,27 @@
+<div class="container">
+    <h1 class="page-title"> {{loginService.logedUser.amicale.libelle}}
+        <small>Client {{"PROFILE.UPDATE"|translate}}</small>
+    </h1>
+    <hr>
+</div>
+<div class="container" style="min-height: 600px">
+    <div class="row">
+        <div class="col-md-3">
+            <amicale-menu></amicale-menu>
+        </div>
+        <div class="col-md-9">
+            <loading *ngIf="loading"></loading>
+            <div *ngIf="!loading" class="row">
+                <div class="col-md-6">
+                    <amicale-client-update-profile [client]="client"></amicale-client-update-profile>
+                </div>
+                <div class="col-md-6">
+                    <amicale-client-update-email [client]="client"></amicale-client-update-email>
+                    <hr>
+                    <amicale-client-update-password [client]="client"></amicale-client-update-password>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

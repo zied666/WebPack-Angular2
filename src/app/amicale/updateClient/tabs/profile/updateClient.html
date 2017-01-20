@@ -1,0 +1,28 @@
+<h2>Profile</h2>
+<alert class="success" [view]="success" text="AMICALE.NEW_CLIENT_SUCCESS"></alert>
+<form (ngSubmit)="update()" #profileForm="ngForm">
+    <div class="form-group">
+        <label>{{ 'PROFILE.NOM'|translate }} {{ 'PROFILE.PRENOM'|translate }}</label>
+        <input type="text" [(ngModel)]="client.nom_prenom" required name="nomModel" class="form-control" #nomModel="ngModel">
+        <div [@errorMessage]="nomModel.valid || nomModel.pristine" class="text-danger"> {{"LOGIN.REQUIRED"|translate}}</div>
+    </div>
+    <div class="form-group">
+        <label>{{ 'AMICALE.TEL'|translate }} 1</label>
+        <input type="text" [(ngModel)]="client.tel1" required name="tel1Model" class="form-control" #tel1Model="ngModel">
+        <div [@errorMessage]="tel1Model.valid || tel1Model.pristine" class="text-danger"> {{"LOGIN.REQUIRED"|translate}}</div>
+    </div>
+    <div class="form-group">
+        <label>{{ 'AMICALE.TEL'|translate }} 2</label>
+        <input type="text" [(ngModel)]="client.tel2" required name="tel2Model" class="form-control" #tel2Model="ngModel">
+        <div [@errorMessage]="tel2Model.valid || tel2Model.pristine" class="text-danger"> {{"LOGIN.REQUIRED"|translate}}</div>
+    </div>
+    <div class="form-group">
+        <label>{{ 'AMICALE.ADRESSE'|translate }}</label>
+        <input type="text" [(ngModel)]="client.adresse" required name="adresseModel" class="form-control" #adresseModel="ngModel">
+        <div [@errorMessage]="adresseModel.valid || adresseModel.pristine" class="text-danger"> {{"LOGIN.REQUIRED"|translate}}</div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!profileForm.form.valid  || loading">
+        <span *ngIf="loading">{{"PROFILE.LOADING"|translate}} ...</span>
+        <span *ngIf="!loading">{{"PROFILE.UPDATE"|translate}}</span>
+    </button>
+</form>

@@ -44,17 +44,28 @@ export class AmicaleAddclientComponent implements OnInit {
     addClient() {
         if (this.user.password == this.user.passwordConfirmation) {
             this.loading = true;
-            this.amicaleService.addClient(this.user).subscribe(response => {
-                if (response.status == "success") {
-                    this.user = new NewUser();
-                    this.success = true;
-                    setTimeout(() => this.success = false, 3000);
-                }
-                else
+            this.amicaleService.verif(this.user).subscribe(response => {
+                if (response.status == "success")
+                    this.submitClient();
+                else {
                     alert(response.msg);
-                this.loading = false;
+                    this.loading = false;
+                }
             });
         } else
             alert('Mot de passe ne sont pas identique');
+    }
+
+    submitClient() {
+        this.amicaleService.addClient(this.user).subscribe(response => {
+            if (response.status == "success") {
+                this.user = new NewUser();
+                this.success = true;
+                setTimeout(() => this.success = false, 3000);
+            }
+            else
+                alert(response.msg);
+            this.loading = false;
+        });
     }
 }

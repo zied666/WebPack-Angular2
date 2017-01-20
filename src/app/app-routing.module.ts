@@ -19,6 +19,7 @@ import {AdminProfileComponent} from "./admin/profile/admin.profile.component";
 import {AdminPasswordComponent} from "./admin/password/admin.password.component";
 import {AmicaleClientsComponent} from "./amicale/clients/amicale.clients.component";
 import {AmicaleAddclientComponent} from "./amicale/newClient/amicale.addclient.component";
+import {AmicaleUpdateClientComponent} from "./amicale/updateClient/amicale.update.client.component";
 
 export const routes: Routes = [
     {path: '', component: HotelListComponent},
@@ -33,6 +34,7 @@ export const routes: Routes = [
             {path: 'marge', component: MargeComponent},
             {path: 'bookings', component: ReservationComponent},
             {path: 'clients', component: AmicaleClientsComponent},
+            {path: 'clients/:id', component: AmicaleUpdateClientComponent},
             {path: 'newClient', component: AmicaleAddclientComponent},
         ]
     },

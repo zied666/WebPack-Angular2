@@ -12,6 +12,10 @@ import {ReservationSingleComponent} from "./reservations/single/reservation.sing
 import {AmicaleClientsComponent} from "./clients/amicale.clients.component";
 import {AmicaleClientComponent} from "./clients/amicale.client.component";
 import {AmicaleAddclientComponent} from "./newClient/amicale.addclient.component";
+import {AmicaleUpdateClientComponent} from "./updateClient/amicale.update.client.component";
+import {AmicaleUpdateProfileClientComponent} from "./updateClient/tabs/profile/amicale.update.profile.client.component";
+import {AmicaleUpdateEmailClientComponent} from "./updateClient/tabs/email/amicale.update.email.client.component";
+import {AmicaleUpdatePasswordClientComponent} from "./updateClient/tabs/password/amicale.update.password.client.component";
 
 @NgModule({
     imports: [
@@ -27,7 +31,11 @@ import {AmicaleAddclientComponent} from "./newClient/amicale.addclient.component
         ReservationSingleComponent,
         AmicaleClientsComponent,
         AmicaleClientComponent,
-        AmicaleAddclientComponent
+        AmicaleAddclientComponent,
+        AmicaleUpdateClientComponent,
+        AmicaleUpdateProfileClientComponent,
+        AmicaleUpdateEmailClientComponent,
+        AmicaleUpdatePasswordClientComponent
     ]
 })
 export class AmicaleModule {

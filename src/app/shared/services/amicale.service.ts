@@ -13,7 +13,47 @@ export class AmicaleService {
     constructor(private http: Http, private searchService: SearchService, private loginService: LoginService) {
     }
 
-    addClient(user:any): Observable<any> {
+    updateEmailProfile(client: any): Observable<any> {
+        let params = new URLSearchParams();
+        params.set('token', this.loginService.logedUser.token.toString());
+        params.set('email', client.user.email.toString());
+        params.set('username', client.user.username.toString());
+        return this.http.get(Config.API_ROUTES.ostravel + "api/users/" + client.id + "/update/email", {search: params})
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
+    updateClientProfile(client: any): Observable<any> {
+        let params = new URLSearchParams();
+        params.set('token', this.loginService.logedUser.token.toString());
+        params.set('nom_prenom', client.nom_prenom.toString());
+        params.set('tel1', client.tel1.toString());
+        params.set('tel2', client.tel2.toString());
+        params.set('adresse', client.adresse.toString());
+        return this.http.get(Config.API_ROUTES.ostravel + "api/users/" + client.id + "/update/profile", {search: params})
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
+    getClient(id: number): Observable<any> {
+        let params = new URLSearchParams();
+        params.set('token', this.loginService.logedUser.token.toString());
+        return this.http.get(Config.API_ROUTES.ostravel + "api/clients/" + id, {search: params})
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
+    verif(user: any): Observable<any> {
+        let params = new URLSearchParams();
+        params.set('token', this.loginService.logedUser.token.toString());
+        params.set('email', user.email);
+        params.set('username', user.username);
+        return this.http.get(Config.API_ROUTES.ostravel + "api/verif_user", {search: params})
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
+    addClient(user: any): Observable<any> {
         let params = new URLSearchParams();
         params.set('token', this.loginService.logedUser.token.toString());
         params.set('userEmail', user.email);
@@ -30,7 +70,7 @@ export class AmicaleService {
     lockUser(id): Observable<any> {
         let params = new URLSearchParams();
         params.set('token', this.loginService.logedUser.token.toString());
-        return this.http.get(Config.API_ROUTES.ostravel + "api/users/"+id+"/lock", {search: params})
+        return this.http.get(Config.API_ROUTES.ostravel + "api/users/" + id + "/lock", {search: params})
             .map((res: Response) => res.json())
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
@@ -52,7 +92,7 @@ export class AmicaleService {
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
-    updateAmicale(amicale:any): Observable<any> {
+    updateAmicale(amicale: any): Observable<any> {
         let params = new URLSearchParams();
         params.set('token', this.loginService.logedUser.token.toString());
         params.set('libelleAmicale', amicale.libelle.toString());
@@ -66,7 +106,7 @@ export class AmicaleService {
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
-    updateMargeAmicale(amicale:any): Observable<any> {
+    updateMargeAmicale(amicale: any): Observable<any> {
         let params = new URLSearchParams();
         params.set('token', this.loginService.logedUser.token.toString());
         params.set('margeSHT', amicale.marge_s_h_t.toString());

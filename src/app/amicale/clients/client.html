@@ -13,3 +13,6 @@
         <button *ngIf="client.user && !client.user.locked" class="btn btn-success btn-xs" (click)="lockUser(client.id)">Active</button>
     </div>
 </td>
+<td>
+    <a routerLink="/amicale/clients/{{client.id}}" class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></a>
+</td>

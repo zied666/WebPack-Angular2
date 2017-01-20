@@ -30,7 +30,7 @@ export class AmicaleClientComponent implements OnInit {
             if(response.status=="success")
                 this.client.user.locked=!this.client.user.locked;
             else
-                alert(response.msg);
+                alert("impossole de modifier ce client");
             this.loading=false;
         });
     }
