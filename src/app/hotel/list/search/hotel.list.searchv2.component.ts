@@ -7,13 +7,14 @@ declare var $: any;
 @Component({
     selector: 'hotel-list-search-2',
     templateUrl: './hotel.list.searchv2.html',
-    styleUrls:['./form.css']
+    styleUrls: ['./form.css']
 })
 
 export class HotelListSearchv2Component implements OnInit {
 
     @Output() sendSearch = new EventEmitter();
     @Input() allDetails: boolean;
+    nights = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
     chambreCount: number;
     room1: Room;
     room2: Room;
@@ -28,10 +29,10 @@ export class HotelListSearchv2Component implements OnInit {
     }
 
     ngOnInit() {
-        $(document).ready(function(){
-            $('.ng2-auto-complete').css('display','block');
+        $(document).ready(function () {
+            $('.ng2-auto-complete').css('display', 'block');
         });
-        $('.ng2-auto-complete').css('display','block');
+        $('.ng2-auto-complete').css('display', 'block');
         var data: any[] = this.search.rooms.split(";");
         this.chambreCount = data.length;
         this.room1 = new Room(data[0]);

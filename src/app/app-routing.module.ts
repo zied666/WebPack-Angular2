@@ -33,9 +33,9 @@ export const routes: Routes = [
             {path: 'settings', component: SettingsComponent},
             {path: 'marge', component: MargeComponent},
             {path: 'bookings', component: ReservationComponent},
-            {path: 'clients', component: AmicaleClientsComponent},
-            {path: 'clients/:id', component: AmicaleUpdateClientComponent},
-            {path: 'newClient', component: AmicaleAddclientComponent},
+            {path: 'users', component: AmicaleClientsComponent},
+            {path: 'users/:id', component: AmicaleUpdateClientComponent},
+            {path: 'newUser', component: AmicaleAddclientComponent},
         ]
     },
     {

@@ -12,14 +12,41 @@
         <div class="col-md-9">
             <loading *ngIf="loading"></loading>
             <ul *ngIf="!loading" class="list list-inline user-profile-statictics mb30" style="display: table;margin: 0 auto;">
+                <li>
+                    <i class="fa fa-building-o user-profile-statictics-icon"></i>
+                    <h5>{{data.enreg}}</h5>
+                    <p>{{"ETAT.ENREGISTRE"|translate}}</p>
+                </li>
+                <li>
+                    <i class="fa fa-building-o user-profile-statictics-icon"></i>
+                    <h5>{{data.valid}}</h5>
+                    <p>{{"ETAT.VALDATED"|translate}}</p>
+                </li>
+                <li>
+                    <i class="fa fa-building-o user-profile-statictics-icon"></i>
+                    <h5>{{data.annul}}</h5>
+                    <p>{{"ETAT.CANCELED"|translate}}</p>
+                </li>
+                <li>
+                    <i class="fa fa-user user-profile-statictics-icon"></i>
+                    <h5>{{data.noresp}}</h5>
+                    <p>{{"USER"|translate}}s</p>
+                </li>
+                <li>
+                    <i class="fa fa-user user-profile-statictics-icon"></i>
+                    <h5>{{data.resp}}</h5>
+                    <p>Responsables</p>
+                </li>
+            </ul>
+            <ul *ngIf="!loading" class="list list-inline user-profile-statictics mb30" style="display: table;margin: 0 auto;">
                 <li style="width: initial;" >
                     <i class="fa fa-dollar user-profile-statictics-icon"></i>
-                    <h5 [innerHTML]="amicale.montant|devise"></h5>
+                    <h5 [innerHTML]="data.amicale.montant|devise"></h5>
                     <p>{{ "AMICALE.MONTANT"|translate }}</p>
                 </li>
                 <li style="width: initial;">
                     <i class="fa fa-dollar user-profile-statictics-icon"></i>
-                    <h5 [innerHTML]="amicale.plafond|devise"></h5>
+                    <h5 [innerHTML]="data.amicale.plafond|devise"></h5>
                     <p>{{ "AMICALE.PLAFOND"|translate }}</p>
                 </li>
             </ul>

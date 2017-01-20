@@ -16,11 +16,11 @@
         <li [ngClass]="{active: router.url=='/amicale/bookings'}">
             <a routerLink="/amicale/bookings"><i class="fa fa-list-ul"></i>{{"AMICALE.BOOKING"|translate}}</a>
         </li>
-        <li [ngClass]="{active: router.url=='/amicale/clients'}">
-            <a routerLink="/amicale/clients"><i class="fa fa-list-ul"></i>Clients</a>
+        <li [ngClass]="{active: router.url.match('/amicale/users')}">
+            <a routerLink="/amicale/users"><i class="fa fa-list-ul"></i>{{"USER"|translate}}s</a>
         </li>
-        <li [ngClass]="{active: router.url=='/amicale/newClient'}">
-            <a routerLink="/amicale/newClient"><i class="fa fa-plus"></i>Client</a>
+        <li [ngClass]="{active: router.url=='/amicale/newUser'}">
+            <a routerLink="/amicale/newUser"><i class="fa fa-plus"></i>{{"USER"|translate}}</a>
         </li>
     </ul>
 </aside>

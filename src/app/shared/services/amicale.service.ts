@@ -13,6 +13,14 @@ export class AmicaleService {
     constructor(private http: Http, private searchService: SearchService, private loginService: LoginService) {
     }
 
+    getStat(): Observable<any> {
+        let params = new URLSearchParams();
+        params.set('token', this.loginService.logedUser.token.toString());
+        return this.http.get(Config.API_ROUTES.ostravel + "api/amicale/statistics", {search: params})
+            .map((res: Response) => res.json())
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
     updateEmailProfile(client: any): Observable<any> {
         let params = new URLSearchParams();
         params.set('token', this.loginService.logedUser.token.toString());
@@ -29,6 +37,7 @@ export class AmicaleService {
         params.set('nom_prenom', client.nom_prenom.toString());
         params.set('tel1', client.tel1.toString());
         params.set('tel2', client.tel2.toString());
+        params.set('userResponsable', client.responsable.toString());
         params.set('adresse', client.adresse.toString());
         return this.http.get(Config.API_ROUTES.ostravel + "api/users/" + client.id + "/update/profile", {search: params})
             .map((res: Response) => res.json())

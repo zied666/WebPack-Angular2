@@ -312,11 +312,7 @@
                 <div class="form-group">
                     <input type="date" class="form-control" min="{{search.checkIn}}" [(ngModel)]="search.checkIn" placeholder="checkIn"  name="searchCheckIn">
                     <select class="form-control" [(ngModel)]="search.nuitees"  name="searchNuitees">
-                        <option value="1">1 {{'HOTELS.NIGHT'|translate}}</option>
-                        <option value="2">2 {{'HOTELS.NIGHTS'|translate}}</option>
-                        <option value="3">3 {{'HOTELS.NIGHTS'|translate}}</option>
-                        <option value="4">4 {{'HOTELS.NIGHTS'|translate}}</option>
-                        <option value="5">5 {{'HOTELS.NIGHTS'|translate}}</option>
+                        <option *ngFor="let i of nights" value="{{i}}">{{i}} {{'HOTELS.NIGHT'|translate}}</option>
                     </select>
                     <input type="text" class="form-control" name="searchName" *ngIf="allDetails"
                            [(ngModel)]="search.nom" placeholder="{{'HOTELS.SEARCH'|translate}}"

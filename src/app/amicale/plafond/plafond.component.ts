@@ -10,22 +10,23 @@ import {AmicaleService} from "../../shared/services/amicale.service";
 export class PlafondComponent implements OnInit {
 
 
-    private loading:boolean;
-    private amicale:any;
+    private loading: boolean;
+    private data: any;
 
-    constructor(private loginService: LoginService,private amicaleService:AmicaleService) {
+    constructor(private loginService: LoginService, private amicaleService: AmicaleService) {
     }
 
 
     ngOnInit() {
         this.loginService.verifUserLogged();
-        this.loading=true;
-        this.amicaleService.getAmicale().subscribe(response => {
-            if(response && !response.status)
-            {
-                this.amicale=response;
-                this.loading=false;
+        this.loading = true;
+        this.amicaleService.getStat().subscribe(response => {
+            if (response.status == "success") {
+                this.data = response.data;
+                this.loading = false;
             }
+            else
+                alert(response.msg);
         });
     }
 }

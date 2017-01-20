@@ -1,7 +1,5 @@
-import {Component, OnInit, Input, trigger, state, style, animate, transition} from '@angular/core';
+import {Component, Input, trigger, state, style, animate, transition} from '@angular/core';
 import {AmicaleService} from "../../../../shared/services/amicale.service";
-import {LoginService} from "../../../../shared/services/login.service";
-
 
 @Component({
     templateUrl: "updateClient.html",

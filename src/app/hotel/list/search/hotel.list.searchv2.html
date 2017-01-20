@@ -60,11 +60,7 @@
                                                                     <i class="fa fa-list-ol input-icon input-icon-show"></i>
                                                                     <label>{{"HOTELS.NIGHTS"|translate}}</label>
                                                                     <select class="form-control transparentselect" [(ngModel)]="search.nuitees"  name="searchNuitees">
-                                                                        <option value="1">1 {{'HOTELS.NIGHT'|translate}}</option>
-                                                                        <option value="2">2 {{'HOTELS.NIGHTS'|translate}}</option>
-                                                                        <option value="3">3 {{'HOTELS.NIGHTS'|translate}}</option>
-                                                                        <option value="4">4 {{'HOTELS.NIGHTS'|translate}}</option>
-                                                                        <option value="5">5 {{'HOTELS.NIGHTS'|translate}}</option>
+                                                                        <option *ngFor="let i of nights" value="{{i}}">{{i}} {{'HOTELS.NIGHT'|translate}}</option>
                                                                     </select>
                                                                 </div>
                                                             </div>

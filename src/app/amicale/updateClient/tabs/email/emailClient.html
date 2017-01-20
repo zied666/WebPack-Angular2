@@ -2,13 +2,13 @@
 <alert class="success" [view]="success" text="AMICALE.NEW_CLIENT_SUCCESS"></alert>
 <form (ngSubmit)="update()" #profileForm="ngForm">
     <div class="form-group">
-        <label>{{ 'PROFILE.EMAIL'|translate }}</label>
-        <input type="text" [(ngModel)]="client.user.email" required name="emailModel" class="form-control" #emailModel="ngModel">
+        <!--<label>{{ 'PROFILE.EMAIL'|translate }}</label>-->
+        <input type="text" [(ngModel)]="client.user.email" required name="emailModel" class="form-control" #emailModel="ngModel" placeholder="{{ 'PROFILE.EMAIL'|translate }}">
         <div [@errorMessage]="emailModel.valid || emailModel.pristine" class="text-danger"> {{"LOGIN.REQUIRED"|translate}}</div>
     </div>
     <div class="form-group">
-        <label>{{ 'PROFILE.USERNAME'|translate }}</label>
-        <input type="text" [(ngModel)]="client.user.username" required name="usernameModel" class="form-control" #usernameModel="ngModel">
+        <!--<label>{{ 'PROFILE.USERNAME'|translate }}</label>-->
+        <input type="text" [(ngModel)]="client.user.username" required name="usernameModel" class="form-control" #usernameModel="ngModel" placeholder="{{ 'PROFILE.USERNAME'|translate }}">
         <div [@errorMessage]="usernameModel.valid || usernameModel.pristine" class="text-danger"> {{"LOGIN.REQUIRED"|translate}}</div>
     </div>
     <button type="submit" class="btn btn-primary" [disabled]="!profileForm.form.valid  || loading">
