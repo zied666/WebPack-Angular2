@@ -3,17 +3,17 @@
 <alert class="success" [view]="success" text="LOGIN.REQUEST_SUCCESS"></alert>
 <alert class="danger" [view]="captchaError" text="PROFILE.INVALID_CAPTCHA"></alert>
 <form *ngIf="!success" (ngSubmit)="register()" #registerForm="ngForm">
-    <div class="form-group form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
+    <div class="form-group form-group-ghost form-group-icon-left form-group-filled"><i class="fa fa-user input-icon input-icon-show"></i>
         <label>{{ 'LOGIN.FULL_NAME'|translate }}</label>
         <input type="text" [(ngModel)]="name" required name="nom" class="form-control" #nomModel="ngModel">
         <div [@errorMessage]="nomModel.valid || nomModel.pristine" class="text-danger"> {{"LOGIN.REQUIRED"|translate}}</div>
     </div>
-    <div class="form-group form-group-icon-left"><i class="fa fa-envelope input-icon input-icon-show"></i>
+    <div class="form-group form-group-ghost form-group-icon-left form-group-filled"><i class="fa fa-envelope input-icon input-icon-show"></i>
         <label>{{ 'PROFILE.EMAIL'|translate }}</label>
         <input type="email" [(ngModel)]="email" required name="email" class="form-control" #emailModel="ngModel">
         <div [@errorMessage]="emailModel.valid || emailModel.pristine" class="text-danger"> {{"LOGIN.REQUIRED"|translate}}</div>
     </div>
-    <div class="form-group form-group-icon-left"><i class="fa fa-lock input-icon input-icon-show"></i>
+    <div class="form-group form-group-ghost form-group-icon-left form-group-filled"><i class="fa fa-lock input-icon input-icon-show"></i>
         <label>{{ 'PROFILE.PASSWORD'|translate }}</label>
         <input type="password" [(ngModel)]="password" required name="password" class="form-control" #passwordModel="ngModel">
         <div [@errorMessage]="passwordModel.valid || passwordModel.pristine" class="text-danger"> {{"LOGIN.REQUIRED"|translate}}</div>

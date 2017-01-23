@@ -7,26 +7,38 @@
             <alert class="success" [view]="success" text="BOOKING.SUCCESS"></alert>
             <loading *ngIf="loadingBooking"></loading>
             <form *ngIf="!loadingBooking" (ngSubmit)="update()" #profileForm="ngForm">
-                <div class="form-group">
-                    <label>{{ 'PROFILE.NOM'|translate }}</label>
-                    <input type="text" [(ngModel)]="logedUser.nom" required name="nom" class="form-control" #nom="ngModel">
-                    <div [@errorMessage]="nom.valid || nom.pristine" class="text-danger"> {{"PROFILE.NOM_REQUIRED"|translate}}</div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>{{ 'PROFILE.NOM'|translate }}</label>
+                            <input type="text" [(ngModel)]="logedUser.nom" required name="nom" class="form-control" #nom="ngModel">
+                            <div [@errorMessage]="nom.valid || nom.pristine" class="text-danger"> {{"PROFILE.NOM_REQUIRED"|translate}}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>{{ 'PROFILE.PRENOM'|translate }}</label>
+                            <input type="text" [(ngModel)]="logedUser.prenom" required name="prenom" class="form-control" #prenom="ngModel">
+                            <div [@errorMessage]="prenom.valid || prenom.pristine" class="text-danger"> {{"PROFILE.PRENOM_REQUIRED"|translate}}</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>{{ 'PROFILE.PRENOM'|translate }}</label>
-                    <input type="text" [(ngModel)]="logedUser.prenom" required name="prenom" class="form-control" #prenom="ngModel">
-                    <div [@errorMessage]="prenom.valid || prenom.pristine" class="text-danger"> {{"PROFILE.PRENOM_REQUIRED"|translate}}</div>
-                </div>
-                <div class="form-group">
-                    <label>{{ 'PROFILE.EMAIL'|translate }}</label>
-                    <input type="email" [(ngModel)]="logedUser.email" required name="email" class="form-control"
-                           #email="ngModel">
-                    <div [@errorMessage]="email.valid || email.pristine" class="text-danger"> {{"PROFILE.EMAIL_REQUIRED"|translate}}</div>
-                </div>
-                <div class="form-group">
-                    <label>{{ 'PROFILE.PHONE'|translate }}</label>
-                    <input type="text" [(ngModel)]="logedUser.tel" required name="tel" class="form-control" #tel="ngModel">
-                    <div [@errorMessage]="tel.valid || tel.pristine" class="text-danger"> {{"PROFILE.PHONE_REQUIRED"|translate}}</div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>{{ 'PROFILE.EMAIL'|translate }}</label>
+                            <input type="email" [(ngModel)]="logedUser.email" required name="email" class="form-control"
+                                   #email="ngModel">
+                            <div [@errorMessage]="email.valid || email.pristine" class="text-danger"> {{"PROFILE.EMAIL_REQUIRED"|translate}}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>{{ 'PROFILE.PHONE'|translate }}</label>
+                            <input type="text" [(ngModel)]="logedUser.tel" required name="tel" class="form-control" #tel="ngModel">
+                            <div [@errorMessage]="tel.valid || tel.pristine" class="text-danger"> {{"PROFILE.PHONE_REQUIRED"|translate}}</div>
+                        </div>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary" [disabled]="!profileForm.form.valid ||loadingBooking">
                     <span *ngIf="loadingBooking">{{"PROFILE.LOADING"|translate}} ...</span>
@@ -67,7 +79,7 @@
         <div class="col-md-4">
             <h2>{{ 'BOOKING.DETAILS'|translate }}</h2>
             <hr>
-            <div class="booking-item-payment">
+            <div class="booking-item-payment" style="background-color: white;">
                 <header class="clearfix">
                     <a class="booking-item-payment-img" href="javascript:void(0)">
                         <img *ngIf=" hotel.photo" [src]="pathPhoto+hotel.photo" alt="{{ hotel.details.libelle }}"

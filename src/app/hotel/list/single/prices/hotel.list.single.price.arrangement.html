@@ -14,13 +14,13 @@
     <div class="col-md-4" style="text-align:right;">
         <div class="col-md-12">
             <span class="booking-item-price" [innerHTML]="total|devise"></span>
-            <a (click)="goPageDetails()" *ngIf="total != 0 && !isPageDetails" type="button"
+            <!--<a (click)="goPageDetails()" *ngIf="total != 0 && !isPageDetails" type="button"
                class="btn btn-block btn-primary btn-sm">
                 {{"HOTELS.BOOKING"|translate}}
-            </a>
-            <a (click)="goValidatePage()" *ngIf="total != 0 && isPageDetails" type="button"
-               class="btn btn-block btn-success btn-sm">
-                {{"HOTELS.BOOKING_VALIDATE"|translate}}
+            </a>-->
+            <a (click)="goValidatePage()" *ngIf="total != 0" type="button"
+               class="btn btn-block btn-primary btn-sm">
+                {{"HOTELS.BOOKING"|translate}}
             </a>
         </div>
     </div>

@@ -21,8 +21,8 @@
                             <hr>
                             <alert class="danger" [view]="error" text="PROFILE.INVALID_FORM"></alert>
                             <form [hidden]="confirmed" (ngSubmit)="onSubmit()" #loginForm="ngForm">
-                                <div class="form-group form-group-icon-left"><i
-                                        class="fa fa-user input-icon input-icon-show"></i>
+                                <div class="form-group form-group-ghost form-group-icon-left form-group-filled">
+                                    <i class="fa fa-user input-icon input-icon-show"></i>
                                     <label>{{"PROFILE.EMAIL_LOGIN"|translate}}</label>
                                     <input type="text" [(ngModel)]="login" required name="login" class="form-control"
                                            #email="ngModel">
@@ -30,8 +30,8 @@
                                         {{"PROFILE.EMAIL_REQUIRED"|translate}}
                                     </div>
                                 </div>
-                                <div class="form-group form-group-icon-left"><i
-                                        class="fa fa-lock input-icon input-icon-show"></i>
+                                <div class="form-group form-group-ghost form-group-icon-left form-group-filled">
+                                    <i class="fa fa-lock input-icon input-icon-show"></i>
                                     <label>{{"PROFILE.PASSWORD"|translate}}</label>
                                     <input type="password" [(ngModel)]="password" required name="password"
                                            class="form-control" #pwd="ngModel">

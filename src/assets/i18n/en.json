@@ -125,13 +125,19 @@
     "MONTANT_MARGE": "Amount Sales Margin",
     "MONTANT_MARGE_POUR": "Percentage",
     "VALDATED": "Responsible Validation",
-    "BOOKING":"Bookings",
-    "NEW_CLIENT_SUCCESS":"Your client has been successfully added"
+    "BOOKING": "Bookings",
+    "NEW_CLIENT_SUCCESS": "Your client has been successfully added"
   },
   "ETAT": {
     "ENREGISTRE": "Waiting",
     "VALDATED": "Validated",
     "CANCELED": "Canceled"
   },
-  "USER":"User"
+  "DISPONIBLE": "Available",
+  "SUR_DEMANDE": "On demand",
+  "USER": "User",
+  "FOR": "for",
+  "TO": "to",
+  "AND": "and",
+  "IN": "in"
 }

@@ -1,4 +1,4 @@
-<div class="full-page top-area show-onload">
+<div class="full-page top-area show-onload" style="height: 500px">
     <div class="bg-holder full">
         <div class="bg-mask"></div>
         <div class="bg-img" style="background-image:url('assets/img/background.jpg');"></div>
@@ -6,41 +6,25 @@
             <div class="bg-front full-height bg-front-mob-rel">
                 <div class="container full-height">
                     <div class="rel full-height">
-                        <div style="margin-top: 50px;" class="tagline visible-lg" id="tagline"><span>It's time to</span>
-                            <ul>
-                                <li class="">live</li>
-                                <li class="active">have fun</li>
-                                <li class="">relax</li>
-                                <li class="">meet</li>
-                                <li class="">being lost</li>
-                                <li class="">run away</li>
-                                <li class="">go</li>
-                                <li class="">explore</li>
-                                <li class="">find new friends</li>
-                                <li class="">discover</li>
-                                <li class="">play</li>
-                            </ul>
-                        </div>
-                        <div class="search-tabs search-tabs-bg search-tabs-bottom">
+                        <div class="search-tabs search-tabs-bg search-tabs-bottom" style="bottom: inherit;">
                             <div class="tabbable">
                                 <div class="tab-content">
                                     <div class="tab-pane fade in active" id="tab-1" style=" background: transparent; ">
-                                        <h2 style=" color: #fff; ">{{ 'HOTELS.FIND_HOTELS_TUNISIA'|translate }}</h2>
+                                        <h2 style=" color: #fff; "  *ngIf="allDetails">{{ 'HOTELS.FIND_HOTELS_TUNISIA'|translate }}</h2>
+                                        <h2 style=" color: #fff; "  *ngIf="!allDetails">{{ 'HOTELS.AVAILABLE_ROOMS'|translate }}</h2>
                                         <form #filtreForm="ngForm" >
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group form-group-ghost form-group-icon-left form-group-filled"><i class="fa fa-calendar input-icon input-icon-hightlight"></i>
-                                                        <label>{{'HOTELS.SEARCH_HOTELS'|translate}}</label>
-                                                        <input class="form-control" placeholder="ex: Excel Hammamet" type="text" name="searchName"
-                                                               [(ngModel)]="search.nom"
-
-                                                        />
-                                                    </div>
-                                                </div>
+                                            <div class="row"  *ngIf="allDetails">
                                                 <div class="col-md-6">
                                                     <div class="form-group form-group-ghost form-group-icon-left form-group-filled"><i class="fa fa-calendar input-icon input-icon-hightlight"></i>
                                                         <label>{{'HOTELS.CITY'|translate}}</label>
                                                         <input class="form-control" placeholder="ex: Hammamet" type="text" name="city" [(ngModel)]="search.ville"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-group-ghost form-group-icon-left form-group-filled"><i class="fa fa-calendar input-icon input-icon-hightlight"></i>
+                                                        <label>{{'HOTELS.SEARCH_HOTELS'|translate}}</label>
+                                                        <input class="form-control" placeholder="ex: Excel Hammamet" type="text" name="searchName"
+                                                               [(ngModel)]="search.nom"  />
                                                     </div>
                                                 </div>
                                             </div>
@@ -77,11 +61,11 @@
                                                                     </select>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-3">
+                                                            <div class="col-md-3"  *ngIf="allDetails">
                                                                 <div class="form-group form-group-ghost form-group-icon-left">
                                                                     <i class="fa fa-list-ol input-icon input-icon-show"></i>
                                                                     <label>{{"HOTELS.STARS"|translate}}</label>
-                                                                    <select class="form-control transparentselect" [(ngModel)]="search.etoiles"  name="stars" *ngIf="allDetails">
+                                                                    <select class="form-control transparentselect" [(ngModel)]="search.etoiles"  name="stars">
                                                                         <option value="">{{'HOTELS.NUMBER_OF_STARS'|translate}}</option>
                                                                         <option value="1">1</option>
                                                                         <option value="2">2</option>
@@ -122,10 +106,12 @@
                                                                 <option value="1">1 {{"HOTELS.CHILD"|translate}}</option>
                                                                 <option value="2">2 {{"HOTELS.CHILDS"|translate}}</option>
                                                                 <option value="3">3 {{"HOTELS.CHILDS"|translate}}</option>
+                                                                <option value="4">4 {{"HOTELS.CHILDS"|translate}}</option>
+                                                                <option value="5">5 {{"HOTELS.CHILDS"|translate}}</option>
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-2"  *ngIf="room1.countChild>=1">
+                                                    <div class="col-md-1"  *ngIf="room1.countChild>=1">
                                                         <div class="form-group form-group-ghost form-group-sm">
                                                             <select class="form-control transparentselect" name="child_1_1" [(ngModel)]="room1.age1">
                                                                 <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
@@ -143,7 +129,7 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-2"  *ngIf="room1.countChild>=2">
+                                                    <div class="col-md-1"  *ngIf="room1.countChild>=2">
                                                         <div class="form-group form-group-ghost form-group-sm">
                                                             <select class="form-control transparentselect" name="child_1_2" [(ngModel)]="room1.age2">
                                                                 <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
@@ -161,9 +147,45 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-2"  *ngIf="room1.countChild>=3">
+                                                    <div class="col-md-1"  *ngIf="room1.countChild>=3">
                                                         <div class="form-group form-group-ghost form-group-sm">
                                                             <select class="form-control transparentselect" name="child_1_3" [(ngModel)]="room1.age3">
+                                                                <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1"  *ngIf="room1.countChild>=4">
+                                                        <div class="form-group form-group-ghost form-group-sm">
+                                                            <select class="form-control transparentselect" name="child_1_4" [(ngModel)]="room1.age4">
+                                                                <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1"  *ngIf="room1.countChild>=5">
+                                                        <div class="form-group form-group-ghost form-group-sm">
+                                                            <select class="form-control transparentselect" name="child_1_5" [(ngModel)]="room1.age5">
                                                                 <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
                                                                 <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
                                                                 <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
@@ -205,10 +227,12 @@
                                                                 <option value="1">1 {{"HOTELS.CHILD"|translate}}</option>
                                                                 <option value="2">2 {{"HOTELS.CHILDS"|translate}}</option>
                                                                 <option value="3">3 {{"HOTELS.CHILDS"|translate}}</option>
+                                                                <option value="4">4 {{"HOTELS.CHILDS"|translate}}</option>
+                                                                <option value="5">5 {{"HOTELS.CHILDS"|translate}}</option>
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-2"  *ngIf="room2.countChild>=1">
+                                                    <div class="col-md-1"  *ngIf="room2.countChild>=1">
                                                         <div class="form-group form-group-ghost form-group-sm">
                                                             <select class="form-control transparentselect" name="child_2_1" [(ngModel)]="room2.age1">
                                                                 <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
@@ -226,7 +250,7 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-2"  *ngIf="room2.countChild>=2">
+                                                    <div class="col-md-1"  *ngIf="room2.countChild>=2">
                                                         <div class="form-group form-group-ghost form-group-sm">
                                                             <select class="form-control transparentselect" name="child_2_2" [(ngModel)]="room2.age2">
                                                                 <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
@@ -244,9 +268,45 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-2"  *ngIf="room2.countChild>=3">
+                                                    <div class="col-md-1"  *ngIf="room2.countChild>=3">
                                                         <div class="form-group form-group-ghost form-group-sm">
                                                             <select class="form-control transparentselect" name="child_2_3" [(ngModel)]="room2.age3">
+                                                                <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1"  *ngIf="room2.countChild>=4">
+                                                        <div class="form-group form-group-ghost form-group-sm">
+                                                            <select class="form-control transparentselect" name="child_2_4" [(ngModel)]="room2.age4">
+                                                                <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1"  *ngIf="room2.countChild>=5">
+                                                        <div class="form-group form-group-ghost form-group-sm">
+                                                            <select class="form-control transparentselect" name="child_2_5" [(ngModel)]="room2.age5">
                                                                 <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
                                                                 <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
                                                                 <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
@@ -288,10 +348,12 @@
                                                                 <option value="1">1 {{"HOTELS.CHILD"|translate}}</option>
                                                                 <option value="2">2 {{"HOTELS.CHILDS"|translate}}</option>
                                                                 <option value="3">3 {{"HOTELS.CHILDS"|translate}}</option>
+                                                                <option value="4">4 {{"HOTELS.CHILDS"|translate}}</option>
+                                                                <option value="5">5 {{"HOTELS.CHILDS"|translate}}</option>
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-2"  *ngIf="room3.countChild>=1">
+                                                    <div class="col-md-1"  *ngIf="room3.countChild>=1">
                                                         <div class="form-group form-group-ghost form-group-sm">
                                                             <select class="form-control transparentselect" name="child_3_1" [(ngModel)]="room3.age1">
                                                                 <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
@@ -309,7 +371,7 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-2"  *ngIf="room3.countChild>=2">
+                                                    <div class="col-md-1"  *ngIf="room3.countChild>=2">
                                                         <div class="form-group form-group-ghost form-group-sm">
                                                             <select class="form-control transparentselect" name="child_3_2" [(ngModel)]="room3.age2">
                                                                 <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
@@ -327,9 +389,45 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-2"  *ngIf="room3.countChild>=3">
+                                                    <div class="col-md-1"  *ngIf="room3.countChild>=3">
                                                         <div class="form-group form-group-ghost form-group-sm">
                                                             <select class="form-control transparentselect" name="child_3_3" [(ngModel)]="room3.age3">
+                                                                <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1"  *ngIf="room3.countChild>=4">
+                                                        <div class="form-group form-group-ghost form-group-sm">
+                                                            <select class="form-control transparentselect" name="child_3_4" [(ngModel)]="room3.age4">
+                                                                <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1"  *ngIf="room3.countChild>=5">
+                                                        <div class="form-group form-group-ghost form-group-sm">
+                                                            <select class="form-control transparentselect" name="child_3_5" [(ngModel)]="room3.age5">
                                                                 <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
                                                                 <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
                                                                 <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
@@ -371,10 +469,12 @@
                                                                 <option value="1">1 {{"HOTELS.CHILD"|translate}}</option>
                                                                 <option value="2">2 {{"HOTELS.CHILDS"|translate}}</option>
                                                                 <option value="3">3 {{"HOTELS.CHILDS"|translate}}</option>
+                                                                <option value="4">4 {{"HOTELS.CHILDS"|translate}}</option>
+                                                                <option value="5">5 {{"HOTELS.CHILDS"|translate}}</option>
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-2"  *ngIf="room4.countChild>=1">
+                                                    <div class="col-md-1"  *ngIf="room4.countChild>=1">
                                                         <div class="form-group form-group-ghost form-group-sm">
                                                             <select class="form-control transparentselect" name="child_4_1" [(ngModel)]="room4.age1">
                                                                 <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
@@ -392,7 +492,7 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-2"  *ngIf="room4.countChild>=2">
+                                                    <div class="col-md-1"  *ngIf="room4.countChild>=2">
                                                         <div class="form-group form-group-ghost form-group-sm">
                                                             <select class="form-control transparentselect" name="child_4_2" [(ngModel)]="room4.age2">
                                                                 <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
@@ -410,9 +510,45 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-2"  *ngIf="room4.countChild>=3">
+                                                    <div class="col-md-1"  *ngIf="room4.countChild>=3">
                                                         <div class="form-group form-group-ghost form-group-sm">
                                                             <select class="form-control transparentselect" name="child_4_3" [(ngModel)]="room4.age3">
+                                                                <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1"  *ngIf="room4.countChild>=4">
+                                                        <div class="form-group form-group-ghost form-group-sm">
+                                                            <select class="form-control transparentselect" name="child_4_4" [(ngModel)]="room4.age4">
+                                                                <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1"  *ngIf="room4.countChild>=5">
+                                                        <div class="form-group form-group-ghost form-group-sm">
+                                                            <select class="form-control transparentselect" name="child_4_5" [(ngModel)]="room4.age5">
                                                                 <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
                                                                 <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
                                                                 <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
@@ -454,10 +590,12 @@
                                                                 <option value="1">1 {{"HOTELS.CHILD"|translate}}</option>
                                                                 <option value="2">2 {{"HOTELS.CHILDS"|translate}}</option>
                                                                 <option value="3">3 {{"HOTELS.CHILDS"|translate}}</option>
+                                                                <option value="4">4 {{"HOTELS.CHILDS"|translate}}</option>
+                                                                <option value="5">5 {{"HOTELS.CHILDS"|translate}}</option>
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-2"  *ngIf="room5.countChild>=1">
+                                                    <div class="col-md-1"  *ngIf="room5.countChild>=1">
                                                         <div class="form-group form-group-ghost form-group-sm">
                                                             <select class="form-control transparentselect" name="child_5_1" [(ngModel)]="room5.age1">
                                                                 <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
@@ -475,7 +613,7 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-2"  *ngIf="room5.countChild>=2">
+                                                    <div class="col-md-1"  *ngIf="room5.countChild>=2">
                                                         <div class="form-group form-group-ghost form-group-sm">
                                                             <select class="form-control transparentselect" name="child_5_2" [(ngModel)]="room5.age2">
                                                                 <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
@@ -493,9 +631,45 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-2"  *ngIf="room5.countChild>=3">
+                                                    <div class="col-md-1"  *ngIf="room5.countChild>=3">
                                                         <div class="form-group form-group-ghost form-group-sm">
                                                             <select class="form-control transparentselect" name="child_5_3" [(ngModel)]="room5.age3">
+                                                                <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1"  *ngIf="room5.countChild>=4">
+                                                        <div class="form-group form-group-ghost form-group-sm">
+                                                            <select class="form-control transparentselect" name="child_5_4" [(ngModel)]="room5.age4">
+                                                                <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="4">4 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="5">5 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="6">6 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="7">7 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="8">8 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="9">9 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="10">10 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="11">11 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                                <option value="12">12 {{"HOTELS.YEARS_OLD"|translate}}</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1"  *ngIf="room5.countChild>=5">
+                                                        <div class="form-group form-group-ghost form-group-sm">
+                                                            <select class="form-control transparentselect" name="child_5_5" [(ngModel)]="room5.age5">
                                                                 <option value="1">1 {{"HOTELS.YEARS_OLD"|translate}}</option>
                                                                 <option value="2">2 {{"HOTELS.YEARS_OLD"|translate}}</option>
                                                                 <option value="3">3 {{"HOTELS.YEARS_OLD"|translate}}</option>

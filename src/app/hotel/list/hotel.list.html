@@ -1,7 +1,5 @@
 <hotel-list-search-2 (sendSearch)="updateSearch($event)" [allDetails]="true"></hotel-list-search-2>
-<div class="container">
-    <h1 class="page-title">{{ "HOTELS.LIST"|translate }}</h1>
-    <!--<hotel-list-search (sendSearch)="updateSearch($event)" [allDetails]="true"></hotel-list-search>-->
+<div class="container mb15">
     <hotel-list-sort [countHotels]="countHotels" (sendSearch)="updateSearch($event)"></hotel-list-sort>
     <loading *ngIf="loadingList"></loading>
     <alert class="info" [view]="!loadingList && hotels.length ==0" text="HOTELS.NO_AVAILABLE"></alert>

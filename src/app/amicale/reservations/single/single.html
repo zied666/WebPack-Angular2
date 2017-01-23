@@ -3,6 +3,7 @@
 <td>{{booking.client.nom_prenom}}</td>
 <td>{{ booking.date_debut | date: 'dd/MM/yyyy' }}, {{booking.nuitees}} {{"HOTELS.NIGHTS"|translate}}</td>
 <td [innerHTML]="booking.account |devise"></td>
+<td [innerHTML]="booking.marge_b2_b |devise"></td>
 <td *ngIf="loginService.logedUser.amicale">
     <span *ngIf="booking.responsable_amicale">
          {{booking.validated_amicale|date:'dd/MM/yyyy'}} par {{ booking.responsable_amicale.nom_prenom }}

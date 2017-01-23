@@ -122,7 +122,7 @@
     "FAX": "FAX",
     "RC": "Registre de commerce",
     "MF": "Matricule Fiscal",
-    "MONTANT_MARGE":" Montant Marge de vente ",
+    "MONTANT_MARGE":"Marge de vente ",
     "MONTANT_MARGE_POUR":" En pourcentage",
     "VALDATED": "Validation Responsable",
     "BOOKING":"Réservations",
@@ -133,5 +133,11 @@
     "VALDATED": "Validée",
     "CANCELED": "Annulée"
   },
-  "USER":"Utilisateur"
+  "DISPONIBLE":"Disponible",
+  "SUR_DEMANDE":"Sur Demande",
+  "USER":"Utilisateur",
+  "FOR":"pour",
+  "TO":"au",
+  "AND":"et",
+  "IN":"à"
 }

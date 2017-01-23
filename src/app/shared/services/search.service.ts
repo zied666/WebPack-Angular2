@@ -61,5 +61,9 @@ export class SearchService implements OnChanges {
         LocalStorageService.setItem("search", this.search);
     }
 
+    countChambre(): number {
+        return this.search.rooms.split(";").length;
+    }
+
 
 }

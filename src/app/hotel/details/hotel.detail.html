@@ -36,11 +36,6 @@
             </div>
         </div>
         <div class="gap"></div>
-        <h3>{{ 'HOTELS.AVAILABLE_ROOMS'|translate }}</h3>
-        <div class="row">
-            <div class="col-md-12">
-                <hotel-booking [id]="hotel.id"></hotel-booking>
-            </div>
-        </div>
     </div>
 </div>
+<hotel-booking  *ngIf="!loadingHotel" [id]="hotel.id"></hotel-booking>

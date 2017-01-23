@@ -5,7 +5,7 @@ import {SearchService} from "../../../shared/services/search.service";
 @Component({
     selector: 'hotel-list-sort',
     template: `
-                <nav class="navbar navbar-default booking-item-dates-change mb40" style="padding: 0px;">
+                <nav class="navbar navbar-default booking-item-dates-change mb40 mt30" style="padding: 0px;background-color: white">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#filtre-hotels" aria-expanded="true">
@@ -16,6 +16,10 @@ import {SearchService} from "../../../shared/services/search.service";
             </button>
             <a class="navbar-brand" href="#" *ngIf="countHotels!=null">
                 <strong>{{countHotels}}</strong> {{"HOTELS.FOUNDDED"|translate}}
+                <span *ngIf="search.ville!=''">{{"IN"|translate}} <strong>{{searchService.getSearch().ville}}</strong></span>
+                 {{"FOR"|translate}} <strong>{{searchService.getSearch().checkIn|date:"dd/MM/yyyy"}}</strong>
+                 {{"TO"|translate}} <strong>{{searchService.getSearch().checkIn|addDate:searchService.getSearch().nuitees|date:"dd/MM/yyyy"}}</strong>
+                 {{"FOR"|translate}} <strong>{{searchService.countChambre()}} {{"HOTELS.ROOM"|translate}}(s)</strong>
             </a>
         </div>
         <div class="collapse navbar-collapse"   id="filtre-hotels">
@@ -48,7 +52,6 @@ import {SearchService} from "../../../shared/services/search.service";
 </nav>
 `,
 })
-
 export class HotelListSortComponent {
 
     @Input() countHotels: number;

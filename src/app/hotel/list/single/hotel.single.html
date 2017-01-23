@@ -1,24 +1,46 @@
-<li class="mb30">
+<li class="mb30" style="background-color: white">
     <a class="booking-item" href="javascript:void(0)">
         <div class="row" *ngIf="!booking">
             <div class="col-md-2">
                 <div class="booking-item-img-wrap">
                     <img *ngIf=" hotel.photo" [src]="pathPhoto+hotel.photo" alt="{{ hotel.details.libelle }}">
-                    <img *ngIf="!hotel.photo" src="assets/template/img/800x600.png" alt="{{ hotel.details.libelle }}" >
+                    <img *ngIf="!hotel.photo" src="https://placeholdit.imgix.net/~text?txtsize=25&txt={{hotel.details.libelle}}&w=159&h=119" alt="{{ hotel.details.libelle }}" >
+                    <span class="label label-success btn-block" style="display: block;" *ngIf="hotel.prices.contingentDispo">{{"DISPONIBLE"|translate}}</span>
+                    <span class="label label-warning btn-block" style="display: block;" *ngIf="!hotel.prices.contingentDispo">{{"SUR_DEMANDE"|translate}}</span>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="booking-item-rating">
-                    <span [innerHTML]="hotel.details.categorie.nombre_etoiles|stars"></span>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="booking-item-rating" style=" margin-bottom: 5px; ">
+                            <a routerLink="/hotels/{{hotel.details.id}}"><h5 class="booking-item-title" style="display: inline-block;">{{hotel.details.libelle}}</h5></a>
+                            <span [innerHTML]="hotel.details.categorie.nombre_etoiles|stars"></span>
+                            <p class="booking-item-address" style=" margin-bottom: 2px; ">
+                                <i class="fa fa-map-marker"></i> {{hotel.details.ville.libelle }}, {{hotel.details.ville.pays.libelle }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <span *ngFor="let label of hotel.labels" class="label {{label.classe}}" style=" margin-left: 5px; ">{{label.label}}</span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12" [innerHTML]="hotel.details.description_courte.replace('<br>','')"></div>
+                    <div class="col-md-12">
+                        <ul class="booking-item-features booking-item-features-small clearfix" style=" margin-top: 8px; ">
+                            <li *ngFor="let amenagement of hotel.details.amenagements" rel="tooltip" data-placement="top" title="" data-original-title="Air Conditioning">
+                                <i class="{{amenagement.fontclass}}" title="{{amenagement.libelle}}"></i>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <h5 class="booking-item-title">{{hotel.details.libelle}}</h5>
-                <p class="booking-item-address"><i class="fa fa-map-marker"></i> {{hotel.details.ville.libelle }}, {{hotel.details.ville.pays.libelle }}</p>
-            </div>
-            <div class="col-md-7">
-                <p [innerHTML]="hotel.details.description_courte"></p>
             </div>
             <div class="col-md-12"><hr></div>
         </div>
         <list-single-hotel-price [arrangements]="hotel.prices.arrangements" [id]="hotel.details.id"></list-single-hotel-price>
     </a>
 </li>
+<hr>
