@@ -40,7 +40,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary" [disabled]="!profileForm.form.valid ||loadingBooking">
+                <button type="submit" class="btn btn-primary validateBookingButton" [disabled]="!profileForm.form.valid ||loadingBooking">
                     <span *ngIf="loadingBooking">{{"PROFILE.LOADING"|translate}} ...</span>
                     <span *ngIf="!loadingBooking">{{ 'BOOKING.BOOKING_NOW'|translate }}</span>
                 </button>

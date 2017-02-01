@@ -7,7 +7,7 @@ declare var $: any;
 @Component({
     selector: 'hotel-list-search-2',
     templateUrl: './hotel.list.searchv2.html',
-    styleUrls: ['./form.css']
+    styleUrls: ['./form.css','autocomplete.css']
 })
 
 export class HotelListSearchv2Component implements OnInit {

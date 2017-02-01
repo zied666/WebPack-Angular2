@@ -17,14 +17,13 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group form-group-ghost form-group-icon-left form-group-filled"><i class="fa fa-calendar input-icon input-icon-hightlight"></i>
                                                         <label>{{'HOTELS.CITY'|translate}}</label>
-                                                        <input class="form-control" placeholder="ex: Hammamet" type="text" name="city" [(ngModel)]="search.ville"/>
+                                                        <input class="form-control" placeholder="ex: Hammamet" type="text" name="city" [(ngModel)]="search.ville" />
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group form-group-ghost form-group-icon-left form-group-filled"><i class="fa fa-calendar input-icon input-icon-hightlight"></i>
                                                         <label>{{'HOTELS.SEARCH_HOTELS'|translate}}</label>
-                                                        <input class="form-control" placeholder="ex: Excel Hammamet" type="text" name="searchName"
-                                                               [(ngModel)]="search.nom"  />
+                                                        <input class="form-control" placeholder="ex: Excel Hammamet" type="text" name="searchName" [(ngModel)]="search.nom" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -687,7 +686,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button class="btn btn-primary" type="button" (click)="updateRooms()">{{"HOTELS.SEARCH_HOTELS"|translate}}</button>
+                                            <button class="btn btn-primary" id="buttonSearch" type="button" (click)="updateRooms()">{{"HOTELS.SEARCH_HOTELS"|translate}}</button>
                                         </form>
                                     </div>
                                 </div>
