@@ -1,5 +1,6 @@
 export class Search {
     checkIn: string;
+    checkOut: string;
     limit: number;
     offset: number;
     nuitees: number;
@@ -16,6 +17,7 @@ export class Search {
 
     constructor() {
         this.checkIn = new Date().toISOString().slice(0, 10).replace(/-/g, "-");
+        this.checkOut = new Date((new Date()).setTime((new Date()).getTime() +  86400000)).toISOString().slice(0, 10).replace(/-/g, "-");
         this.limit = 10;
         this.offset = 0;
         this.nuitees = 1;

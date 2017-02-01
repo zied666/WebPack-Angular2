@@ -31,11 +31,24 @@
                                                 <div class="col-md-12">
                                                     <div class="input-daterange" data-date-format="d/mm/yyyy">
                                                         <div class="row">
-                                                            <div class="col-md-3">
-                                                                <div class="form-group form-group-ghost form-group-icon-left">
-                                                                    <i class="fa fa-calendar input-icon input-icon-highlight input-icon-show"></i>
-                                                                    <label>{{"BOOKING.BOOKING_FOR"|translate}}</label>
-                                                                    <input type="date" min="{{search.checkIn}}" class="form-control" [(ngModel)]="search.checkIn"  name="searchCheckIn">
+                                                            <div class="col-md-6">
+                                                                <div class="input-daterange">
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group form-group-ghost form-group-icon-left">
+                                                                                <i class="fa fa-calendar input-icon input-icon-highlight input-icon-show"></i>
+                                                                                <label>{{"BOOKING.BOOKING_FOR"|translate}}</label>
+                                                                                <input type="text" min="{{search.checkIn}}" class="form-control" [(ngModel)]="search.checkIn" id="searchCheckIn"  name="searchCheckIn">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group form-group-ghost form-group-icon-left">
+                                                                                <i class="fa fa-calendar input-icon input-icon-highlight input-icon-show"></i>
+                                                                                <label>{{"BOOKING.CHECKOUT"|translate}}</label>
+                                                                                <input type="text" min="{{search.checkOut}}" class="form-control" [(ngModel)]="search.checkOut" id="searchCheckOut"  name="searchCheckOut">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-3">
