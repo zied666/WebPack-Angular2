@@ -47,6 +47,11 @@ export class HotelBookingComponent implements OnInit {
         this.search = this.searchService.getSearch();
         this.title.setTitle("Booking");
         this.getHotelPrice();
+
+        console.log(this.search.rooms);
+
+
+
     }
 
 

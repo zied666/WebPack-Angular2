@@ -17,13 +17,21 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group form-group-ghost form-group-icon-left form-group-filled"><i class="fa fa-calendar input-icon input-icon-hightlight"></i>
                                                         <label>{{'HOTELS.CITY'|translate}}</label>
-                                                        <input class="form-control" placeholder="ex: Hammamet" type="text" name="city" [(ngModel)]="search.ville" />
+                                                        <input type="text" class="form-control" name="city" *ngIf="allDetails"
+                                                               [(ngModel)]="search.ville" placeholder="{{'HOTELS.CITY'|translate}}"
+                                                               source="http://os-travel.com/api/villes?name=:keyword" ng2-auto-complete
+                                                               blank-option-text='{{"HOTELS.CLEAR"|translate}}'
+                                                               min-chars="2"/>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group form-group-ghost form-group-icon-left form-group-filled"><i class="fa fa-calendar input-icon input-icon-hightlight"></i>
                                                         <label>{{'HOTELS.SEARCH_HOTELS'|translate}}</label>
-                                                        <input class="form-control" placeholder="ex: Excel Hammamet" type="text" name="searchName" [(ngModel)]="search.nom" />
+                                                        <input type="text" class="form-control" name="searchName" *ngIf="allDetails"
+                                                               [(ngModel)]="search.nom" placeholder="{{'HOTELS.SEARCH'|translate}}"
+                                                               source="http://os-travel.com/api/nameshotels?name=:keyword" ng2-auto-complete
+                                                               blank-option-text='{{"HOTELS.CLEAR"|translate}}'
+                                                               min-chars="2"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -31,24 +39,11 @@
                                                 <div class="col-md-12">
                                                     <div class="input-daterange" data-date-format="d/mm/yyyy">
                                                         <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="input-daterange">
-                                                                    <div class="row">
-                                                                        <div class="col-md-6">
-                                                                            <div class="form-group form-group-ghost form-group-icon-left">
-                                                                                <i class="fa fa-calendar input-icon input-icon-highlight input-icon-show"></i>
-                                                                                <label>{{"BOOKING.BOOKING_FOR"|translate}}</label>
-                                                                                <input type="text" min="{{search.checkIn}}" class="form-control" [(ngModel)]="search.checkIn" id="searchCheckIn"  name="searchCheckIn">
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-6">
-                                                                            <div class="form-group form-group-ghost form-group-icon-left">
-                                                                                <i class="fa fa-calendar input-icon input-icon-highlight input-icon-show"></i>
-                                                                                <label>{{"BOOKING.CHECKOUT"|translate}}</label>
-                                                                                <input type="text" min="{{search.checkOut}}" class="form-control" [(ngModel)]="search.checkOut" id="searchCheckOut"  name="searchCheckOut">
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group form-group-ghost form-group-icon-left">
+                                                                    <i class="fa fa-calendar input-icon input-icon-highlight input-icon-show"></i>
+                                                                    <label>{{"BOOKING.BOOKING_FOR"|translate}}</label>
+                                                                    <input type="date" min="{{search.checkIn}}" class="form-control" [(ngModel)]="search.checkIn" id="searchCheckIn"  name="searchCheckIn">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-3">

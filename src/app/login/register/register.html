@@ -14,9 +14,9 @@
         <div [@errorMessage]="emailModel.valid || emailModel.pristine" class="text-danger"> {{"LOGIN.REQUIRED"|translate}}</div>
     </div>
     <div class="form-group form-group-ghost form-group-icon-left form-group-filled"><i class="fa fa-lock input-icon input-icon-show"></i>
-        <label>{{ 'PROFILE.PASSWORD'|translate }}</label>
-        <input type="password" [(ngModel)]="password" required name="password" class="form-control" #passwordModel="ngModel">
-        <div [@errorMessage]="passwordModel.valid || passwordModel.pristine" class="text-danger"> {{"LOGIN.REQUIRED"|translate}}</div>
+        <label>Adresse</label>
+        <input type="adresse" [(ngModel)]="adresse" required name="adresse" class="form-control" #adresseModel="ngModel">
+        <div [@errorMessage]="adresseModel.valid || adresseModel.pristine" class="text-danger"> {{"LOGIN.REQUIRED"|translate}}</div>
     </div>
     <re-captcha (captchaResponse)="handleCorrectCaptcha($event)" site_key="6LfolQ0UAAAAAMEnFklPKmUfV3QW9MFGPr_XY5Js"></re-captcha>
     <button type="submit" class="btn btn-primary" [disabled]="!registerForm.form.valid || loading">
