@@ -1,12 +1,18 @@
-<li class="mb30" style="background-color: white">
-    <a class="booking-item" href="javascript:void(0)">
+<li class="mb30 singleHotel" style="background-color: white">
+    <div class="ribbon" *ngIf="hotel.prices.contingentDispo">
+        <span>{{"DISPONIBLE"|translate}}</span>
+    </div>
+    <div class="notribbon" *ngIf="!hotel.prices.contingentDispo">
+        <span>{{"SUR_DEMANDE"|translate}}</span>
+    </div>
+    <a class="booking-item" href="javascript:void(0)" style="border: none">
         <div class="row" *ngIf="!booking">
             <div class="col-md-2">
                 <div class="booking-item-img-wrap">
                     <img *ngIf=" hotel.photo" [src]="pathPhoto+hotel.photo" alt="{{ hotel.details.libelle }}">
                     <img *ngIf="!hotel.photo" src="https://placeholdit.imgix.net/~text?txtsize=25&txt={{hotel.details.libelle}}&w=159&h=119" alt="{{ hotel.details.libelle }}" >
-                    <span class="label label-success btn-block" style="display: block;" *ngIf="hotel.prices.contingentDispo">{{"DISPONIBLE"|translate}}</span>
-                    <span class="label label-warning btn-block" style="display: block;" *ngIf="!hotel.prices.contingentDispo">{{"SUR_DEMANDE"|translate}}</span>
+
+
                 </div>
             </div>
             <div class="col-md-10">

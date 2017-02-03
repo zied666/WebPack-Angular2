@@ -5,6 +5,7 @@ import {Config} from "../../../shared/config/config";
 @Component({
     templateUrl: './hotel.single.html',
     selector:'list-single-hotel',
+    styleUrls:['style.css'],
     animations: [
         trigger('myAnimation', [
             state('true', style({"-webkit-animation-name" : "bounceIn"})),
