@@ -65,21 +65,4 @@ export class SearchService implements OnChanges {
         return this.search.rooms.split(";").length;
     }
 
-    getCurrentDate()
-    {
-        var today = new Date();
-        var dd = today.getDate();
-        var mm = today.getMonth()+1; //January is 0!
-
-        var yyyy = today.getFullYear();
-        if(Number(dd)<10){
-            dd='0'+dd;
-        }
-        if(Number(mm)<10){
-            mm='0'+mm;
-        }
-        return yyyy+"-"+mm+'-'+dd;
-    }
-
-
 }

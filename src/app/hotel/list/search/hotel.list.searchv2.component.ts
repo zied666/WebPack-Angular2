@@ -22,7 +22,7 @@ export class HotelListSearchv2Component implements OnInit {
     room4: Room;
     room5: Room;
 
-    minDate = this.searchService.getCurrentDate();
+    minDate = new Date().toISOString().slice(0, 10).replace(/-/g, "-");
 
 
     private search: Search;
