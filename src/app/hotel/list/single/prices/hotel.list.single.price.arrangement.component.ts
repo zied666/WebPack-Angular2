@@ -6,6 +6,7 @@ import {DeviseService} from "../../../../shared/services/devise.service";
 @Component({
     templateUrl: './hotel.list.single.price.arrangement.html',
     selector: 'list-single-hotel-price-arrangement',
+    styleUrls:['HotelListSinglePriceArrangement.css']
 })
 
 export class HotelListSinglePriceArrangementComponent implements OnInit {

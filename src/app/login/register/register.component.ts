@@ -25,8 +25,8 @@ export class RegisterComponent implements OnInit {
     success: boolean;
     name: string;
     email: string;
-    password: string;
-    adresse: string;
+    tel: string;
+    agenceName: string;
 
     constructor(private loginService: LoginService) {
     }
@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
     register() {
         if (this.token) {
             this.loading = true;
-            this.loginService.register(this.name, this.email, this.password).subscribe(response => {
+            this.loginService.register(this.name, this.email, this.tel, this.agenceName).subscribe(response => {
                 if (response.status == 'success')
                     this.success = true;
                 this.loading = false;

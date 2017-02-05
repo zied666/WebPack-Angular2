@@ -22,6 +22,9 @@ export class HotelListSearchv2Component implements OnInit {
     room4: Room;
     room5: Room;
 
+    minDate = this.searchService.getCurrentDate();
+
+
     private search: Search;
 
     constructor(private searchService: SearchService) {

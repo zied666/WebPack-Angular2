@@ -4,19 +4,24 @@
 <alert class="danger" [view]="captchaError" text="PROFILE.INVALID_CAPTCHA"></alert>
 <form *ngIf="!success" (ngSubmit)="register()" #registerForm="ngForm">
     <div class="form-group form-group-ghost form-group-icon-left form-group-filled"><i class="fa fa-user input-icon input-icon-show"></i>
-        <label>{{ 'LOGIN.FULL_NAME'|translate }}</label>
-        <input type="text" [(ngModel)]="name" required name="nom" class="form-control" #nomModel="ngModel">
+        <label>Nom et Prénom</label>
+        <input type="text" [(ngModel)]="name" required name="nom" class="form-control" #nomModel="ngModel" placeholder="Nom et Prénom">
         <div [@errorMessage]="nomModel.valid || nomModel.pristine" class="text-danger"> {{"LOGIN.REQUIRED"|translate}}</div>
     </div>
     <div class="form-group form-group-ghost form-group-icon-left form-group-filled"><i class="fa fa-envelope input-icon input-icon-show"></i>
         <label>{{ 'PROFILE.EMAIL'|translate }}</label>
-        <input type="email" [(ngModel)]="email" required name="email" class="form-control" #emailModel="ngModel">
+        <input type="email" [(ngModel)]="email" required name="email" class="form-control" #emailModel="ngModel" placeholder="Email">
         <div [@errorMessage]="emailModel.valid || emailModel.pristine" class="text-danger"> {{"LOGIN.REQUIRED"|translate}}</div>
     </div>
-    <div class="form-group form-group-ghost form-group-icon-left form-group-filled"><i class="fa fa-lock input-icon input-icon-show"></i>
-        <label>Adresse</label>
-        <input type="adresse" [(ngModel)]="adresse" required name="adresse" class="form-control" #adresseModel="ngModel">
-        <div [@errorMessage]="adresseModel.valid || adresseModel.pristine" class="text-danger"> {{"LOGIN.REQUIRED"|translate}}</div>
+    <div class="form-group form-group-ghost form-group-icon-left form-group-filled"><i class="fa fa-phone input-icon input-icon-show"></i>
+        <label>Téléphone</label>
+        <input type="text" [(ngModel)]="tel" required name="tel" class="form-control" #telModel="ngModel" placeholder="Téléphone">
+        <div [@errorMessage]="telModel.valid || telModel.pristine" class="text-danger"> {{"LOGIN.REQUIRED"|translate}}</div>
+    </div>
+    <div class="form-group form-group-ghost form-group-icon-left form-group-filled"><i class="fa fa-home input-icon input-icon-show"></i>
+        <label>Nom de l'agence</label>
+        <input type="text" [(ngModel)]="agenceName" required name="agenceName" class="form-control" #agenceNameModel="ngModel" placeholder="Nom de l'agence">
+        <div [@errorMessage]="agenceNameModel.valid || agenceNameModel.pristine" class="text-danger"> {{"LOGIN.REQUIRED"|translate}}</div>
     </div>
     <re-captcha (captchaResponse)="handleCorrectCaptcha($event)" site_key="6LfolQ0UAAAAAMEnFklPKmUfV3QW9MFGPr_XY5Js"></re-captcha>
     <button type="submit" class="btn btn-primary" [disabled]="!registerForm.form.valid || loading">

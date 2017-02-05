@@ -43,7 +43,7 @@
                                                                 <div class="form-group form-group-ghost form-group-icon-left">
                                                                     <i class="fa fa-calendar input-icon input-icon-highlight input-icon-show"></i>
                                                                     <label>{{"BOOKING.BOOKING_FOR"|translate}}</label>
-                                                                    <input type="date" min="{{search.checkIn}}" class="form-control" [(ngModel)]="search.checkIn" id="searchCheckIn"  name="searchCheckIn">
+                                                                    <input type="date" min="{{minDate}}" class="form-control" data-date-inline-picker="true" [(ngModel)]="search.checkIn" id="searchCheckIn"  name="searchCheckIn">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-3">

@@ -97,11 +97,12 @@ export class LoginService {
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
-    register(name: string, email: string, password: string): Observable<any> {
+    register(name: string, email: string, tel: string, agenceName: string): Observable<any> {
         let params = new URLSearchParams();
         params.set('name', name);
         params.set('email', email);
-        params.set('password', password);
+        params.set('tel', tel);
+        params.set('agenceName', agenceName);
         return this.http.get(Config.API_ROUTES.ostravel + "api/email", {search: params})
             .map((res: Response) => res.json())
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));

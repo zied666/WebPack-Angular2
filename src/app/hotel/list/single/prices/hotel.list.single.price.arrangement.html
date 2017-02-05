@@ -4,7 +4,7 @@
             <div class="form-group">
                 <label style="display:inline-block;">{{"HOTELS.ROOM"|translate}} {{i+1}} </label>
                 <span [innerHTML]="room.occupationAdulte|persons"></span> <span [innerHTML]="room.occupationEnfant|persons" style="font-size: 8px"></span>
-                <span class="label label-warning" style=" margin-left: 5px;"  [innerHTML]="room.chambres[activeRooms[i]].data.total|devise"></span>
+                <span class="label label-warning" style=" margin-left: 5px;font-size: 80%;"  [innerHTML]="room.chambres[activeRooms[i]].data.total|devise"></span>
                 <select class="form-control" name="Chambre" (change)="updateActiveRooms(i,$event.target.value)">
                     <option *ngFor="let chambre of room.chambres;let j = index" value="{{j}}"  [selected]="activeRooms[i]==j">{{chambre.libelle}}</option>
                 </select>
@@ -14,10 +14,6 @@
     <div class="col-md-4" style="text-align:right;">
         <div class="col-md-12">
             <span class="booking-item-price" [innerHTML]="total|devise"></span>
-            <!--<a (click)="goPageDetails()" *ngIf="total != 0 && !isPageDetails" type="button"
-               class="btn btn-block btn-primary btn-sm">
-                {{"HOTELS.BOOKING"|translate}}
-            </a>-->
             <a (click)="goValidatePage()" *ngIf="total != 0" type="button"
                class="btn btn-block btn-primary btn-sm bookingButton">
                 {{"HOTELS.BOOKING"|translate}}
