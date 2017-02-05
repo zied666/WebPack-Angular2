@@ -1,2 +1,56 @@
 /*YOUR CUSTOM STYLES*/
 
+.ng2-auto-complete ng2-auto-complete input{
+	background-color: transparent !important;
+}
+
+
+  @keyframes slideDown {
+    0% {
+      transform:  translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  .ng2-auto-complete ng2-auto-complete {
+    background-color: #ccc !important;
+  }
+  .ng2-auto-complete ng2-auto-complete input {
+    outline: none;
+    border: 0;
+    padding: 2px; 
+    box-sizing: border-box;
+    background-clip: content-box;
+	margin-left: 34px !important;
+  }
+
+  .ng2-auto-complete ng2-auto-complete ul {
+    background-color: rgba(0,0,0,0.3) !important;
+    margin: 0;
+    width : 100%;
+    overflow-y: auto;
+    list-style-type: none;
+    padding: 0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    animation: slideDown 0.1s;
+  }
+
+  .ng2-auto-complete ng2-auto-complete ul li {
+    padding: 2px 5px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .ng2-auto-complete ng2-auto-complete ul li.selected {
+    background-color: #ccc !important;
+  }
+
+  .ng2-auto-complete ng2-auto-complete ul li:last-child {
+    border-bottom: none;
+	background-color: #ccc !important;
+  }
+
+  .ng2-auto-complete ng2-auto-complete ul li:hover {
+    background-color: #ccc !important;
+  }
